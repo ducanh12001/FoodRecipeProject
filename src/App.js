@@ -1,11 +1,12 @@
 import React from 'react';
+import "antd/dist/antd.css";
+
 import './App.css';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
-    <div className="App">
-      b
-    </div>
+    <LoginPage />
   );
 }
 
