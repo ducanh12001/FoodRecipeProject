@@ -14,7 +14,11 @@ function LoginPage() {
 	const login = () => {
 		console.log(userInfo);
 		
-		axios.post('http://13.215.176.20:3000/api/auth/login', userInfo).then((res) => console.log(res));
+		axios.post('http://13.215.176.20:3000/api/auth/login', userInfo).then((res) => {
+			if (res.data.status === 200) {
+				console.log("login successfully");
+			}
+		});
 		//if res === 200, redirect
 	}
 	
