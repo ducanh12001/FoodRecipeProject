@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Form, Input, Card } from 'antd';
-import { GoogleOutlined } from '@ant-design/icons';
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { GoogleOutlined } from '@ant-design/icons';
 
 import "./style.css";
+import { toastService } from "../../helpers/toast.js";
+import { emailClientAuth } from "../../utils/emailClientAuth.js";
+import { passwordClientAuth } from "../../utils/passwordClientAuth.js";
 
 function LoginPage() {
+	const navigate = useNavigate();
+	
 	const [userInfo, setUserInfo] = useState({
 		email: "",
 		password: ""
@@ -14,12 +20,22 @@ function LoginPage() {
 	const login = () => {
 		console.log(userInfo);
 		
+		if (!emailClientAuth(userInfo.email)) {
+			return toastService.error("Invalid email.");
+		}
+		
+		if (!passwordClientAuth(userInfo.password)) {
+			return toastService.error("Invalid password.");
+		}
+		
 		axios.post('http://13.215.176.20:3000/api/auth/login', userInfo).then((res) => {
 			if (res.data.status === 200) {
 				console.log("login successfully");
+				navigate("/home");
+			} else {
+				return toastService.error(res.data.message);
 			}
 		});
-		//if res === 200, redirect
 	}
 	
 	

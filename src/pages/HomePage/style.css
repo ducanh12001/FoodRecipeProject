@@ -1,0 +1,11 @@
+.background_image {
+	height: 100vh;
+	background-size: cover;
+	
+	justify-content: center;
+	display: flex;
+}
+
+Card {
+	display: flex;
+}
