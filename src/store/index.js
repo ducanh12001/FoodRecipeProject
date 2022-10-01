@@ -1,5 +1,5 @@
 
-import configureStore from 'configure-store';
+import configureStore from '../configure-store';
 import { loadState } from '../services/persist.service';
 
 const initialState = loadState();
