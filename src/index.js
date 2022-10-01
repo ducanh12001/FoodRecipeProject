@@ -1,5 +1,4 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import App from './App';
@@ -7,12 +6,19 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 const container = document.getElementById('root');
-const root = createRoot(container);
 
-root.render(
-  <React.StrictMode>
-      <App />
-  </React.StrictMode>
-);
+const render = () => {
+  ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    container,
+  );
+};
 
-reportWebVitals();
+
+if (process.env.NODE_ENV === 'development') {
+  // eslint-disable-next-line no-console
+  reportWebVitals(console.log);
+}
+
