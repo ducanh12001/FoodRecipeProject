@@ -1,0 +1,50 @@
+.full-width-image {
+    background-image: url('../images/fullwidth-image.jpeg');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: top;
+    background-size: cover;
+    display: flex;
+    height: 300px;
+    width: 100%;
+}
+
+.header-wrapper {
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 24px;
+    border-left: 5px solid green;
+    margin-top: -160px;
+    margin-bottom: 0;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 3px 0.5px #7b7b7b;
+}
+
+.header-breadcrumb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    padding: 20px 40px;
+}
+
+.card {
+    border: 1px solid black;
+    width: 300px;
+}
+
+.card .author-box {
+    display: flex;
+}
+
+.card .author {
+    font-weight: bold;
+    margin-left: 2px;
+    padding: 1px;
+    text-decoration: underline;
+    text-decoration-color: #d54215;
+}
