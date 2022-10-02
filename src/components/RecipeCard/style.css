@@ -1,0 +1,9 @@
+.container {
+	position: relative;
+}
+
+.container .bookmark-button {
+	position: absolute;
+	top: 3%;
+	left: 80%;
+}

@@ -17,22 +17,29 @@ function LoginPage() {
 		password: ""
 	});
 	
+	const [isLoading, setIsLoading] = useState(false);
+	
 	const login = () => {
 		console.log(userInfo);
 		
+		setIsLoading(true);
+		
 		if (!emailClientAuth(userInfo.email)) {
+			setIsLoading(false);
 			return toastService.error("Invalid email.");
 		}
 		
 		if (!passwordClientAuth(userInfo.password)) {
+			setIsLoading(false);
 			return toastService.error("Invalid password.");
 		}
 		
-		APILogin(userInfo).then((res) => {
+		APILogin(userInfo).then((res) => {			
 			if (res.data.status === 200) {
 				console.log("login successfully");
 				navigate("/home");
 			} else {
+				setIsLoading(false);
 				return toastService.error(res.data.message);
 			}
 		});
@@ -85,6 +92,7 @@ function LoginPage() {
 								htmlType="submit"
 								style={{display: "flex", marginLeft: "auto", marginRight: "auto", alignItems: "center"}}
 								onClick={login}
+								loading={isLoading}
 								>
 									Login
 								</Button>

@@ -19,6 +19,18 @@ const routes = [
             <HomePage />
         ),
 	},
+	{
+		path: '/foodlist',
+        element: (
+            <FoodList />
+        ),
+	},
+	{
+		path: '*',
+        element: (
+            <HomePage />
+        ),
+	},
 ]
 
 const RenderRouter = () =>  { return useRoutes(routes) };
