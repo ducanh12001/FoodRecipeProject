@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Form, Input, Card } from 'antd';
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { GoogleOutlined } from '@ant-design/icons';
 
 import "./style.css";
 import { toastService } from "../../helpers/toast.js";
 import { emailClientAuth } from "../../utils/emailClientAuth.js";
 import { passwordClientAuth } from "../../utils/passwordClientAuth.js";
+import { APILogin } from "../../utils/api.js";
 
 function LoginPage() {
 	const navigate = useNavigate();
@@ -28,7 +28,7 @@ function LoginPage() {
 			return toastService.error("Invalid password.");
 		}
 		
-		axios.post('http://13.215.176.20:3000/api/auth/login', userInfo).then((res) => {
+		APILogin(userInfo).then((res) => {
 			if (res.data.status === 200) {
 				console.log("login successfully");
 				navigate("/home");

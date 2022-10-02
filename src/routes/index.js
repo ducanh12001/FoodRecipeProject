@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import LoginPage from "../containers/LoginPage";
 import HomePage from "../containers/HomePage";
+import FoodList from "../containers/FoodList";
 
 const routes = [
     {
