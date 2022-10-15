@@ -1,7 +1,9 @@
-.container {
+.container.header {
 	display: flex;
 	flex-direction: row;
 	background-color: white;
+	border-bottom-style: solid;
+	border-bottom-color: grey;
 }
 
 .logo {

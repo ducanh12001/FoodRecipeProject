@@ -7,15 +7,24 @@
 	padding-left: 5px;
 }
 
+.category-block > h2 {
+	text-align: center;
+}
+
+.category-block > h2 > b:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
 .recipe-block > * {
 	margin-right: 5px;
 }
 
-.following {
+.trending {
 	
 }
 
-.trending {
+.following {
 	background-color: #F5F6EA;
 }
 

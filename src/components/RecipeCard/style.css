@@ -1,8 +1,8 @@
-.container {
+.container.recipe-card {
 	position: relative;
 }
 
-.container .bookmark-button {
+.container.recipe-card .bookmark-button {
 	position: absolute;
 	top: 3%;
 	left: 80%;

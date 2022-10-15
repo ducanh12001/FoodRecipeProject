@@ -26,6 +26,12 @@ const routes = [
         ),
 	},
 	{
+		path: '/profile',
+        element: (
+            <FoodList />
+        ),
+	},
+	{
 		path: '*',
         element: (
             <HomePage />

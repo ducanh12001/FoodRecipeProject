@@ -34,7 +34,13 @@ function LoginPage() {
 			return toastService.error("Invalid password.");
 		}
 		
-		APILogin(userInfo).then((res) => {			
+		APILogin(userInfo).then((res) => {
+			// console.log(res);
+			if (res.status !== 200) {
+				setIsLoading(false);
+				return toastService.error("Error happened.");
+			}
+			
 			if (res.data.status === 200) {
 				console.log("login successfully");
 				navigate("/home");
