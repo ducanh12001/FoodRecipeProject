@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Affix, Menu, Dropdown } from 'antd';
+import { Button, Affix, Menu, Dropdown, Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
 import "./style.css";
 
 function Header() {
 	const navigate = useNavigate();
+	
+	const { Search } = Input;
+	
+	const onSearch = (value:string) => console.log(value);
 	
 	const dropdownMenu = (
 		<Menu items={[
@@ -35,6 +39,12 @@ function Header() {
 				<div style={{flex: 1}}>
 					<div className='logo' onClick={() => navigate('/home')}>
 						<h2><b>FoodRecipeProject</b></h2>
+					</div>
+				</div>
+				
+				<div style={{flex: 1}}>
+					<div className='search'>
+						<Search placeholder="Search" onSearch={onSearch} />
 					</div>
 				</div>
 				

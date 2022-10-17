@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import LoginPage from "../containers/LoginPage";
 import HomePage from "../containers/HomePage";
 import FoodList from "../containers/FoodList";
+import Users from "../containers/Users";
 
 const routes = [
     {
@@ -28,7 +29,7 @@ const routes = [
 	{
 		path: '/profile',
         element: (
-            <FoodList />
+            <Users />
         ),
 	},
 	{
