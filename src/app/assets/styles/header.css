@@ -1,0 +1,29 @@
+.container {
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+}
+
+.logo {
+	float: left;
+	margin: 10px;
+	justify-content: center;
+}
+
+.logo:hover {
+	cursor: pointer;
+}
+
+.profile {
+	float: right;
+	margin: 10px;
+	justify-content: center;
+}
+
+.profile:hover {
+	cursor: pointer;
+}
+
+.profile-icon {
+	font-size: 30px;
+}
