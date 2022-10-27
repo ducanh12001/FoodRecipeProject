@@ -20,16 +20,20 @@ export default function LoginPage() {
   useInjectSaga({ key, saga });
 
   return (
-    <div className="login-page mh-100">
-      <Helmet>
-        <title>title</title>
-      </Helmet>
+	<div className="login-page" style={{height: "100vh", display: "flex", flexDirection: "column"}}>
+		<Helmet>
+			<title>Login</title>
+		</Helmet>
 
-      <Row className="login-center">
-        <Col xl={6} lg={10} md={10} xs={16} className="m-auto">
-          <LoginForm />
-        </Col>
-      </Row>
-    </div>
+		<div style={{flex: 1}}></div>
+
+		<Row justify="center" align="middle" className="login-center" style={{flex: 1}}>
+			<Col xl={6} lg={10} md={10} xs={16} className="m-auto">
+				<LoginForm />
+			</Col>
+		</Row>
+
+		<div style={{flex: 1}}></div>
+	</div>
   );
 }

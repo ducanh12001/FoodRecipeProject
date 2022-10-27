@@ -76,7 +76,7 @@ const LoginForm = () => {
       onFinish={onFinish}
       name="login-form"
     >
-      <Title level={3}>FoodRecipeProject</Title>
+      <Title level={3} style={{textAlign: "center"}}>FoodRecipeProject</Title>
       <FormInputWrapper
         name="username"
         id="username"
@@ -85,7 +85,7 @@ const LoginForm = () => {
           {
             required: true,
             whitespace: true,
-            message: 'require',
+            message: 'Username required',
           },
           {
             type: 'email',
@@ -102,7 +102,7 @@ const LoginForm = () => {
           {
             required: true,
             whitespace: true,
-            message: 'require',
+            message: 'Password required',
           },
         ]}
         name="password"

@@ -1,9 +1,11 @@
 import { Button, Card, Image, Rate } from 'antd';
 import React from 'react'
-import HeaderComponent from '../../components/Header';
-import { PushpinOutlined } from '@ant-design/icons';
+import { PushpinOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import '../../assets/styles/home.css'
+
+import HeaderComponent from '../../components/Header';
+import FooterComponent from '../../components/Footer';
 
 function RecipeCard({ image, title, rating }: any) {
   const navigate = useNavigate();
@@ -29,7 +31,7 @@ function RecipeCard({ image, title, rating }: any) {
         shape="circle"
         icon={<PushpinOutlined />}
         onClick={() => console.log('bookmarked')}
-        style={{position: 'absolute',}}
+        style={{position: 'absolute', top: "3%", left: "80%"}}
       />
     </div>
   );
@@ -37,65 +39,66 @@ function RecipeCard({ image, title, rating }: any) {
 
 function HomePage() {
   return (
-    <div>
-      <HeaderComponent />
-      <div className="category-block following">
-        <div>
-          <h2><b>Following user recipe</b></h2>
+	<div>
+		<HeaderComponent />
 
-          <div className="recipe-block" style={{ display: 'flex', flexDirection: 'row' }}>
-            <RecipeCard
-              image='spaghetti.png'
-              title='Spaghetti'
-              rating={2.0}
-            />
-            <RecipeCard
-              image='spaghetti.png'
-              title='Spaghetti'
-              rating={2.0}
-            />
-          </div>
-        </div>
-        <div className="category-block trending">
-          <h2><b>Trending recipe</b></h2>
-          <div className="recipe-block" style={{ display: 'flex', flexDirection: 'row' }}>
-            <RecipeCard
-              image='spaghetti.png'
-              title='Spaghetti'
-              rating={2.0}
-            />
+		<div>
+			<div className="category-block following">
+				<h2><b>Following user recipe <ArrowRightOutlined /></b></h2>
 
-            <RecipeCard
-              image='spaghetti.png'
-              title='Spaghetti'
-              rating={2.0}
-            />
-          </div>
-        </div>
+				<div className="recipe-block" style={{ display: 'flex', flexDirection: 'row' }}>
+					<RecipeCard
+					image='spaghetti.png'
+					title='Spaghetti'
+					rating={2.0}
+					/>
+					<RecipeCard
+					image='spaghetti.png'
+					title='Spaghetti'
+					rating={2.0}
+					/>
+				</div>
+			</div>
 
-        <div className="category-block new">
-          <h2><b>New recipe</b></h2>
+			<div className="category-block trending">
+				<h2><b>Trending recipe <ArrowRightOutlined /></b></h2>
+				
+				<div className="recipe-block" style={{ display: 'flex', flexDirection: 'row' }}>
+					<RecipeCard
+					image='spaghetti.png'
+					title='Spaghetti'
+					rating={2.0}
+					/>
 
-          <div className="recipe-block" style={{ display: 'flex', flexDirection: 'row' }}>
-            <RecipeCard
-              image='spaghetti.png'
-              title='Spaghetti'
-              rating={2.0}
-            />
+					<RecipeCard
+					image='spaghetti.png'
+					title='Spaghetti'
+					rating={2.0}
+					/>
+				</div>
+			</div>
 
-            <RecipeCard
-              image='spaghetti.png'
-              title='Spaghetti'
-              rating={2.0}
-            />
-          </div>
-        </div>
-      </div>
+			<div className="category-block new">
+				<h2><b>New recipe <ArrowRightOutlined /></b></h2>
 
-      <div>
-        Footer
-      </div>
-    </div>
+				<div className="recipe-block" style={{ display: 'flex', flexDirection: 'row' }}>
+					<RecipeCard
+					image='spaghetti.png'
+					title='Spaghetti'
+					rating={2.0}
+					/>
+
+					<RecipeCard
+					image='spaghetti.png'
+					title='Spaghetti'
+					rating={2.0}
+					/>
+				</div>
+			</div>
+		</div>
+
+		<FooterComponent />
+	</div>
   );
 }
 

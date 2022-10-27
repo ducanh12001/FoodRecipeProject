@@ -1,13 +1,16 @@
-.container {
+.container.header {
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	min-height: 3rem;
 	background-color: white;
+	border-bottom-style: solid;
+	border-bottom-color: grey;
 }
 
 .logo {
 	float: left;
-	margin: 10px;
-	justify-content: center;
 }
 
 .logo:hover {
@@ -16,8 +19,6 @@
 
 .profile {
 	float: right;
-	margin: 10px;
-	justify-content: center;
 }
 
 .profile:hover {
@@ -26,4 +27,7 @@
 
 .profile-icon {
 	font-size: 30px;
+}
+
+.search {
 }

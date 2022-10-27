@@ -1,0 +1,42 @@
+.container.footer {
+	display: flex;
+	flex-direction: row;
+	background-color: #f2f2f2;
+	border-top-style: solid;
+	border-top-color: grey;
+}
+
+.footer-left {
+	margin: 5px;
+	display: flex;
+	flex-direction: column;
+}
+
+.footer-right {
+	margin: 5px;
+	display: flex;
+	flex-direction: column;
+}
+
+.social-icons {
+	font-size: 30px;
+}
+
+.social-icons > * {
+	margin-right: 5px;
+}
+
+.social-icons > *:hover {
+	cursor: pointer;
+}
+
+.footer-links > *:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.footer-credit {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}

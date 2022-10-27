@@ -32,9 +32,9 @@ function PublicRoute(props: FormProps) {
     }
   }, [isLogged]);
 
-  if (isLogged === null) {
-    return <LoadingIndicator />;
-  }
+  // if (isLogged === null) {
+    // return <LoadingIndicator />;
+  // }
   return <>{children}</> ;
 }
 
