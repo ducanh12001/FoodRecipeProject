@@ -1,0 +1,35 @@
+.ant-pagination-item-active{
+    border-color: $primary;
+
+    &:hover {
+        border-color: $primary !important;
+    }
+}
+
+.ant-pagination-item:hover {
+  border-color: #359640;
+  background-color: #359640;
+   a{
+    color: white;
+   }
+}
+.ant-pagination-item-active {
+  border-color: #359640;
+  background-color: #359640;
+  a{
+    color: white;
+   }
+}
+.ant-pagination-prev:hover .ant-pagination-item-link, .ant-pagination-next:hover .ant-pagination-item-link {
+  border-color: #359640;
+  background-color: #359640;
+  color: white;
+}
+.ant-pagination-disabled:hover .ant-pagination-item-link{
+  background-color: #fff !important;
+  border: 1px solid #d9d9d9 !important;
+  color: rgba(0, 0, 0, 0.85) !important;
+}
+.pagination-center{
+  justify-content: center !important;
+}

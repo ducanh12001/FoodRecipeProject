@@ -1,21 +1,31 @@
+// @ts-nocheck
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import { store } from './app/store';
-import App from './app/containers/App';
+import { store } from './store';
+import App from './containers/App';
 import 'antd/dist/antd.css';
+import './assets/sass/main.scss';
+import { throttle } from 'lodash';
+import { saveState } from './services/persist.service';
 
-const container = document.getElementById('root')!;
-const root = createRoot(container);
 
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+const MOUNT_NODE = document.getElementById('root');
+
+store.subscribe(
+  throttle(() => {
+    saveState({
+      global: store.getState().global,
+    });
+  }, 1000),
+);
+
+createRoot(MOUNT_NODE).render(
+  <Provider store={store}>
+    <App />
+  </Provider>
 );
 
 if (process.env.NODE_ENV === 'development') {
