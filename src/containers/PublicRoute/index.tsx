@@ -36,7 +36,7 @@ function PublicRoute(props: FormProps) {
   useEffect(() => {
     if (isLogged) {
       const redirectUrl = Common.getParameterByName('', 'path') || SUCCESS_REDIRECT;
-      navigate('/');
+      navigate(redirectUrl);
     }
   }, [isLogged]);
 
@@ -47,9 +47,6 @@ function PublicRoute(props: FormProps) {
     }    
   }, [message, snackMessage]);
   
-  if (isLogged === null) {
-    return <LoadingIndicator />;
-  }
 
   return <>{children}</> ;
 }

@@ -7,7 +7,11 @@ export type HomeSingle = {
   formValues: object,
   clearFormField: boolean,
   formMethod?: string,
-  recipes: object,
+  recipes: RecipeType,
   news: object,
 };
+
+export interface RecipeType {
+  data: []
+}
 

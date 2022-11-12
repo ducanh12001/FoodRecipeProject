@@ -18,7 +18,9 @@ export const initialState: HomeSingle = {
   initialValues: {},
   formValues: {},
   clearFormField: false,
-  recipes: {},
+  recipes: {
+    data: []
+  },
   news: {},
   formMethod: undefined,
 };
