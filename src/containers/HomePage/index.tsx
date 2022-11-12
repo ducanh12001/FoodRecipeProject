@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Button, Card, Col, Row } from 'antd';
 import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
@@ -5,13 +6,14 @@ import { useInjectReducer } from '../../utils/injectReducer';
 import { useInjectSaga } from '../../utils/injectSaga';
 import reducer from './reducer';
 import saga from './saga';
-import { queryRecipesAction, setFormValues } from './actions';
+import { assignRecipesAction, queryRecipesAction, setFormValues } from './actions';
 import { makeRecipesSelector } from './selectors';
 import { createStructuredSelector } from 'reselect';
 import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import { QUERY_RECIPES } from './constants';
 
 const key = 'homePage';
 
@@ -29,14 +31,15 @@ function HomePage() {
 	useEffect(() => {
 		dispatch(queryRecipesAction());
 		dispatch(setFormValues({}));
-		/*
+		
 		axios.get('http://dnqfood.tk/api/recipe', {
 			headers: {
 				Accept: 'application/json',
 				"Content-Type": 'application/json',
 				"Authorization": `Bearer ${localStorage.getItem('ACCESS_TOKEN') ?? ''}`
 			  },
-		})*/
+		}).then((res) => dispatch(assignRecipesAction(res)))
+		.catch((err) => {})
 	}, [])
 
 	return (
@@ -46,12 +49,27 @@ function HomePage() {
             </Helmet>
 			<div className="top-pathing">
 				<Row gutter={16} className="top-pathing-inner">
+					{/* {recipes.data?.map((d:any, index:number) => {
+						index < 6 && (
+							<Col span={4} className="top-pathing-item" key={index}>
+								<Link to="" style={{ textDecoration: 'none', color: 'initial' }}>
+									<Row className="item-image">
+										<img src={require('../../assets/images/NoImageAvailable.jpg')} />
+									</Row>
+									<Row>
+										<Col span={4} className="item-index">{index + 1}</Col>
+										<Col span={20} className="item-name">{d.name}</Col>
+									</Row>
+								</Link>
+							</Col>
+						)
+					})} */}
 					{new Array(6).fill(null).map((_, index) => {
 						return (
 							<Col span={4} className="top-pathing-item" key={index}>
 								<Link to="" style={{ textDecoration: 'none', color: 'initial' }}>
 									<Row className="item-image">
-										<img src={require('../../assets/images/hambur.webp')} />
+										<img src={require('../../assets/images/NoImageAvailable.jpg')} />
 									</Row>
 									<Row>
 										<Col span={4} className="item-index">{index + 1}</Col>

@@ -13,6 +13,7 @@ import { makeFormValuesSelector } from './selectors';
 import history from '../../utils/history';
 import { GET, POST } from '../../utils/constants';
 import { ASSIGN_RECIPES, RECIPE_URL, SUBMIT_FORM } from './constants';
+import { RecipeType } from '../../type/type.home';
 
 function forwardTo(location: string) {
   history.push(location);
@@ -47,7 +48,7 @@ export function* handleQueryRecipesList() {
   const requestUrl = `${RECIPE_URL}`;
   const payload = ApiEndpoint.makeApiPayload(requestUrl, GET, null, null);
   try {
-    const response: object = yield call(request, payload);
+    const response: RecipeType = yield call(request, payload);
     console.log("k",response);
     yield put(assignRecipesAction(response));
     yield put(asyncEndAction());

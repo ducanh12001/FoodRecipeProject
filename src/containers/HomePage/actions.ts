@@ -4,6 +4,7 @@
  *
  */
 
+import { RecipeType } from '../../type/type.home';
 import {
     IS_LOGGED,
     ASYNC_START,
@@ -50,7 +51,7 @@ export function queryNewsAction() {
     };
 }
 
-export function assignRecipesAction(recipes: object) {
+export function assignRecipesAction(recipes: RecipeType) {
     return {
         type: ASSIGN_RECIPES,
         recipes

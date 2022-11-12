@@ -10,6 +10,7 @@ import 'antd/dist/antd.css';
 import './assets/sass/main.scss';
 import { throttle } from 'lodash';
 import { saveState } from './services/persist.service';
+import ReactDOM from 'react-dom';
 
 
 const MOUNT_NODE = document.getElementById('root');
@@ -27,6 +28,24 @@ createRoot(MOUNT_NODE).render(
     <App />
   </Provider>
 );
+
+const render = () => {
+  ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    MOUNT_NODE,
+  );
+};
+
+
+if (module.hot) {
+  module.hot.accept('./containers/App', () => {
+    ReactDOM.unmountComponentAtNode(MOUNT_NODE);
+    render()
+  });
+}
+
 
 if (process.env.NODE_ENV === 'development') {
   reportWebVitals(console.log);

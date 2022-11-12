@@ -11,7 +11,7 @@ import { StatusCodesList } from './constants';
  * Create an Axios Client with defaults
  */
 const client = axios.create({
-  baseURL: 'http://dnqfood.tk',
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
