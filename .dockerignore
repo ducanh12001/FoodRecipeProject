@@ -1,0 +1,9 @@
+node_modules
+build
+.dockerignore
+.editorconfig
+.git*
+.prettier*
+Dockerfile
+README.md
+.circleci
