@@ -39,7 +39,7 @@ export default function App() {
 
   useEffect(() => {
     //getLoggedInUserProfile();
-    //dispatch(isLoggedErrorAction())
+    dispatch(isLoggedErrorAction())
   }, []);
 
   return (

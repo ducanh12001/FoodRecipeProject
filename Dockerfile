@@ -1,14 +1,20 @@
-FROM node:16 as build-deps
+FROM node:16-alpine as builder
+
+RUN mkdir /app
+
+ENV NODE_ENV=production
 
 WORKDIR /app
 
+COPY package.json .
+COPY package-lock.json .
 COPY . .
 
-RUN yarn install
-RUN yarn build
+RUN npm install
+RUN npm run build
 
-FROM nginx:1.23.1-alpine
-COPY --from=build-deps /app/build /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf
-
+FROM nginx:1.19.0
+COPY --from=builder /app/build /usr/share/nginx/html
+COPY ./.docker/nginx/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
