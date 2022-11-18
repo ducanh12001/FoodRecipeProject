@@ -1,0 +1,259 @@
+.recipe-type {
+    
+    &-header {
+        width: 100%;
+        .title-image {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-position: top right;
+        }
+    }
+
+    &-title {
+        margin-bottom: 30px;
+        text-align: center;
+        padding: 30px 0;
+            h1 {
+                font-size: 40px;
+            }
+            .description {
+                font-size: 19px;
+            }
+    }
+    
+    .recipe-container h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    
+    .food-container {
+        padding: 0 200px;
+    }
+    
+    .food-container .ant-col {
+        padding: 0 20px !important;
+    }
+    
+    .dish-name {
+        text-align: left !important;
+    }
+    
+    .recipe-time {
+        padding: 1.5rem;
+        background-color: #f5f6ea;
+        margin: 3rem 0;
+        width: 600px;
+    }
+    
+    .recipe-time-detail {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-row-gap: 2rem;
+        grid-column-gap: 1.5rem;
+    }
+    
+    .time-title {
+        font-weight: bold;
+    }
+    
+    .ingredient-list {
+        margin: 1.25rem 0 1.25rem 1rem;
+    }
+    
+    .ingredient-list>li {
+        margin-bottom: 1rem;
+    }
+    
+    .step-container {
+        width: 600px;
+    }
+    
+    .step-list li {
+        margin-bottom: 1rem;
+    }
+    
+    .nutrition-container table {
+        display: table;
+        border-collapse: separate;
+        box-sizing: border-box;
+        text-indent: initial;
+        border-spacing: 2px;
+        border-color: grey;
+    }
+    
+    .nutrition-container table tbody {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem 1rem;
+        max-width: 18.25rem;
+    }
+    
+    .nutrition-container table tbody tr {
+        flex-grow: 1;
+        width: calc(50% - 1rem);
+        max-width: 8.625rem;
+    }   
+}
+
+.recipe-form {
+    margin: 20px 150px;
+    input.ant-input {
+      padding-left: 10px;
+    }
+  
+    textarea.ant-input {
+      padding: 5px 10px;
+    }
+  
+    .add-row-btn {
+      color: #50ACF5;
+      border: 1px #50ACF5 dashed;
+      margin-bottom: 8px;
+    }
+
+    .ant-form-item label {
+        font-weight: 700 !important;
+    }
+
+    .add-form-label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .dynamic-delete-button {
+        position: relative;
+        top: 4px;
+        margin: 0 8px;
+        color: #999;
+        transition: all 0.3s;
+    }
+
+    .dynamic-delete-button:hover {
+        color: red;
+    }
+}
+
+.recipe-detail {
+    padding-bottom: 40px;
+    padding-top: 20px;
+    &-top {
+        padding: 0 30px;
+        position: relative;
+        margin-bottom: 30px;
+        text-align: center;
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .recipe-rate {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .recipe-btn {
+            .btn {
+                background-color: #004685;
+                color: white;
+                font-weight: 700;
+                border-radius: 0;
+            }
+
+            .btn:hover {
+                background-color: black;
+            }
+        }
+    }
+
+    &-user {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+        }
+
+        .username {
+            text-decoration: underline;
+            font-weight: 700;
+        }
+    }
+
+    &-main {
+        padding-left: 150px;
+        .description {
+            font-size: 16px;
+        }
+        .recipe-time {
+            background-color: #EBF7FC;
+            .time-col {
+                text-align: center;
+                padding-top: 10px;
+                padding-bottom: 10px;
+
+                .time-title {
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+
+                span {
+                    font-weight: 500;
+                }
+            }
+        }
+        .ingredient {
+
+            .ingredient-list {
+                margin-left: 0;
+                padding-left: 0;
+
+                li {
+                    margin-left: 14px;
+                    list-style: none;
+                    margin-bottom: 1rem;
+                    font-size: 18px;
+                }
+
+                li::before {
+                    content: "";
+                    margin-left: -.8125rem;
+                    margin-top: .75rem;
+                    width: 5px;
+                    height: 5px;
+                    background: #e7ab46;
+                    position: absolute;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .step {
+            .step-list {
+                margin-left: 0;
+                padding-left: 0;
+                counter-reset: section;
+                font-size: 1.125rem;
+                list-style-type: none;
+            }
+
+            ol>li {
+                margin-bottom: 2rem;
+                position: static;
+            }
+
+            ol>li::before {
+                counter-increment: section;
+                content: "Step " counter(section);
+                position: relative;
+                margin-left: 0;
+                width: fit-content;
+                font-weight: 700;
+                display: flex;
+            }
+        }
+    }
+}
