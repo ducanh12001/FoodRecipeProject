@@ -10,6 +10,10 @@ const makeIsLoadingSelector = () =>
     (substate: MenuInitialState) => substate.isLoading,
   );
 
+const makeIdSelector = () =>
+  createSelector(selectMenuHome, (substate: MenuInitialState) => substate.id);
+
+
 const makeRecipesSelector = () =>
   createSelector(
     selectMenuHome,
@@ -40,11 +44,25 @@ const makeToolsSelector = () =>
     (substate: MenuInitialState) => substate.tools,
   );
 
+const makeRecipeByIdSelector = () =>
+  createSelector(selectMenuHome, (substate: MenuInitialState) => substate.recipeById);
+
+const makeNewByIdSelector = () =>
+  createSelector(selectMenuHome, (substate: MenuInitialState) => substate.newById);
+
+const makeToolByIdSelector = () =>
+  createSelector(selectMenuHome, (substate: MenuInitialState) => substate.toolById);
+
+
 export {
   makeIsLoadingSelector,
   makeRecipesSelector,
   makeNewsSelector,
   makeDinnersSelector,
   makeBooksSelector,
-  makeToolsSelector
+  makeToolsSelector,
+  makeIdSelector,
+  makeRecipeByIdSelector,
+  makeNewByIdSelector,
+  makeToolByIdSelector
 };

@@ -320,12 +320,14 @@ img {
   margin-bottom: 65px;
 }
 
-.footer {
-  background: #383838;
-  width: 100%;
-  padding: 20px;
-  color: #ffffff;
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.mb-3 {
-  margin-bottom: 20px;
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }
+

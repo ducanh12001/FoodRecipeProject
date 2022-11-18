@@ -1,5 +1,5 @@
 import { FormListFieldData } from 'antd/es/form';
-import { ResponseType } from './type.recipe';
+import { ResponseDataType } from './type.recipe';
 
 export type HomeInitialState = {
   isLoading: boolean,
@@ -10,7 +10,7 @@ export type HomeInitialState = {
   formMethod?: string,
   pageNumber: number,
   pageSize: number,
-  recipes: ResponseType,
+  recipes: ResponseDataType,
   news: object,
 };
 

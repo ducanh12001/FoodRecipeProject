@@ -74,7 +74,7 @@ function RecipeHome() {
 				<div className="transporter-list">
 					<Row gutter={[32, 32]}>
 						{recipes.data?.map((d: any, index: number) => (
-							<Col key={index} span={8} onClick={() => navigate('/recipe-detail')}>
+							<Col key={index} span={8} onClick={() => navigate(`/recipe-detail/${d._id}`)}>
 								<Card
 									hoverable
 									cover={d.pictures[0] ?

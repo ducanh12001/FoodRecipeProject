@@ -6,11 +6,7 @@ import { InfoCircleOutlined, PlusOutlined, DeleteOutlined } from '@ant-design/ic
 import FormInputWrapper from '../../components/FormInputWrapper';
 import FormButtonWrapper from '../../components/FormButtonWrapper';
 import ImageUpload from './imageUpload';
-import reducer from './reducer';
-import saga from './saga';
 import { useDispatch } from 'react-redux';
-import { useInjectReducer } from '../../utils/injectReducer';
-import { useInjectSaga } from '../../utils/injectSaga';
 import { setFormValues, submitFormAction } from './actions';
 import { makeErrorSelector, makeIsLoadingSelector } from './selectors';
 import { createStructuredSelector } from 'reselect';

@@ -39,7 +39,7 @@ export default function App() {
 
   useEffect(() => {
     //getLoggedInUserProfile();
-    dispatch(isLoggedErrorAction())
+    //dispatch(isLoggedErrorAction())
   }, []);
 
   return (
@@ -49,7 +49,7 @@ export default function App() {
       </Helmet>
       <GlobalStyle />
       <SnackMessage />
-      <Layout>
+      <Layout className="mh-100">
         <BrowserRouter>
           <ConfigProvider locale={localeValue}>
             <RenderRouter />

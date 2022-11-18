@@ -9,8 +9,13 @@ import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
 import { queryNewsAction } from './actions';
 import { makeNewsSelector } from './selectors';
+import { Helmet } from 'react-helmet';
+import PageHeaderWrapper from 'components/PageHeaderWrapper';
+import { Typography } from 'antd';
 
 const key = 'menuHome';
+
+const {Title} = Typography;
 
 const stateSelector = createStructuredSelector({
   news: makeNewsSelector()
@@ -29,7 +34,20 @@ function NewsPage() {
 	}, []);
 
   return (
-    <div>NewsPage</div>
+    <>
+      <Helmet>
+        <title>Food News</title>
+      </Helmet>
+      <PageHeaderWrapper
+        title='Food News'
+        imageSrc = {null}
+        description = ''
+      >
+        <div>
+          <Title></Title>
+        </div>
+      </PageHeaderWrapper>
+    </>
   )
 }
 

@@ -37,12 +37,6 @@ function PrivateRoute({ children, path, }: PrivateProps) {
   const { isLogged, user, redirectRoute, message, snackMessage } = useSelector(stateSelector);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
-  useEffect(() => {
-    if (isLogged) {
-      
-    }
-  }, [user, path]);
 
   useEffect(() => {
     if (!message && !snackMessage && redirectRoute) {

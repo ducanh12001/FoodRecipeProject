@@ -24,7 +24,7 @@ export function LocaleToggle() {
   const [cookie, updateCookie] = useCookie('lang', 'en');
   const { locale } = useSelector(stateSelector);
 
-  const selectLocale = ({key}) => {
+  const selectLocale = ({key}:any) => {
     dispatch(changeLocaleAction(key));
     const localeValue = appLocales.filter((lang:any) => lang.label !== key)
     dispatch(changeLocaleValueAction(localeValue[0].value));

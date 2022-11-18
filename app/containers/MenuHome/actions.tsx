@@ -1,4 +1,4 @@
-import { ResponseType } from 'type/type.recipe';
+import { ResponseDataType } from 'type/type.recipe';
 import {
     ASYNC_END,
     ASYNC_START,
@@ -12,6 +12,11 @@ import {
     ASSIGN_DINNERS,
     ASSIGN_TOOLS,
     ASSIGN_BOOKS,
+    GET_RECIPE_BY_ID,
+    GET_NEWS_BY_ID,
+    GET_TOOL_BY_ID,
+    SET_ID,
+    ASSIGN_RECIPE_BY_ID,
 } from './constants';
 
 export function asyncStartAction() {
@@ -56,37 +61,76 @@ export function queryBooksAction() {
     };
 }
 
-export function assignRecipesAction(recipes: ResponseType) {
+export function assignRecipesAction(recipes: ResponseDataType) {
     return {
         type: ASSIGN_RECIPES,
         recipes
     };
 }
 
-export function assignNewsAction(news: ResponseType) {
+export function assignNewsAction(news: ResponseDataType) {
     return {
         type: ASSIGN_NEWS,
         news
     };
 }
 
-export function assignDinnersAction(dinners: ResponseType) {
+export function assignDinnersAction(dinners: ResponseDataType) {
     return {
         type: ASSIGN_DINNERS,
         dinners
     };
 }
 
-export function assignToolsAction(tools: ResponseType) {
+export function assignToolsAction(tools: ResponseDataType) {
     return {
         type: ASSIGN_TOOLS,
         tools
     };
 }
 
-export function assignBooksAction(books: ResponseType) {
+export function assignBooksAction(books: ResponseDataType) {
     return {
         type: ASSIGN_BOOKS,
         books
     };
 }
+
+export function getRecipeByIdAction(id: string) {
+    return {
+      type: GET_RECIPE_BY_ID,
+      id
+    };
+}
+
+export function getNewByIdAction(id: string) {
+    return {
+      type: GET_NEWS_BY_ID,
+      id
+    };
+}
+
+export function getToolByIdAction(id: string) {
+    return {
+      type: GET_TOOL_BY_ID,
+      id
+    };
+}
+
+export function assignRecipeByIdAction(recipeById: object) {
+    return {
+      type: ASSIGN_RECIPE_BY_ID,
+      recipeById,
+    };
+  }
+  
+
+
+export function setIdAction(id: string) {
+    return {
+      type: SET_ID,
+      id,
+    };
+  }
+  
+  

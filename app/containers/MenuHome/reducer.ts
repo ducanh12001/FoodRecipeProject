@@ -12,6 +12,8 @@ import {
   ASSIGN_DINNERS,
   ASSIGN_BOOKS,
   ASSIGN_TOOLS,
+  SET_ID,
+  ASSIGN_RECIPE_BY_ID,
 } from './constants';
 
 export const initialState = {
@@ -31,6 +33,10 @@ export const initialState = {
   tools: {
     data: []
   },
+  id: undefined,
+  recipeById: {},
+  newById: {},
+  toolById: {}
 };
 
 const menuHomeReducer = produce((draft, action) => {
@@ -54,6 +60,13 @@ const menuHomeReducer = produce((draft, action) => {
     case ASSIGN_TOOLS:
       draft.tools = action.tools;
       draft.isLoading = false;
+      break;
+    case ASSIGN_RECIPE_BY_ID:
+      draft.recipeById = action.recipeById;
+      draft.isLoading = false;
+      break;
+    case SET_ID:
+      draft.id = action.id;
       break;
     case ASYNC_START:
       draft.isLoading = true;

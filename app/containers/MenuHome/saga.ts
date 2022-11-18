@@ -5,6 +5,7 @@ import {
   assignBooksAction,
   assignDinnersAction,
   assignNewsAction,
+  assignRecipeByIdAction,
   assignRecipesAction,
   assignToolsAction,
   asyncEndAction,
@@ -14,6 +15,7 @@ import { GET, POST, PUT } from 'utils/constants';
 import { 
   BOOK_URL,
   DINNER_URL,
+  GET_RECIPE_BY_ID,
   NEWS_URL,
   QUERY_BOOKS,
   QUERY_DINNERS,
@@ -23,14 +25,14 @@ import {
   RECIPE_URL, 
   TOOL_URL
 } from './constants';
-import { ResponseType } from 'type/type.recipe';
+import { ResponseDataType } from 'type/type.recipe';
 
 export function* handleQueryRecipesList() {
   yield put(asyncStartAction());
   const requestUrl = `${RECIPE_URL}`;
   const payload = ApiEndpoint.makeApiPayload(requestUrl, GET, null, null);
   try {
-    const response: ResponseType = yield call(request, payload);
+    const response: ResponseDataType = yield call(request, payload);
     yield put(assignRecipesAction(response));
     yield put(asyncEndAction());
   } catch (error) {
@@ -43,7 +45,7 @@ export function* handleQueryNewsList() {
   const requestUrl = `${NEWS_URL}`;
   const payload = ApiEndpoint.makeApiPayload(requestUrl, GET, null, null);
   try {
-    const response: ResponseType = yield call(request, payload);
+    const response: ResponseDataType = yield call(request, payload);
     yield put(assignNewsAction(response));
     yield put(asyncEndAction());
   } catch (error) {
@@ -56,7 +58,7 @@ export function* handleQueryDinnersList() {
   const requestUrl = `${DINNER_URL}`;
   const payload = ApiEndpoint.makeApiPayload(requestUrl, GET, null, null);
   try {
-    const response: ResponseType = yield call(request, payload);
+    const response: ResponseDataType = yield call(request, payload);
     yield put(assignDinnersAction(response));
     yield put(asyncEndAction());
   } catch (error) {
@@ -69,7 +71,7 @@ export function* handleQueryBooksList() {
   const requestUrl = `${BOOK_URL}`;
   const payload = ApiEndpoint.makeApiPayload(requestUrl, GET, null, null);
   try {
-    const response: ResponseType = yield call(request, payload);
+    const response: ResponseDataType = yield call(request, payload);
     yield put(assignBooksAction(response));
     yield put(asyncEndAction());
   } catch (error) {
@@ -82,7 +84,7 @@ export function* handleQueryToolsList() {
   const requestUrl = `${TOOL_URL}`;
   const payload = ApiEndpoint.makeApiPayload(requestUrl, GET, null, null);
   try {
-    const response: ResponseType = yield call(request, payload);
+    const response: ResponseDataType = yield call(request, payload);
     yield put(assignToolsAction(response));
     yield put(asyncEndAction());
   } catch (error) {
@@ -90,10 +92,25 @@ export function* handleQueryToolsList() {
   }
 }
 
+export function* handleGetRecipeById(data: any) {
+  yield put(asyncStartAction());
+  const requestUrl = `${RECIPE_URL}/${data.id}`;
+  const payload = ApiEndpoint.makeApiPayload(requestUrl, GET, null, false);
+  try {
+    const response: object = yield call(request, payload);
+    yield put(assignRecipeByIdAction(response.data?.recipe));
+    yield put(asyncEndAction());
+  } catch (error) {
+    yield put(asyncEndAction());
+  }
+}
+
+
 export default function* marketStorePageSaga() {
   yield takeLatest(QUERY_RECIPES, handleQueryRecipesList);
   yield takeLatest(QUERY_NEWS, handleQueryNewsList);
   yield takeLatest(QUERY_DINNERS, handleQueryDinnersList);
   yield takeLatest(QUERY_BOOKS, handleQueryBooksList);
   yield takeLatest(QUERY_TOOLS, handleQueryToolsList);
+  yield takeLatest(GET_RECIPE_BY_ID, handleGetRecipeById);
 }

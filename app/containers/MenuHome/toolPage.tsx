@@ -9,6 +9,8 @@ import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
 import { queryToolsAction } from './actions';
 import { makeToolsSelector } from './selectors';
+import { Helmet } from 'react-helmet';
+import PageHeaderWrapper from 'components/PageHeaderWrapper';
 
 const key = 'menuHome';
 
@@ -29,7 +31,20 @@ function ToolPage() {
 	}, []);
 
   return (
-    <div>ToolPage</div>
+    <>
+      <Helmet>
+        <title>Tips and Tools</title>
+      </Helmet>
+      <PageHeaderWrapper
+        title="Tips and Tools"
+        imageSrc = 'toolImage.jpg'
+        description = "Get expert advice and top-rated reviews on everything from major kitchen appliances to cool new cookware and and the latest and fun food products."
+      >
+        <div>
+          
+        </div>
+      </PageHeaderWrapper>
+    </>
   )
 }
 

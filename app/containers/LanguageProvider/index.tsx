@@ -18,7 +18,7 @@ const stateSelector = createSelector(makeSelectLocale(), (locale) => ({
 }));
 interface LanguageProviderProps {
   messages: any;
-  children: React.ReactChildren;
+  children: React.ReactNode;
 }
 export default function LanguageProvider(props: LanguageProviderProps) {
   const { locale } = useSelector(stateSelector);
@@ -29,7 +29,7 @@ export default function LanguageProvider(props: LanguageProviderProps) {
       key={locale}
       messages={props.messages[locale]}
     >
-      {React.Children.only(props.children)}
+      {props.children}
     </IntlProvider>
   );
 }

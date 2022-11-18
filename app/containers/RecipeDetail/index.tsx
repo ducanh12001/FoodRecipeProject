@@ -1,8 +1,17 @@
+import saga from 'containers/MenuHome/saga';
+import reducer from 'containers/MenuHome/reducer';
 import { Avatar, Button, Col, Comment, Form, Image, Input, List, Rate, Row, Typography } from 'antd'
 import moment from 'moment-timezone';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+import { useInjectReducer } from 'utils/injectReducer';
+import { useInjectSaga } from 'utils/injectSaga';
+import { useDispatch, useSelector } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { makeRecipeByIdSelector } from 'containers/MenuHome/selectors';
+import { getRecipeByIdAction } from 'containers/MenuHome/actions';
 
-const key = "recipeDetail"
+const key = "menuHome"
 
 const { Title } = Typography;
 
@@ -11,51 +20,66 @@ interface CommentItem {
     avatar: string;
     content: React.ReactNode;
     datetime: string;
-  }
+}
 
 const CommentList = ({ comments }: { comments: CommentItem[] }) => (
     <List
-      dataSource={comments}
-      header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
-      itemLayout="horizontal"
-      renderItem={props => <Comment {...props} />}
+        dataSource={comments}
+        header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
+        itemLayout="horizontal"
+        renderItem={props => <Comment {...props} />}
     />
-  );
+);
+
+const stateSelector = createStructuredSelector({
+    recipeById: makeRecipeByIdSelector()
+});
+
 
 function RecipeDetail() {
+    useInjectSaga({ key, saga });
+    useInjectReducer({ key, reducer });
+    const dispatch = useDispatch();
 
+    const { id } = useParams()
     const [comments, setComments] = useState<CommentItem[]>([]);
     const [submitting, setSubmitting] = useState(false);
     const [value, setValue] = useState('');
 
+    const { recipeById } = useSelector(stateSelector);
+
     const handleSubmit = () => {
         if (!value) return;
-    
+
         setSubmitting(true);
         setTimeout(() => {
-          setSubmitting(false);
-          setValue('');
-          setComments([
-            ...comments,
-            {
-              author: 'Han Solo',
-              avatar: 'https://joeschmoe.io/api/v1/random',
-              content: <p>{value}</p>,
-              datetime: moment().fromNow(),
-            },
-          ]);
+            setSubmitting(false);
+            setValue('');
+            setComments([
+                ...comments,
+                {
+                    author: 'Han Solo',
+                    avatar: 'https://joeschmoe.io/api/v1/random',
+                    content: <p>{value}</p>,
+                    datetime: moment().fromNow(),
+                },
+            ]);
         }, 1000);
-      };
+    };
+
+    useEffect(() => {
+        dispatch(getRecipeByIdAction(id ?? ''));
+    }, [id]);
 
     return (
         <div className="recipe-detail">
             <div className="recipe-detail-top">
-                <h1>Easy Pancakes</h1>
+                <h1>{recipeById.name}</h1>
                 <div className="recipe-detail-user">
                     <Avatar src="https://joeschmoe.io/api/v1/random" />
                     <span className="mr-6 ml-6">by</span>
                     <div className="username mr-6">Jack</div>
-                    <div>Updated: time</div>
+                    <div>Updated: {moment(recipeById.last_updated).format('HH:mm DD/MM/YYYY')}</div>
                 </div>
                 <div className="recipe-rate">
                     <Rate disabled allowHalf value={4} />
@@ -95,20 +119,17 @@ function RecipeDetail() {
                             <Col span={24} className="ingredient">
                                 <Title level={2}>Ingredients</Title>
                                 <ul className="ingredient-list">
-                                    <li>1 cup all-purpose flour</li>
-                                    <li>1 cup all-purpose flour</li>
-                                    <li>1 cup all-purpose flour</li>
-                                    <li>1 cup all-purpose flour</li>
-                                    <li>1 cup all-purpose flour</li>
-                                    <li>1 cup all-purpose flour</li>
+                                    {recipeById.ingredients?.map((d:any, index:number) => (
+                                        <li key={index}>{d.name}</li>
+                                    ))}
                                 </ul>
                             </Col>
                             <Col span={24} className="step">
                                 <Title level={2}>Directions</Title>
                                 <ol className="step-list">
-                                    <li>In a large bowl, mix flour, sugar, baking powder and salt. Make a well in the center, and pour in milk, egg and oil. Mix until smooth.</li>
-                                    <li>In a large bowl, mix flour, sugar, baking powder and salt. Make a well in the center, and pour in milk, egg and oil. Mix until smooth.</li>
-                                    <li>In a large bowl, mix flour, sugar, baking powder and salt. Make a well in the center, and pour in milk, egg and oil. Mix until smooth.</li>
+                                    {recipeById.steps?.map((d:any, index:number) => (
+                                        <li key={index}></li>
+                                    ))}
                                 </ol>
                             </Col>
                             <Col span={24} className="review">

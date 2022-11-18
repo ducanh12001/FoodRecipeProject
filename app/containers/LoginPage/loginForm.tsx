@@ -124,6 +124,9 @@ const LoginForm = () => {
       <Link className="link" to="/register">
         <FormattedMessage {...messages.register} />
       </Link>
+      <Link className="link" to="/">
+        Back to home
+      </Link>
     </FormWrapper>
   );
 };

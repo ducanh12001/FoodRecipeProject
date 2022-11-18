@@ -12,7 +12,7 @@ import {
     ASSIGN_RECIPES,
     ASSIGN_NEWS,
 } from 'containers/RecipeHome/constants';
-import { ResponseType } from 'type/type.recipe';
+import { ResponseDataType } from 'type/type.recipe';
 
 export function asyncStartAction() {
     return {
@@ -38,14 +38,14 @@ export function queryNewsAction() {
     };
 }
 
-export function assignRecipesAction(recipes: ResponseType) {
+export function assignRecipesAction(recipes: ResponseDataType) {
     return {
         type: ASSIGN_RECIPES,
         recipes
     };
 }
 
-export function assignNewsAction(news: ResponseType) {
+export function assignNewsAction(news: ResponseDataType) {
     return {
         type: ASSIGN_NEWS,
         news

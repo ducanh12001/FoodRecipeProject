@@ -141,7 +141,7 @@ const routes = [
         ),
       },
       {
-        path: '/recipe-detail',
+        path: '/recipe-detail/:id',
         element: (
           <PrivateRoute
             path="/recipe-detail"

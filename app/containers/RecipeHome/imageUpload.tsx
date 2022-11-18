@@ -69,7 +69,7 @@ function ImageUpload({ onSubmit, existingFiles }: any) {
 
   const uploadProps: UploadProps = {
     accept: 'image/png, image/jpeg, image/jpeg',
-    action: 'https://dnqfood.tk/api/upload/image',
+    action: 'https://api.foodrecipe.nvquynh.codes/api/upload/image',
     headers: {
       'Authorization': `Bearer ${localStorage.getItem('ACCESS_TOKEN') ?? ''}`
     },
