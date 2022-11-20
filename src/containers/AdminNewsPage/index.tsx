@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Input, Card, Button } from 'antd';
 
-import AdminTableWrapper from '../../components/AdminTableWrapper'
+import AdminTableWrapper from '../../components/AdminTableWrapper';
+import AddNewsModal from './AddNewsModal';
 
 interface NewsDataType {
   key: string;
@@ -12,6 +13,20 @@ interface NewsDataType {
 
 function AdminNewsPage() {
 	const columns = ['NewsName', 'Author', 'Link']; //The column names here lowercased also act as dataIndex
+	
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	
+	const showModal = () => {
+		setIsModalOpen(true);
+	};
+
+	const handleOk = () => {
+		setIsModalOpen(false);
+	};
+
+	const handleCancel = () => {
+		setIsModalOpen(false);
+	};
 	
 	const mockData: NewsDataType[] = [
 		{
@@ -24,7 +39,7 @@ function AdminNewsPage() {
 	
 	const onDelete = () => {};
 	const onSearch = () => {};
-	const onAddNews = () => {};
+	const onAddNews = () => {showModal()};
 	
 	return (
 		<Card style={{width: '75vw', margin: 'auto', marginTop: '2vh'}}>
@@ -46,8 +61,14 @@ function AdminNewsPage() {
 			columns={columns}
 			data={mockData}
 			onDelete = {onDelete} />
+			
+			<AddNewsModal
+			open={isModalOpen}
+			onOk={handleOk}
+			onCancel={handleCancel} />
 		</Card>
 	);
+	
 };
 
 export default AdminNewsPage;

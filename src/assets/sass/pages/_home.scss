@@ -232,7 +232,10 @@
 
 .transporter {
   max-width: 75rem;
-  margin: 30px 80px 60px;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0 1.5rem;
   &-header {
     margin-bottom: 40px;
