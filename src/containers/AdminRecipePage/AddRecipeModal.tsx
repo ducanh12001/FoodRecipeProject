@@ -12,7 +12,7 @@ import FormInputWrapper from '../../components/FormInputWrapper';
 import FormButtonWrapper from '../../components/FormButtonWrapper';
 import { UploadOutlined } from '@ant-design/icons';
 
-const AddNewsModal = (props: any) => {	
+const AddRecipeModal = (props: any) => {	
 	const {
 		open = false,
 		onOK,
@@ -31,7 +31,7 @@ const AddNewsModal = (props: any) => {
 		variant="primary"
 		disabled={isLoading}
 		form={form}
-		label="Add news" />
+		label="Add recipe" />
 	];
 	
 	return (
@@ -43,7 +43,7 @@ const AddNewsModal = (props: any) => {
 		>
 			<div style={{marginTop: '2rem'}}>
 				<FormWrapper
-				className="add-news-form"
+				className="add-recipe-form"
 				values={initialValues}
 				forminstance={form}
 				onFinish={onFinish}
@@ -103,4 +103,4 @@ const AddNewsModal = (props: any) => {
 		</Modal>
 	);
 };
-export default AddNewsModal;
+export default AddRecipeModal;
