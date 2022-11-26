@@ -45,7 +45,7 @@ function CreateRecipe() {
     const { loading, errors, } = useSelector(stateSelector);
 
     const ingredientInitValues = Array.from({ length: 2 }, () => ({ name: "" }));
-    const dirInitValues = Array.from({ length: 2 }, () => ({ text: "" }));
+    const dirInitValues = Array.from({ length: 2 }, () => ({ content: "" }));
 
     const [imageLinks, setImageLinks] = useState(new Array<any>());
 
@@ -62,18 +62,30 @@ function CreateRecipe() {
             })),
           );
         } 
-
+        let formVal = form.getFieldsValue();
+        let steps = formVal.steps.map((d:any, index:number) => {
+            return {
+                order: index + 1,
+                content: d.content,
+            }
+        })
         dispatch(
             setFormValues({
-              ...form.getFieldsValue(),
+                ...formVal,
+                steps,
                 pictures: productMedias,
+                time: {
+                    preptime: formVal.preptime, 
+                    cooktime: formVal.cooktime,
+                    yields: formVal.yields
+                }
             })
         )
         dispatch(submitFormAction());
     }
 
     const onCancel = () => {
-        navigate('/');
+        navigate('/home');
     };
 
     const onImageUploaded = (images: Array<any>) => {
@@ -235,8 +247,8 @@ function CreateRecipe() {
                                                 <Col span={12}>
                                                     <Form.Item
                                                         {...field}
-                                                        name={[field.name, "text"]}
-                                                        fieldKey={[field.fieldKey, "text"]}
+                                                        name={[field.name, "content"]}
+                                                        fieldKey={[field.fieldKey, "content"]}
                                                         validateTrigger={['onChange', 'onBlur']}
                                                         rules={[
                                                             {

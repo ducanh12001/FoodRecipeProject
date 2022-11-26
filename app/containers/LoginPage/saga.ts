@@ -1,7 +1,6 @@
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 import ApiEndpoint from 'utils/api';
 import request from 'utils/request';
-// import messages from 'containers/LoginPage/messages';
 import { showAlert, showFormattedAlert } from 'common/saga';
 import { getProfileAction, hideHeaderAction, isLoggedErrorAction, isLoggedSuccessAction } from 'containers/App/actions';
 import {
@@ -32,13 +31,10 @@ export function* attemptLogin() {
     localStorage.setItem('ACCESS_TOKEN', response?.data?.accessToken);
     localStorage.setItem('REFRESH_TOKEN', response?.data?.refreshToken);
     localStorage.setItem('ACCOUNT_LOGIN', response?.data?.email);
+    //yield put(clearSnackMessageAction());
+    yield put(getProfileAction());
     yield put(asyncEndAction());
-    yield put(clearSnackMessageAction());
-    //return yield put(getProfileAction());
-    yield put(isLoggedSuccessAction());
-    yield put(hideHeaderAction(false));
   } catch (error: any) {
-    yield put(isLoggedErrorAction());
     yield put(asyncEndAction());
     if (error.data && error.data.statusCode === 422) {
       yield put(enterValidationErrorAction(error.data.message));

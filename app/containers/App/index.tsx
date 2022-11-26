@@ -23,23 +23,25 @@ import GlobalStyle from 'global-styles';
 import SnackMessage from 'containers/SnackMessage';
 import { createStructuredSelector } from 'reselect';
 import { makeSelectLocaleValue } from 'containers/LanguageProvider/selectors';
-import { makeRedirectRouteSelector } from './selectors';
+import { makeLoggedInUserSelector, makeRedirectRouteSelector } from './selectors';
 
 const key = 'global';
 const stateSelector = createStructuredSelector({
   localeValue: makeSelectLocaleValue(),
-  redirectRoute: makeRedirectRouteSelector()
+  redirectRoute: makeRedirectRouteSelector(),
+  user: makeLoggedInUserSelector(),
 });
 export default function App() {
   const dispatch = useDispatch();
-  const { localeValue, redirectRoute } = useSelector(stateSelector);
+  const { localeValue, user } = useSelector(stateSelector);
   const getLoggedInUserProfile = () => dispatch(getProfileAction());
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
   useEffect(() => {
-    //getLoggedInUserProfile();
-    //dispatch(isLoggedErrorAction())
+    if (!user) {
+      getLoggedInUserProfile();
+    }
   }, []);
 
   return (

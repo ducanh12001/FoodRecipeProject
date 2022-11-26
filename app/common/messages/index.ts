@@ -138,7 +138,7 @@ export default defineMessages({
   },
   companyNamePlaceHolder: {
     id: `${scope}.companyNamePlaceHolder`,
-    defaultMessage: 'Nhập tên công ty!',
+    defaultMessage: 'Nhập tên!',
   },
   addressPlaceHolder: {
     id: `${scope}.addressPlaceHolder`,
@@ -271,7 +271,7 @@ export default defineMessages({
   },
   companyNameRequired: {
     id: `${scope}.companyNameRequired`,
-    defaultMessage: 'Vui lòng nhập tên công ty!',
+    defaultMessage: 'Vui lòng nhập tên!',
   },
   confirmPasswordRequired: {
     id: `${scope}.confirmPasswordRequired`,
@@ -312,22 +312,6 @@ export default defineMessages({
   noLabel: {
     id: `${scope}.noLabel`,
     defaultMessage: 'Không',
-  },
-  otpVerificationSuccess: {
-    id: `${scope}.otpVerificationSuccess`,
-    defaultMessage: 'OTP code verified successfully!',
-  },
-  otpGenerateSuccess: {
-    id: `${scope}.otpGenerateSuccess`,
-    defaultMessage: 'OTP code generated successfully!',
-  },
-  otpLabel: {
-    id: `${scope}.otpLabel`,
-    defaultMessage: 'One Time Password Verification',
-  },
-  generateOtp: {
-    id: `${scope}.generateOtp`,
-    defaultMessage: 'Generate OTP',
   },
   validateLabel: {
     id: `${scope}.validateLabel`,

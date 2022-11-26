@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { logoutAction, otpUnVerifiedAction } from 'containers/App/actions';
+import { logoutAction } from 'containers/App/actions';
 import { SHOW_SNACK_MESSAGE } from 'containers/SnackMessage/constants';
 import { getItem } from 'hooks/useCookie';
 import { v4 as uuidv4 } from 'uuid';
@@ -68,10 +68,6 @@ const request = async (options: any) => {
         StatusCodesList.RefreshTokenExpired,
         StatusCodesList.TokenExpired,
       ];
-      // Check if otp required error code is in the array
-      if (error.response.data.code === StatusCodesList.OtpRequired) {
-        return store.dispatch(otpUnVerifiedAction());
-      }
       
       if (errorCodesArray.includes(error.response.data.code)) {
         return store.dispatch({

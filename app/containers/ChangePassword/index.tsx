@@ -31,7 +31,7 @@ import commonMessages from 'common/messages';
 import FormButtonWrapper from 'components/FormButtonWrapper';
 import FormInputWrapper from 'components/FormInputWrapper';
 import { Progress, Row, Form, Typography, Col } from 'antd';
-import { checkIfStrongPassword } from 'common/validator';
+import { checkIfStrongPassword, checkPasswordLength } from 'common/validator';
 import usePasswordStrengthCheckHook from 'common/hooks/passwordStrengthHook';
 import AlertMessage from 'containers/AlertMessage';
 import FormWrapper from 'components/FormWrapper';
@@ -84,18 +84,11 @@ export default function ChangePassword() {
 
   const onFinish = async () => {
     await form.validateFields();
-    dispatch(setFormValuesAction(form.getFieldsValue()));
+    dispatch(setFormValuesAction({
+      ...form.getFieldsValue(),
+      user_id: localStorage.getItem('USER_ID')
+    }));
     dispatch(changePasswordAction());
-  };
-
-  const checkConfirm = (rule: any, value: string) => {
-    const newPassword = form.getFieldValue('newPass');
-    if (newPassword !== value) {
-      return Promise.reject(
-        new Error(intl.formatMessage(commonMessages.confirmPasswordMatchError)),
-      );
-    }
-    return Promise.resolve();
   };
 
   useEffect(() => {
@@ -143,8 +136,8 @@ export default function ChangePassword() {
                     ),
                   },
                 ]}
-                name="oldPass"
-                id="oldPass"
+                name="password"
+                id="password"
                 type="password"
                 placeholder={messages.oldPasswordPlaceHoder}
                 label={messages.oldPasswordLabel}
@@ -163,11 +156,11 @@ export default function ChangePassword() {
                     ),
                   },
                   {
-                    validator: checkIfStrongPassword,
+                    validator: checkPasswordLength,
                   },
                 ]}
-                name="newPass"
-                id="newPass"
+                name="newPassword"
+                id="newPassword"
                 type="password"
                 placeholder={messages.newPasswordPlaceHoder}
                 changeHandler={(e) => setNewPass(e.target.value)}
@@ -197,7 +190,7 @@ export default function ChangePassword() {
                   },
                   ({ getFieldValue }:any) => ({
                     validator(_:any, value: any) {
-                      if (!value || getFieldValue('newPass') === value) {
+                      if (!value || getFieldValue('newPassword') === value) {
                         return Promise.resolve();
                       }
                       return Promise.reject(new Error(intl.formatMessage(commonMessages.confirmPasswordMatchError)));
@@ -208,7 +201,7 @@ export default function ChangePassword() {
                 id="confirmNewPassword"
                 placeholder={messages.confirmNewPasswordPlaceholder}
                 maxLength={20}
-                dependencies={['newPass']}
+                dependencies={['newPassword']}
               />
 
               <FormButtonWrapper

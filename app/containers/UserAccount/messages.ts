@@ -112,14 +112,6 @@ export default defineMessages({
     defaultMessage:
       'Logged in from browser: {browser} version: {version}. Login valid till: {ts, date, ::yyyyMMdd}',
   },
-  otpLabel: {
-    id: `${scope}.otpLabel`,
-    defaultMessage: 'Two factor Authentication',
-  },
-  otpDescription: {
-    id: `${scope}.otpDescription`,
-    defaultMessage: 'Activate or deactivate Two factor Authentication',
-  },
   onLabel: {
     id: `${scope}.onLabel`,
     defaultMessage: 'on',
@@ -136,24 +128,9 @@ export default defineMessages({
     id: `${scope}.offLabel`,
     defaultMessage: 'off',
   },
-  activateOtpConfirm: {
-    id: `${scope}.activateOtpConfirm`,
-    defaultMessage:
-      'Are you sure you want to activate Two Factor Authentication?',
-  },
-  deactivateOtpConfirm: {
-    id: `${scope}.deactivateOtpConfirm`,
-    defaultMessage:
-      'Are you sure you want to deactivate Two Factor Authentication?',
-  },
   toggleTwoFaSuccess: {
     id: `${scope}.toggleTwoFaSuccess`,
     defaultMessage: 'Two factor authentication setting updated successfully!',
-  },
-  twoFaActivateCheck: {
-    id: `${scope}.twoFaActivateCheck`,
-    defaultMessage:
-      'Two factor authentication has been enabled, please check your mail for further process to set OTP!',
   },
   genderMale:{
     id: `${scope}.genderMale`,

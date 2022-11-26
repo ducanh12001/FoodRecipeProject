@@ -20,7 +20,6 @@ import { createStructuredSelector } from 'reselect';
 
 const { Sider, Content } = Layout;
 const WIDTH = 992;
-const OTP_LENGTH = 6;
 
 const stateSelector = createStructuredSelector({
   device: makeDeviceSelector(),
