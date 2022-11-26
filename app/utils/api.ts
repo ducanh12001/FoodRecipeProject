@@ -3,7 +3,7 @@ import { JsonPayloadLogin, JsonPayloadRequest } from 'type/type.api';
 export const BASE_ACCOUNT_URL = process.env.REACT_APP_API_URL;
 const AUTH_PATH = '/api/auth/login';
 const LOGOUT_PATH = '/api/auth/logout';
-const PROFILE_PATH = '/api/users';
+const PROFILE_PATH = `/api/user/token`;
 
 export default class ApiEndpoint {
   static getLoginPath = () => AUTH_PATH;

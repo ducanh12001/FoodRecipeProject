@@ -16,12 +16,10 @@ import {
 const EmptyFields = {
   email: '',
   name: '',
-  companyName: '',
   phoneNumber: '',
   password: '',
   confirmPassword: '',
   contactAddress: '',
-  companyType: 1,
   accept: false,
 };
 

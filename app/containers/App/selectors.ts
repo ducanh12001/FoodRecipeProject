@@ -3,16 +3,8 @@ import { initialState } from 'containers/App/reducer';
 
 interface User {
   email: string | null | undefined;
-  avatar: any;
   id: number,
-  fullName: string,
-  birthday: any,
   phone: string,
-  userType: string,
-  address: string,
-  genderType: string,
-  startDay: Date,
-  fileAvatarId: number
 }
 
 interface Props {
@@ -23,9 +15,6 @@ interface Props {
   isLoading: boolean;
   device: any;
   collapsed: boolean;
-  otpVerified: any;
-  otp: any;
-  otpError: any;
   redirectRoute: string;
 }
 
@@ -54,22 +43,10 @@ const makeDeviceSelector = () =>
 const makeCollapsedSelector = () =>
   createSelector(selectGlobal, (globalState: Props) => globalState.collapsed);
 
-const makeOtpVerificationSelector = () =>
-  createSelector(selectGlobal, (globalState: Props) => globalState.otpVerified);
-
-const makeOtpValueSelector = () =>
-  createSelector(selectGlobal, (globalState: Props) => globalState.otp);
-
-const makeOtpErrorSelector = () =>
-  createSelector(selectGlobal, (globalState: Props) => globalState.otpError);
-
 const makeRedirectRouteSelector = () =>
   createSelector(selectGlobal, (globalState: Props) => globalState.redirectRoute);  
 
 export {
-  makeOtpErrorSelector,
-  makeOtpValueSelector,
-  makeOtpVerificationSelector,
   makeCollapsedSelector,
   makeDeviceSelector,
   makeIsLoadingSelector,

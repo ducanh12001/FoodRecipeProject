@@ -84,9 +84,6 @@ export default function ProfileForm() {
     dispatch(
       setFormValues({
         ...form.getFieldsValue(),
-        fileAvatarId: user.fileAvatarId,
-        companyId: user.companyId,
-        birthday: birthday,
       }),
     );
     dispatch(submitFormAction());

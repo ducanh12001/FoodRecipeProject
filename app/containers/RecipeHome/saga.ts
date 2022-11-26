@@ -14,7 +14,7 @@ import { showAlert } from 'common/saga';
 import { makeFormValuesSelector } from './selectors';
 import history from 'utils/history';
 import { sendRedirectAction } from 'containers/App/actions';
-import { RecipeType } from 'type/type.recipe';
+import { RecipeType, ResponseDataType } from 'type/type.recipe';
 
 export function* handleSubmitForm() {
   const formValues: object = yield select(makeFormValuesSelector());
@@ -42,7 +42,7 @@ export function* handleQueryRecipesList() {
   const requestUrl = `${RECIPE_URL}`;
   const payload = ApiEndpoint.makeApiPayload(requestUrl, GET, null, null);
   try {
-    const response: RecipeType = yield call(request, payload);
+    const response: ResponseDataType = yield call(request, payload);
     yield put(assignRecipesAction(response));
     yield put(asyncEndAction());
   } catch (error) {

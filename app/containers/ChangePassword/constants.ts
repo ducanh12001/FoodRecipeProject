@@ -12,4 +12,4 @@ export const ASYNC_END = 'containers/ChangePassword/ASYNC_END';
 export const SET_FORM_VALUES = 'containers/ChangePassword/SET_FORM_VALUES';
 export const CLEAR_FORM_VALUES = 'containers/ChangePassword/CLEAR_FORM_VALUES';
 
-export const CHANGE_PASSWORD_URL = '/ext/users/password';
+export const CHANGE_PASSWORD_URL = '/api/auth/update-password';

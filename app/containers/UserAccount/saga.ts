@@ -39,7 +39,7 @@ export function* updateProfile() {
 
   try {
     yield call(request, payload);
-    //yield put(getProfileAction());
+    yield put(getProfileAction());
     yield put(asyncEndAction());
     yield showFormattedAlert('success', messages.profileUpdateSuccess);
   } catch (error: any) {
@@ -59,7 +59,7 @@ export function* updateAvatar() {
 
   try {
     yield call(request, payload);
-    //yield put(getProfileAction());
+    yield put(getProfileAction());
     yield put(asyncEndAction());
     yield showFormattedAlert('success', messages.profileUpdateSuccess);
   } catch (error: any) {
@@ -74,7 +74,7 @@ export function* updateAvatar() {
 export function* changePassword() {
   yield put(asyncStartAction());
   const data: object = yield select(makeFormValuesSelector());
-  const requestUrl = `/auth/change-password`;
+  const requestUrl = `/auth/update-password`;
   const payload = ApiEndpoint.makeApiPayload(requestUrl, PUT, data, null);
   try {
     yield call(request, payload);

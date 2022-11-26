@@ -20,10 +20,6 @@ import {
   ASYNC_START,
   TOGGLE_COLLAPSE,
   CHANGE_DEVICE,
-  OTP_VERIFIED,
-  OTP_UNVERIFIED,
-  CHANGE_OTP_VALUE,
-  OTP_ERROR,
   SEND_REDIRECT,
   CLEAR_REDIRECT,
 } from 'containers/App/constants';
@@ -40,9 +36,6 @@ interface initState {
   isLoading: boolean;
   device: string;
   collapsed: boolean;
-  otpVerified: boolean;
-  otp: string | null;
-  otpError: boolean;
   isLogged: boolean | null;
   errors: Array<string>;
   user?: User | null;
@@ -54,17 +47,14 @@ export const initialState: initState = {
   collapsed,
   hideHeader: false,
   isLoading: false,
-  otpVerified: true,
-  otp: '',
-  otpError: false,
   isLogged: null,
   errors: [],
   user: {
-    avartar: '',
     name: '',
-    username: '',
-    fullName: '',
-    isActive: false,
+    profile_image: '',
+    phone: '',
+    email: '',
+    updated_at: ''
   },
   redirectRoute: ''
 };
@@ -84,9 +74,6 @@ const appPageReducer = produce((draft, action: TypeAction | any) => {
     case CLEAR_REDIRECT:
       draft.redirectRoute = '';
       break;
-    case OTP_ERROR:
-      draft.otpError = true;
-      break;
     case CHANGE_FIELD:
       Object.keys(draft)[action.key] = action.val;
       draft.errors[action.key] = '';
@@ -94,16 +81,6 @@ const appPageReducer = produce((draft, action: TypeAction | any) => {
       break;
     case CHANGE_DEVICE:
       draft.device = action.device;
-      break;
-    case OTP_VERIFIED:
-      draft.otpVerified = true;
-      break;
-    case CHANGE_OTP_VALUE:
-      draft.otp = action.otp;
-      draft.otpError = false;
-      break;
-    case OTP_UNVERIFIED:
-      draft.otpVerified = false;
       break;
     case TOGGLE_COLLAPSE:
       draft.collapsed = action.toggle;
@@ -117,7 +94,6 @@ const appPageReducer = produce((draft, action: TypeAction | any) => {
       break;
     case IS_LOGGED_ERROR:
       draft.isLogged = false;
-      draft.otpVerified = true;
       break;
     case GET_PROFILE_SUCCESS:
       draft.user = action.user;
@@ -135,21 +111,14 @@ const appPageReducer = produce((draft, action: TypeAction | any) => {
     case LOGOUT_SUCCESS:
     case LOGOUT_ERROR:
       draft.errors = [];
-      draft.otp = '';
       draft.user = {
-        avartar: null,
         name: null,
-        username: null,
-        fullName: null,
-        isActive: false,
-        birthday: undefined,
-        address: null,
-        genderType: null,
         email: null,
         phone: null,
+        profile_image: null,
+        updated_at: null
       };
       draft.isLogged = false;
-      draft.otpError = false;
       break;
     default:
   }

@@ -48,22 +48,6 @@
   text-transform: capitalize;
 }
 
-.otp-wrapper {
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0;
-  .danger {
-    border: 1px solid $danger;
-  }
-  input {
-    transition: box-shadow 0.5s;
-    &.shake-input {
-      animation: shake 0.1s ease-in-out 0s 2;
-      box-shadow: 2px 3px 6px rgba($danger, 0.15);
-    }
-  }
-}
-
 .ant-modal-footer,
 .ant-upload {
   .ant-btn {

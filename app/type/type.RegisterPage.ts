@@ -2,8 +2,6 @@ import { FormListFieldData } from "antd/es/form"
 
 export type EmptyFieldsType = {
     email: string,
-    companyType: number,
-    companyName: string,
     address: string,
     name: string,
     password: string,

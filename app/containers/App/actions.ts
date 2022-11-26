@@ -7,10 +7,8 @@
 import {
   ASYNC_END,
   ASYNC_START,
-  AUTHENTICATE_OTP,
   CHANGE_DEVICE,
   CHANGE_FIELD,
-  CHANGE_OTP_VALUE,
   CLEAR_REDIRECT,
   GET_AVATAR_ERROR,
   GET_AVATAR_REQUEST,
@@ -26,9 +24,6 @@ import {
   LOGOUT,
   LOGOUT_ERROR,
   LOGOUT_SUCCESS,
-  OTP_ERROR,
-  OTP_UNVERIFIED,
-  OTP_VERIFIED,
   QUERY_NOTIFICATIONS,
   REFRESH_TOKEN,
   SEND_REDIRECT,
@@ -179,22 +174,9 @@ export function asyncStartAction() {
   };
 }
 
-export function authenticateOtpAction() {
-  return {
-    type: AUTHENTICATE_OTP,
-  };
-}
-
 export function asyncEndAction() {
   return {
     type: ASYNC_END,
-  };
-}
-
-export function changeOtpValueAction(otp: string) {
-  return {
-    type: CHANGE_OTP_VALUE,
-    otp,
   };
 }
 
@@ -249,24 +231,6 @@ export function changeDeviceAction(device: string) {
   return {
     type: CHANGE_DEVICE,
     device,
-  };
-}
-
-export function otpVerifiedAction() {
-  return {
-    type: OTP_VERIFIED,
-  };
-}
-
-export function otpUnVerifiedAction() {
-  return {
-    type: OTP_UNVERIFIED,
-  };
-}
-
-export function otpCodeErrorAction() {
-  return {
-    type: OTP_ERROR,
   };
 }
 
