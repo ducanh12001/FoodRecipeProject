@@ -27,7 +27,7 @@ function ImageUpload({ onSubmit, existingFiles }: any) {
       .map((file) => {
         return {
           name: file.name,
-          path: file.response?.files?.path,
+          path: file.response?.data?.file_path,
         };
       });
 

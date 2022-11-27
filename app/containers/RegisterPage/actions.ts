@@ -13,6 +13,7 @@ import {
   REGISTER_SUCCESS,
   SET_FORM_VALUES,
   CLEAR_FORM_VALUES,
+  SEND_CODE_REGISTER,
 } from 'containers/RegisterPage/constants';
 
 export function setFormValuesAction(formValues: object) {
@@ -58,4 +59,11 @@ export function registerSuccessAction() {
   return {
     type: REGISTER_SUCCESS,
   };
+}
+
+export function sendCodeRegisterAction(code: string) {
+  return {
+    type: SEND_CODE_REGISTER,
+    code
+  }
 }

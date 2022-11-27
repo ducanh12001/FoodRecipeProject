@@ -1,4 +1,4 @@
-import { REGISTER_PROCESS } from 'containers/RegisterPage/constants';
+import { CONFIRM_EMAIL_URL, REGISTER_PROCESS, SEND_CODE_REGISTER } from 'containers/RegisterPage/constants';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import {
   asyncEndAction,
@@ -44,6 +44,20 @@ export function* handleRegister() {
   }
 }
 
+export function* sendCodeRegisterAction(data:any) {
+  yield put(asyncStartAction());
+  const requestUrl = CONFIRM_EMAIL_URL;
+  const requestPayload = ApiEndpoint.makeApiPayload(requestUrl, POST, null, null);
+  try {
+
+    yield put(asyncEndAction());
+  } catch (error: any) {
+    yield put(asyncEndAction());
+    yield showAlert('error', error.data.message);
+  }
+}
+
 export default function* registerPageSaga() {
   yield takeLatest(REGISTER_PROCESS, handleRegister);
+  yield takeLatest(SEND_CODE_REGISTER, sendCodeRegisterAction)
 }

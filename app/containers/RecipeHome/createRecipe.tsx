@@ -54,14 +54,12 @@ function CreateRecipe() {
         let productMedias = new Array<any>();
         if (imageLinks.length > 0) {
           productMedias = productMedias.concat(
-            imageLinks.map((item, index) => ({
-              name: item.name,
-              path: item.path,
-              position: index,
-              type: 1,
-            })),
+            imageLinks.map((item, index) => {
+                return item.path;
+            }),
           );
         } 
+        
         let formVal = form.getFieldsValue();
         let steps = formVal.steps.map((d:any, index:number) => {
             return {

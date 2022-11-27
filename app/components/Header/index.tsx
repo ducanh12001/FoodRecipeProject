@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
+  FormOutlined,
   HeartOutlined,
   KeyOutlined,
   LogoutOutlined,
@@ -60,6 +61,8 @@ function HeaderComponent(props: any) {
       navigate('/saved-recipe')
     } else if (key === '4') {
       dispatch(logoutAction())
+    } else if (key === '5') {
+      navigate('/home')
     }
   }
 
@@ -80,6 +83,11 @@ function HeaderComponent(props: any) {
           label: 'Favourite ricipes',
           icon: <HeartOutlined />,
           key: '3'
+        },
+        {
+          label: 'Manage',
+          icon: <FormOutlined />,
+          key: '5'
         },
         {
           label: <FormattedMessage {...messages.logout} />,

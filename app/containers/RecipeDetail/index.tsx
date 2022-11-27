@@ -104,7 +104,7 @@ function RecipeDetail() {
                                 <Row className="recipe-time">
                                     <Col span={8} className="time-col">
                                         <div className="time-title">Yield</div>
-                                        <span>4 servings</span>
+                                        <span>{recipeById.time.yields} servings</span>
                                     </Col>
                                     <Col span={8} className="time-col">
                                         <div className="time-title">Prep Time</div>
@@ -128,7 +128,7 @@ function RecipeDetail() {
                                 <Title level={2}>Directions</Title>
                                 <ol className="step-list">
                                     {recipeById.steps?.map((d:any, index:number) => (
-                                        <li key={index}></li>
+                                        <li key={index}>{d.content}</li>
                                     ))}
                                 </ol>
                             </Col>
