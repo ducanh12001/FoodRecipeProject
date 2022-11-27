@@ -13,6 +13,9 @@ import { Helmet } from 'react-helmet';
 import PageHeaderWrapper from 'components/PageHeaderWrapper';
 import { Col, Image, Row } from 'antd';
 
+import messages from './messages';
+import { FormattedMessage } from 'react-intl';
+
 const key = 'menuHome';
 
 const stateSelector = createStructuredSelector({
@@ -33,18 +36,22 @@ function DinnerPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Dinners</title>
-      </Helmet>
+      <FormattedMessage {...messages.dinnerHelmetTitle}>
+        {(title) => (
+          <Helmet>
+            <title>{title}</title>
+          </Helmet>
+        )}
+      </FormattedMessage>
       <PageHeaderWrapper
-        title='Weeknight Dinners'
+        title= {<FormattedMessage {...messages.weeknightDinners} />}
         imageSrc = 'dinnerImage.jpg'
-        description = "Don't get stuck in a dinner rut. We've got all the fun dinner ideas you could ever need."
+        description = {<FormattedMessage {...messages.weeknightDinnersDescription} />}
       >
         <div className="content-box">
           <div className="content-title">
-            <h2 className="title">Our best easy dinners</h2>
-            <span>The whole family will give these a stamp of approval.</span>
+            <h2 className="title"><FormattedMessage {...messages.dinnerContentTitle} /></h2>
+            <span><FormattedMessage {...messages.dinnerContentDescription} /></span>
           </div>
           <Row gutter={[24, 32]}>
             {

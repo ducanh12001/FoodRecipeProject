@@ -13,6 +13,9 @@ import { Helmet } from 'react-helmet';
 import PageHeaderWrapper from 'components/PageHeaderWrapper';
 import { Typography } from 'antd';
 
+import messages from './messages';
+import { FormattedMessage } from 'react-intl';
+
 const key = 'menuHome';
 
 const {Title} = Typography;
@@ -35,11 +38,15 @@ function NewsPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Food News</title>
-      </Helmet>
+      <FormattedMessage {...messages.newsHelmetTitle}>
+        {(title) => (
+          <Helmet>
+            <title>{title}</title>
+          </Helmet>
+        )}
+      </FormattedMessage>
       <PageHeaderWrapper
-        title='Food News'
+        title={<FormattedMessage {...messages.foodNews} />}
         imageSrc = {null}
         description = ''
       >

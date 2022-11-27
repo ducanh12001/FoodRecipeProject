@@ -3,21 +3,27 @@ import React from 'react'
 import { ShareAltOutlined, StarOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import messages from 'containers/RecipeType/messages';
+import { FormattedMessage } from 'react-intl';
 
 function RecipeType() {
 
     return (
         <>
-            <Helmet>
-                <title>Recipes</title>
-            </Helmet>
+            <FormattedMessage {...messages.helmetTitle}>
+				{(title) => (
+				  <Helmet>
+					<title>{title}</title>
+				  </Helmet>
+				)}
+			</FormattedMessage>
             <div className="recipe-type">
                 <div className="recipe-type-header">
                     <img className="title-image" src="" />
                 </div>
                 <div className="recipe-type-title">
-                    <h1>Recipes</h1>
-                    <div className="description">Find the perfect food and drink ideas for every occasion, from weeknight dinners to holiday feasts.</div>
+                    <h1><FormattedMessage {...messages.recipes} /></h1>
+                    <div className="description"><FormattedMessage {...messages.description} /></div>
                 </div>
                 <div className="recipe-type-container">
                     <div className="recipe-type-list">

@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { useIntl } from 'react-intl';
 import messages from './messages';
+import { FormattedMessage } from 'react-intl';
 
 const { Title, Text } = Typography;
 
@@ -118,15 +119,15 @@ function CreateRecipe() {
             >
                 <Row>
                     <Col span={24}>
-                        <Title level={3}>Create a recipe</Title>
+                        <Title level={3}><FormattedMessage {...messages.createRecipe} /></Title>
                         <Row>
                             <Col span={24}>
                                 <div className="product-media-description">
                                     <Text className="ant-form-item-label">
-                                        <span className="add-form-label" style={{ marginRight: 6 }}>Photo</span>
+                                        <span className="add-form-label" style={{ marginRight: 6 }}><FormattedMessage {...messages.photoLabel} /></span>
                                         <Tooltip
                                             placement="bottom"
-                                            title="Picture"
+                                            title={intl.formatMessage(messages.picture)}
                                         >
                                             <InfoCircleOutlined />
                                         </Tooltip>
@@ -150,7 +151,7 @@ function CreateRecipe() {
                                         {
                                             required: true,
                                             whitespace: true,
-                                            message: "Require",
+                                            message: intl.formatMessage(messages.require),
                                         },
                                     ]}
                                 />
@@ -167,14 +168,14 @@ function CreateRecipe() {
                                         {
                                             required: true,
                                             whitespace: true,
-                                            message: "Require",
+                                            message: intl.formatMessage(messages.require),
                                         },
                                     ]}
                                 />
                             </Col>
                         </Row>
                         <Row>
-                            <Col span={24} className="add-form-label">Ingredients</Col>
+                            <Col span={24} className="add-form-label"><FormattedMessage {...messages.ingredientLabel} /></Col>
                         </Row>
 
                         <Form.List name="ingredients">
@@ -197,11 +198,11 @@ function CreateRecipe() {
                                                             {
                                                                 required: true,
                                                                 whitespace: true,
-                                                                message: "Please input ingredient or delete this field.",
+                                                                message: intl.formatMessage(messages.inputIngredient),
                                                             },
                                                         ]}
                                                     >
-                                                        <Input placeholder="e.g: 1 Carrot" />
+                                                        <Input placeholder={intl.formatMessage(messages.ingredientPlaceholder)} />
                                                     </Form.Item>
                                                 </Col>
                                                 <Col span={1}>
@@ -222,7 +223,7 @@ function CreateRecipe() {
                                             icon={<PlusOutlined />}
                                             onClick={() => add()}
                                         >
-                                            Add ingredients
+                                            <FormattedMessage {...messages.addIngredientBtn} />
                                         </Button>
                                         <Form.ErrorList errors={errors} />
                                     </Form.Item>
@@ -230,7 +231,7 @@ function CreateRecipe() {
                             )}
                         </Form.List>
                         <Row>
-                            <Col span={24} className="add-form-label">Directions</Col>
+                            <Col span={24} className="add-form-label"><FormattedMessage {...messages.directionLabel} /></Col>
                         </Row>
                         <Form.List name="steps"
                         >
@@ -242,7 +243,7 @@ function CreateRecipe() {
                                             required={false}
                                             key={field.key}
                                         >
-                                            <Title level={5}>{`Step ${index + 1}`}</Title>
+                                            <Title level={5}>{intl.formatMessage(messages.step) + ` ${index + 1}`}</Title>
                                             <Row gutter={8}>
                                                 <Col span={12}>
                                                     <Form.Item
@@ -254,11 +255,11 @@ function CreateRecipe() {
                                                             {
                                                                 required: true,
                                                                 whitespace: true,
-                                                                message: "Please input direaction or delete this field.",
+                                                                message: intl.formatMessage(messages.inputDirection),
                                                             },
                                                         ]}
                                                     >
-                                                        <Input placeholder="Input" />
+                                                        <Input placeholder={intl.formatMessage(messages.directionPlaceholder)} />
                                                     </Form.Item>
                                                 </Col>
                                                 <Col span={1}>
@@ -302,7 +303,7 @@ function CreateRecipe() {
                                         {
                                             required: true,
                                             whitespace: true,
-                                            message: "Require",
+                                            message: intl.formatMessage(messages.require),
                                         },
                                     ]}
                                 />
@@ -317,7 +318,7 @@ function CreateRecipe() {
                                         {
                                             required: true,
                                             whitespace: true,
-                                            message: "Require",
+                                            message: intl.formatMessage(messages.require),
                                         },
                                     ]}
                                 />
@@ -332,7 +333,7 @@ function CreateRecipe() {
                                         {
                                             required: true,
                                             whitespace: true,
-                                            message: "Require",
+                                            message: intl.formatMessage(messages.require),
                                         },
                                     ]}
                                 />
@@ -360,7 +361,7 @@ function CreateRecipe() {
                                     danger
                                     onClick={onCancel}
                                 >
-                                    Cancel
+                                    <FormattedMessage {...messages.cancelBtn} />
                                 </Button>
                             </Col>
                             <Col>

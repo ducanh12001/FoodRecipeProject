@@ -12,6 +12,9 @@ import { makeToolsSelector } from './selectors';
 import { Helmet } from 'react-helmet';
 import PageHeaderWrapper from 'components/PageHeaderWrapper';
 
+import messages from './messages';
+import { FormattedMessage } from 'react-intl';
+
 const key = 'menuHome';
 
 const stateSelector = createStructuredSelector({
@@ -32,13 +35,17 @@ function ToolPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Tips and Tools</title>
-      </Helmet>
+      <FormattedMessage {...messages.toolHelmetTitle}>
+        {(title) => (
+          <Helmet>
+            <title>{title}</title>
+          </Helmet>
+        )}
+      </FormattedMessage>
       <PageHeaderWrapper
-        title="Tips and Tools"
+        title={<FormattedMessage {...messages.tips} />}
         imageSrc = 'toolImage.jpg'
-        description = "Get expert advice and top-rated reviews on everything from major kitchen appliances to cool new cookware and and the latest and fun food products."
+        description = {<FormattedMessage {...messages.tipsDescription} />}
       >
         <div>
           

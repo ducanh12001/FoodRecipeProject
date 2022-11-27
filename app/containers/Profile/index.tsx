@@ -42,17 +42,17 @@ function Profile() {
           items={[
             {
               key: '1',
-              label: 'Personal Info',
+              label: <FormattedMessage {...messages.personalInfo} />,
               children: <PersonInfo user={user} />,
             },
             {
               key: '2',
-              label: 'My recipes',
+              label: <FormattedMessage {...messages.myRecipe} />,
               children: <MyRecipe />,
             },
             {
               key: '3',
-              label: 'Change Password',
+              label: <FormattedMessage {...messages.changePassword} />,
               children: <ChangePassword />,
             }
           ]}

@@ -50,16 +50,16 @@ const FooterComponent = () => {
         </Row>
         <Row className='footer-menu'>
           <Col span={6}>
-            <Link to='' className='footer-menu-item'>Trending</Link>
+            <Link to='' className='footer-menu-item'><FormattedMessage {...messages.trending} /></Link>
           </Col>
           <Col span={6}>
-            <Link to='' className='footer-menu-item'>News</Link>
+            <Link to='' className='footer-menu-item'><FormattedMessage {...messages.news} /></Link>
           </Col>
           <Col span={6}>
-            <Link to='' className='footer-menu-item'>Following</Link>
+            <Link to='' className='footer-menu-item'><FormattedMessage {...messages.following} /></Link>
           </Col>
           <Col span={6}>
-            <Link to='' className='footer-menu-item'>About us</Link>
+            <Link to='' className='footer-menu-item'><FormattedMessage {...messages.aboutUs} /></Link>
           </Col>
         </Row>
         <Row>

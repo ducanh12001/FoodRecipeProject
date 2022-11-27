@@ -17,6 +17,9 @@ import { makeIsLoggedSelector } from 'containers/App/selectors';
 import { queryRecipesAction } from './actions';
 import { makeRecipesSelector } from './selectors';
 
+import messages from 'containers/RecipeHome/messages';
+import { FormattedMessage } from 'react-intl';
+
 const { Text, Title, Paragraph } = Typography;
 
 const key = 'recipeHome';
@@ -67,8 +70,8 @@ function RecipeHome() {
 			<div className="transporter">
 				<div className="transporter-header">
 					<div className="transporter-header-inner">
-						<span>More From</span>
-						<Link to="">Meals & Cooking</Link>
+						<span><FormattedMessage {...messages.moreFrom} /></span>
+						<Link to=""><FormattedMessage {...messages.mealCooking} /></Link>
 					</div>
 				</div>
 				<div className="transporter-list">
