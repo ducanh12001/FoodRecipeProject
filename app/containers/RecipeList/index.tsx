@@ -11,6 +11,8 @@ import { useInjectReducer } from 'utils/injectReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { useIntl } from 'react-intl'
 import { queryRecipesAction } from './actions'
+import messages from 'containers/RecipeList/messages';
+import { FormattedMessage } from 'react-intl';
 
 const key = "recipeList"
 
@@ -38,8 +40,8 @@ function RecipeList() {
                 <img className="title-image" src="" />
             </div>
             <div className="recipe-type-title">
-                <h1>Recipes</h1>
-                <div className="description">Find the perfect food and drink ideas for every occasion, from weeknight dinners to holiday feasts.</div>
+                <h1><FormattedMessage {...messages.recipes} /></h1>
+                <div className="description"><FormattedMessage {...messages.description} /></div>
             </div>
             <div className="food-container">
                 <List
@@ -75,7 +77,7 @@ function RecipeList() {
                                     </Link>
                                     <div className="recipe-detail">
                                         <Rate disabled allowHalf value={dish.rate} />
-                                        <div>1000 ratings</div>
+                                        <div>1000 <FormattedMessage {...messages.rating} /></div>
                                     </div>
                                 </Card>
                             </List.Item>

@@ -11,6 +11,9 @@ import { createStructuredSelector } from 'reselect';
 import { makeRecipeByIdSelector } from 'containers/MenuHome/selectors';
 import { getRecipeByIdAction } from 'containers/MenuHome/actions';
 
+import messages from './messages';
+import { FormattedMessage } from 'react-intl';
+
 const key = "menuHome"
 
 const { Title } = Typography;
@@ -77,17 +80,17 @@ function RecipeDetail() {
                 <h1>{recipeById.name}</h1>
                 <div className="recipe-detail-user">
                     <Avatar src="https://joeschmoe.io/api/v1/random" />
-                    <span className="mr-6 ml-6">by</span>
+                    <span className="mr-6 ml-6"><FormattedMessage {...messages.by} /></span>
                     <div className="username mr-6">Jack</div>
                     <div>Updated: {moment(recipeById.last_updated).format('HH:mm DD/MM/YYYY')}</div>
                 </div>
                 <div className="recipe-rate">
                     <Rate disabled allowHalf value={4} />
-                    <div className="ml-6">1000 ratings</div>
+                    <div className="ml-6">1000 <FormattedMessage {...messages.rating} /></div>
                 </div>
                 <div className="recipe-btn">
-                    <Button className="btn mr-12">Save Recipe</Button>
-                    <Button className="btn">Share</Button>
+                    <Button className="btn mr-12"><FormattedMessage {...messages.saveRecipeBtn} /></Button>
+                    <Button className="btn"><FormattedMessage {...messages.shareBtn} /></Button>
                 </div>
             </div>
             <div className="recipe-detail-main">
@@ -98,26 +101,26 @@ function RecipeDetail() {
                                 <div className="description">This recipe doesn't require much thought early in the morning, and tastes great!</div>
                             </Col>
                             <Col span={24}>
-                                <Image src="" preview={false} />
+                                <Image src={''} preview={false} />
                             </Col>
                             <Col span={24}>
                                 <Row className="recipe-time">
                                     <Col span={8} className="time-col">
-                                        <div className="time-title">Yield</div>
-                                        <span>{recipeById.time.yields} servings</span>
+                                        <div className="time-title"><FormattedMessage {...messages.yield} /></div>
+                                        <span>{recipeById.time?.yields} <FormattedMessage {...messages.serving} /></span>
                                     </Col>
                                     <Col span={8} className="time-col">
-                                        <div className="time-title">Prep Time</div>
-                                        <span>5 mins</span>
+                                        <div className="time-title"><FormattedMessage {...messages.prepTime} /></div>
+                                        <span>{recipeById.time?.preptime} <FormattedMessage {...messages.minutes} /></span>
                                     </Col>
                                     <Col span={8} className="time-col">
-                                        <div className="time-title">Cook Time</div>
-                                        <span>5 mins</span>
+                                        <div className="time-title"><FormattedMessage {...messages.cookTime} /></div>
+                                        <span>{recipeById.time?.cooktime} <FormattedMessage {...messages.minutes} /></span>
                                     </Col>
                                 </Row>
                             </Col>
                             <Col span={24} className="ingredient">
-                                <Title level={2}>Ingredients</Title>
+                                <Title level={2}><FormattedMessage {...messages.ingredient} /></Title>
                                 <ul className="ingredient-list">
                                     {recipeById.ingredients?.map((d:any, index:number) => (
                                         <li key={index}>{d.name}</li>
@@ -125,7 +128,7 @@ function RecipeDetail() {
                                 </ul>
                             </Col>
                             <Col span={24} className="step">
-                                <Title level={2}>Directions</Title>
+                                <Title level={2}><FormattedMessage {...messages.direction} /></Title>
                                 <ol className="step-list">
                                     {recipeById.steps?.map((d:any, index:number) => (
                                         <li key={index}>{d.content}</li>
@@ -133,7 +136,7 @@ function RecipeDetail() {
                                 </ol>
                             </Col>
                             <Col span={24} className="review">
-                                <h2>Reviews (1,466)</h2>
+                                <h2><FormattedMessage {...messages.comments} /> (1,466)</h2>
                                 {comments.length > 0 && <CommentList comments={comments} />}
                                 <Comment
                                     avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}
@@ -144,7 +147,7 @@ function RecipeDetail() {
                                             </Form.Item>
                                             <Form.Item>
                                                 <Button htmlType="submit" loading={submitting} onClick={handleSubmit} type="primary">
-                                                    Thêm bình luận
+                                                    <FormattedMessage {...messages.addCommentBtn} />
                                                 </Button>
                                             </Form.Item>
                                         </>

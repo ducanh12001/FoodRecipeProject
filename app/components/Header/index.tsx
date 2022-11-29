@@ -70,17 +70,17 @@ function HeaderComponent(props: any) {
     <Menu 
       items={[
         {
-          label: 'Profile',
+          label: <FormattedMessage {...messages.profile} />,
           icon: <UserOutlined />,
           key: '1',
         },
         {
-          label: 'Add recipe',
+          label: <FormattedMessage {...messages.addRecipes} />,
           icon :<PlusCircleOutlined />,
           key: '2'
         },
         {
-          label: 'Favourite ricipes',
+          label: <FormattedMessage {...messages.favoriteRecipes} />,
           icon: <HeartOutlined />,
           key: '3'
         },
@@ -138,19 +138,19 @@ function HeaderComponent(props: any) {
             mode="horizontal"
             items={[
               {
-                label: 'DINNERS',
+                label: <FormattedMessage {...messages.dinners} />,
                 key: "1"
               },
               {
-                label: 'RECIPES',
+                label: <FormattedMessage {...messages.recipes} />,
                 key: "2"
               },
               {
-                label: 'FOOD NEWS',
+                label: <FormattedMessage {...messages.foodNews} />,
                 key: "3"
               },
               {
-                label: 'TIPS & TOOLS',
+                label: <FormattedMessage {...messages.tips} />,
                 key: "4"
               },
             ]}

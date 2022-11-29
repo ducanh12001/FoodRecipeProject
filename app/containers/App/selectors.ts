@@ -5,6 +5,8 @@ interface User {
   email: string | null | undefined;
   id: number,
   phone: string,
+  name: string,
+  profile_image: string | null,
 }
 
 interface Props {

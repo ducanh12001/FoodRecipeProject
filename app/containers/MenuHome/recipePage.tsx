@@ -14,6 +14,8 @@ import PageHeaderWrapper from 'components/PageHeaderWrapper';
 import messages from './messages';
 import { Col, Image, Row, Typography } from 'antd';
 
+import { FormattedMessage } from 'react-intl';
+
 const { Title } = Typography;
 const key = 'menuHome';
 
@@ -35,18 +37,22 @@ function RecipePage() {
 
   return (
     <>
-      <Helmet>
-        <title>Recipes</title>
-      </Helmet>
+      <FormattedMessage {...messages.recipeHelmetTitle}>
+        {(title) => (
+          <Helmet>
+            <title>{title}</title>
+          </Helmet>
+        )}
+      </FormattedMessage>
       <PageHeaderWrapper
-        title='Recipes'
+        title={<FormattedMessage {...messages.recipes} />}
         imageSrc='recipesImage.jpg'
-        description='Find the perfect food and drink ideas for every occasion, from weeknight dinners to holiday feasts.'
+        description={<FormattedMessage {...messages.recipesDescription} />}
       >
         <div className="content-box">
           <div className="content-title">
-            <h2 className="title">Most Popular</h2>
-            <span>Must-try dishes.</span>
+            <h2 className="title"><FormattedMessage {...messages.mostPopular} /></h2>
+            <span><FormattedMessage {...messages.mostPopularDescription} /></span>
           </div>
           <Row gutter={[24, 16]}>
             {
@@ -77,8 +83,8 @@ function RecipePage() {
           </Row>
         </div>
         <div className="content-box">
-          <Title>Recipes for special diets</Title>
-          <span>Actually delicious meals for keto, gluten-free, and more.</span>
+          <Title><FormattedMessage {...messages.diet} /></Title>
+          <span><FormattedMessage {...messages.dietDescription} /></span>
           <div>
             {
 

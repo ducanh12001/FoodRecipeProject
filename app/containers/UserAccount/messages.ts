@@ -150,4 +150,12 @@ export default defineMessages({
     id: `${scope}.positionStaff`,
     defaultMessage: 'Nhân viên',
   },
+  notValidTypeError:{
+    id: `${scope}.notValidTypeError`,
+    defaultMessage: 'is not a valid file type!',
+  },
+  sizeTooBigError:{
+    id: `${scope}.sizeTooBigError`,
+    defaultMessage: 'Avatar cannot be greater than 2mb',
+  },
 });

@@ -30,7 +30,7 @@ client.interceptors.response.use(
         // eslint-disable-next-line no-underscore-dangle
         originalConfig._retry = true;
         try {
-          await client.post('/refresh', {}, { withCredentials: true });
+          await client.post('/refresh', {},);
           return client(originalConfig);
         } catch (_error) {
           return Promise.reject(_error);

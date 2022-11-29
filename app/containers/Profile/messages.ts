@@ -33,4 +33,16 @@ export default defineMessages({
     id: `${scope}.genderFemale`,
     defaultMessage: 'Nữ',
   },
+  personalInfo:{
+    id: `${scope}.personalInfo`,
+    defaultMessage: 'Personal Info',
+  },
+  myRecipe:{
+    id: `${scope}.myRecipe`,
+    defaultMessage: 'My Recipe',
+  },
+  changePassword:{
+    id: `${scope}.changePassword`,
+    defaultMessage: 'Change Password',
+  },
 });

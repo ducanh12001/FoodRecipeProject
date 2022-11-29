@@ -36,4 +36,20 @@ export default defineMessages({
     id: `${scope}.language`,
     defaultMessage: 'Language',
   },
+  trending: {
+    id: `${scope}.trending`,
+    defaultMessage: 'Trending',
+  },
+  news: {
+    id: `${scope}.news`,
+    defaultMessage: 'News',
+  },
+  following: {
+    id: `${scope}.following`,
+    defaultMessage: 'Following',
+  },
+  aboutUs: {
+    id: `${scope}.aboutUs`,
+    defaultMessage: 'About Us',
+  },
 });

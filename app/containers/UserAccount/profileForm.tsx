@@ -101,10 +101,10 @@ export default function ProfileForm() {
       const checkExtension = validExtension.includes(file.type);
       const validSize = file.size / 1024 / 1024 <= 2;
       if (!checkExtension) {
-        message.error(`${file.name} is not a valid file type!`);
+        message.error(`${file.name} ` + intl.formatMessage(messages.notValidTypeError));
       }
       if (!validSize) {
-        message.error('Avatar cannot be greater than 2mb');
+        message.error(intl.formatMessage(messages.sizeTooBigError));
       }
       return checkExtension && validSize ? true : Upload.LIST_IGNORE;
     },
