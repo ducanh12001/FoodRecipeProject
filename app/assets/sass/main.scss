@@ -14,7 +14,9 @@
 @import 'components/typography';
 @import 'components/pagination';
 
+@import 'layout/navbar';
 @import 'layout/footer';
+@import 'layout/Market/Market.module.scss';
 
 @import 'pages/home';
 @import 'pages/user-account';

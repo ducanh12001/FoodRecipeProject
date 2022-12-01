@@ -18,7 +18,6 @@ import { RecipeType, ResponseDataType } from 'type/type.recipe';
 
 export function* handleSubmitForm() {
   const formValues: object = yield select(makeFormValuesSelector());
-  console.log("1", formValues);
   const requestUrl = `${RECIPE_URL}`;
   const payload = ApiEndpoint.makeApiPayload(
     requestUrl,
@@ -28,7 +27,6 @@ export function* handleSubmitForm() {
   );
   try {
     yield call(request, payload);
-    console.log(222);
     yield put(clearFormFieldAction());
     yield put(asyncEndAction());
     yield showAlert('success', 'Success');

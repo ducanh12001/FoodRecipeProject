@@ -10,7 +10,7 @@ import { useInjectSaga } from 'utils/injectSaga';
 import { queryToolsAction } from './actions';
 import { makeToolsSelector } from './selectors';
 import { Helmet } from 'react-helmet';
-import PageHeaderWrapper from 'components/PageHeaderWrapper';
+import PageCommonWrapper from 'components/PageCommonWrapper';
 
 import messages from './messages';
 import { FormattedMessage } from 'react-intl';
@@ -42,15 +42,15 @@ function ToolPage() {
           </Helmet>
         )}
       </FormattedMessage>
-      <PageHeaderWrapper
-        title={<FormattedMessage {...messages.tips} />}
+      <PageCommonWrapper
+        title={messages.tips}
         imageSrc = 'toolImage.jpg'
-        description = {<FormattedMessage {...messages.tipsDescription} />}
+        description = {messages.tipsDescription}
       >
         <div>
           
         </div>
-      </PageHeaderWrapper>
+      </PageCommonWrapper>
     </>
   )
 }

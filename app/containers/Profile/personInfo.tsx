@@ -9,7 +9,7 @@ function PersonInfo({ user }: any) {
     const navigate = useNavigate();
     return (
         <>
-        <div className="ais-table profile-details-card">
+        <div className="manage-table profile-details-card">
             <Descriptions labelStyle={{ fontWeight: 700 }} column={{ xs: 1, sm: 1, md: 2, lg: 2, xl: 2 }}>
                 <Descriptions.Item label={<FormattedMessage {...commonMessage.nameLabel} />}>{user.fullName}</Descriptions.Item>
                 <Descriptions.Item label={<FormattedMessage {...commonMessage.emailLabel} />}>{user.email}</Descriptions.Item>

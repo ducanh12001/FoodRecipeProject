@@ -1,33 +1,37 @@
 import React from 'react';
 import { MessageDescriptor, useIntl } from 'react-intl';
+import { AvatarProps, PageHeader } from 'antd';
 import history from 'utils/history';
-import 'components/PageHeaderWrapper/index.less';
-
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 interface PageHeaderWrapperProps {
-  //title: MessageDescriptor;
-  title: string;
+  backUrl: string | null;
+  hasBack: boolean;
+  ghost: boolean;
+  title: MessageDescriptor;
+  subtitle?: MessageDescriptor | null;
+  extra?: React.ReactNode;
+  avatar?: AvatarProps;
   children: React.ReactNode;
-  imageSrc: string | null;
-  description: string;
 }
 
 const PageHeaderWrapper = (props: PageHeaderWrapperProps) => {
   const intl = useIntl();
-  const { children, title, imageSrc, description } = props;
+  const naviagate = useNavigate();
+  const { ghost = false, children, title, subtitle, extra, avatar, hasBack = true, backUrl } = props;
 
   return (
-    <div className="common-page">
-      <div className="common-page-header">
-        {imageSrc &&
-        <img className="title-image" src={require(`../../assets/images/headImage/${imageSrc}`)} alt="" />
-        }
-      </div>
-      <div className="common-page-title">
-        <h1>{title}</h1>
-        <div className="description">{description}</div>
-      </div>
+    <PageHeader
+      backIcon={hasBack ? (<ArrowLeftOutlined/>) : false}
+      ghost={ghost}
+      onBack={() => backUrl ? naviagate(backUrl) : history.back()}
+      title={intl.formatMessage(title)}
+      subTitle={subtitle ? intl.formatMessage(subtitle) : null}
+      extra={extra}
+      avatar={avatar}
+    >
       {children}
-    </div>
+    </PageHeader>
   );
 };
 

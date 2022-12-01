@@ -1,6 +1,5 @@
 import { BackTop, Drawer, Layout } from 'antd';
-import HeaderComponent from 'components/Header';
-import 'components/Layout/index.less';
+import 'components/ManageLayout/index.less';
 import LoadingIndicator from 'components/LoadingIndicator';
 import AlertMessage from 'containers/AlertMessage';
 import {
@@ -16,6 +15,8 @@ import React, { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
+import ManageHeader from './manageHeader';
+import MenuComponent from './Menu';
 
 const { Sider, Content } = Layout;
 const WIDTH = 992;
@@ -47,14 +48,37 @@ const ManageLayoutPage = () => {
       const rect = document.body.getBoundingClientRect();
       const needCollapse = rect.width < WIDTH;
       dispatch(toggleCollapseAction(needCollapse));
+
+      setWidth();
     };
   }, []);
 
+  function setWidth() {
+    let cart = document.getElementById("cart");
+    let bottomBar = document.getElementById("bottomBar");
+    if (cart && bottomBar) {
+      let style = window.getComputedStyle(cart);
+      let wdt = style.getPropertyValue('width');
+      bottomBar.style.width = wdt;
+    }
+  }
+
   return (
-    <Layout className="layout-page">
-      {
+    <Layout className="manage-layout-page">
+      <ManageHeader collapsed={collapsed} toggle={toggle} />
+      <Layout>
+        {isLogged ? 
         !isMobile ? (
-          <HeaderComponent />
+          <Sider
+            className="manage-layout-page-sider"
+            trigger={null}
+            collapsible
+            collapsed={collapsed}
+            collapsedWidth={60}
+            breakpoint="md"
+          >
+            <MenuComponent />
+          </Sider>
         ) : (
           <Drawer
             width="200"
@@ -64,11 +88,13 @@ const ManageLayoutPage = () => {
             onClose={toggle}
             visible={!collapsed}
           >
+            <MenuComponent />
           </Drawer>
         )
+        :
+        <></>
       }
-      <Layout>
-        <Content className="layout-page-content">
+        <Content className="manage-layout-page-content">
           <AlertMessage />
           <Suspense fallback={<LoadingIndicator />}>
             <Outlet />

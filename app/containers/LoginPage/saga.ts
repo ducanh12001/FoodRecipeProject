@@ -29,7 +29,6 @@ export function* attemptLogin() {
     var response:object = yield call(request, requestPayload);
     
     localStorage.setItem('ACCESS_TOKEN', response?.data?.accessToken);
-    localStorage.setItem('REFRESH_TOKEN', response?.data?.refreshToken);
     localStorage.setItem('ACCOUNT_LOGIN', response?.data?.email);
     //yield put(clearSnackMessageAction());
     yield put(getProfileAction());

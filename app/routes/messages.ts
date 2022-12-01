@@ -19,53 +19,32 @@ export default defineMessages({
     id: `${scope}.userPage`,
     defaultMessage: `User Management`,
   },
-
   settings: {
     id: `${scope}.settings`,
     defaultMessage: `Settings`,
   },
-  order: {
-    id: `${scope}.order`,
-    defaultMessage: `My Orders`,
+  recipe: {
+    id: `${scope}.recipe`,
+    defaultMessage: `My Recipes`,
   },
-  market: {
-    id: `${scope}.market`,
-    defaultMessage: `Market`,
+  recipes: {
+    id: `${scope}.recipes`,
+    defaultMessage: `Recipes`
   },
-  product: {
-    id: `${scope}.product`,
-    defaultMessage: `My Products`,
+  dinners: {
+    id: `${scope}.dinners`,
+    defaultMessage: 'Dinners',
   },
-  productCategory: {
-    id: `${scope}.productCategory`,
-    defaultMessage: `Product Category`
+  news: {
+    id: `${scope}.news`,
+    defaultMessage: 'News',
   },
-  productUnit: {
-    id: `${scope}.productUnit`,
-    defaultMessage: `Product Unit`
+  tools: {
+    id: `${scope}.tools`,
+    defaultMessage: 'Tools',
   },
-  deliveryArea: {
-    id: `${scope}.deliveryArea`,
-    defaultMessage: `Delivery Area`
-  },
-  variantType:{
-    id: `${scope}.variantType`,
-    defaultMessage: `Variant Type`
-  },
-  orders: {
-    id: `${scope}.orders`,
-    defaultMessage: `Orders`
-  },
-  buyerOrder: {
-    id: `${scope}.buyerOrder`,
-    defaultMessage: `Buyer Order`
-  },
-  sellerOrder: {
-    id: `${scope}.sellerOrder`,
-    defaultMessage: `Seller Order`
-  },
-  companies: {
-    id: `${scope}.companies`,
-    defaultMessage: `Companies`
+  books: {
+    id: `${scope}.books`,
+    defaultMessage: 'Books',
   }
 });

@@ -141,12 +141,12 @@ function RegisterForm(props: any) {
                     required: true,
                     message: (
                       <FormattedMessage
-                        {...commonMessage.companyNameRequired}
+                        {...commonMessage.nameRequired}
                       />
                     ),
                   },
                 ]}
-                placeholder={commonMessage.companyNamePlaceHolder}
+                placeholder={commonMessage.namePlaceHolder}
               />
             </Col>
           </Row>

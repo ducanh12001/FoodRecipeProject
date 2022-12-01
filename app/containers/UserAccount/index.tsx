@@ -14,7 +14,7 @@ import ProfileForm from 'containers/UserAccount/profileForm';
 import messages from 'containers/UserAccount/messages';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Helmet } from 'react-helmet';
-import PageHeaderWrapper from 'components/PageHeaderWrapper';
+import PageCommonWrapper from 'components/PageCommonWrapper';
 
 const { TabPane } = Tabs;
 const key = 'userAccount';
@@ -33,12 +33,9 @@ export default function UserAccount() {
           </Helmet>
         )}
       </FormattedMessage>
-      <PageHeaderWrapper
-          title={messages.pageHeader}
-          ghost={false}
-          subtitle={undefined}
-          children={[]} extra={undefined} avatar={null}/>
-      <div className="ais-table profile-details-card">
+      <PageCommonWrapper
+          title={messages.pageHeader}/>
+      <div className="manage-table profile-details-card">
         <ProfileForm />
       </div>
     </>

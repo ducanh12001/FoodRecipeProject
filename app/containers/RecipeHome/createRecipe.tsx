@@ -37,7 +37,7 @@ const stateSelector = createStructuredSelector({
   });
 
 
-function CreateRecipe() {
+function CreateRecipeHome() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -380,4 +380,4 @@ function CreateRecipe() {
     )
 }
 
-export default CreateRecipe
+export default CreateRecipeHome

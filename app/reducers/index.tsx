@@ -15,6 +15,8 @@ import userAccountReducer from 'containers/UserAccount/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 import changePasswordReducer from 'containers/ChangePassword/reducer';
 import recipeHomeReducer from 'containers/RecipeHome/reducer';
+import manageRecipeReducer from 'containers/ManageRecipe/reducer';
+import manageDinnerReducer from 'containers/ManageDinner/reducer';
 
 /**
  * Merges the main reducer with the router state and dynamically injected reducers
@@ -33,6 +35,8 @@ export default function createReducer(injectedReducers = {}) {
     changePassword: changePasswordReducer,
     verifyPage: verifyPageReducer,
     userAccount: userAccountReducer,
+    manageRecipe: manageRecipeReducer,
+    manageDinner: manageDinnerReducer,
     ...injectedReducers,
   });
 }

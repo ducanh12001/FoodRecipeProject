@@ -50,7 +50,6 @@ export function* handleLogout() {
     //yield call(request, payload);
     localStorage.removeItem('ACCOUNT_LOGIN');
     localStorage.removeItem('ACCESS_TOKEN');
-    localStorage.removeItem('REFRESH_TOKEN');
     localStorage.removeItem('USER_ID');
     localStorage.removeItem('state');
     
@@ -67,9 +66,15 @@ export function* handleLogout() {
 
 export function* handleRefreshToken() {
   yield put(asyncStartAction());
-
+  const requestUrl = ApiEndpoint.getRefreshTokenPath();
+  const requestPayload = ApiEndpoint.makeApiPayload(
+    requestUrl,
+    POST,
+    {},
+    null,
+  );
   try {
-    yield put(JSON.parse(localStorage.getItem('REFRESH_TOKEN') || ''));
+    yield call(request, requestPayload);
     yield put(getProfileAction());
   } catch (error) {
     yield put(isLoggedErrorAction());

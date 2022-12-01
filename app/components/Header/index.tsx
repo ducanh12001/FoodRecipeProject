@@ -62,7 +62,7 @@ function HeaderComponent(props: any) {
     } else if (key === '4') {
       dispatch(logoutAction())
     } else if (key === '5') {
-      navigate('/home')
+      navigate('/manage-recipe')
     }
   }
 

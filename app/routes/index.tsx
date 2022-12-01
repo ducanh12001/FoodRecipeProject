@@ -13,15 +13,30 @@ import ResetPassword from 'containers/ResetPassword/Loadable';
 import UserAccount from 'containers/UserAccount/Loadable';
 import VerifyAccount from 'containers/VerifyAccount/Loadable';
 import { useRoutes } from 'react-router-dom';
-import RecipeType from 'containers/RecipeType';
 import RecipeList from 'containers/RecipeList';
 import RecipeDetail from 'containers/RecipeDetail';
 import LoveRecipe from 'containers/LoveRecipe';
-import CreateRecipe from 'containers/RecipeHome/createRecipe';
 import DinnerPage from 'containers/MenuHome/dinnerPage';
 import NewsPage from 'containers/MenuHome/newsPage';
 import ToolPage from 'containers/MenuHome/toolPage';
 import RecipePage from 'containers/MenuHome/recipePage';
+import ManageLayoutPage from 'components/ManageLayout';
+import ManageRecipe from 'containers/ManageRecipe';
+import ManageDinner from 'containers/ManageDinner';
+import ManageTool from 'containers/ManageTool';
+import ManageNews from 'containers/ManageNews';
+import CreateRecipeHome from 'containers/RecipeHome/createRecipe';
+import CreateRecipe from 'containers/ManageRecipe/createRecipe';
+import EditRecipe from 'containers/ManageRecipe/editRecipe';
+import CreateDinner from 'containers/ManageDinner/createDinner';
+import EditDinner from 'containers/ManageDinner/editDinner';
+import EditNews from 'containers/ManageNews/editNews';
+import CreateNews from 'containers/ManageNews/createNews';
+import EditTool from 'containers/ManageTool/editTool';
+import CreateTool from 'containers/ManageTool/createTool';
+import EditBook from 'containers/ManageBook/editBook';
+import CreateBook from 'containers/ManageBook/createBook';
+import ManageBook from 'containers/ManageBook';
 
 const routes = [
   {
@@ -156,7 +171,7 @@ const routes = [
           <PrivateRoute
             path="/create-recipe"
           >
-              <CreateRecipe />
+              <CreateRecipeHome />
           </PrivateRoute>
         ),
       },
@@ -211,6 +226,166 @@ const routes = [
         ),
       },
     ],
+  },
+  {
+    path: '',
+    element: (
+      <PrivateRoute>
+        <ManageLayoutPage />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: '/manage-recipe',
+        element: (
+          <PrivateRoute
+            path="/manage-recipe"
+          >
+            <ManageRecipe />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-recipe/create',
+        element: (
+          <PrivateRoute
+            path="/manage-recipe"
+          >
+            <CreateRecipe />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-recipe/edit/:id',
+        element: (
+          <PrivateRoute
+            path="/manage-recipe"
+          >
+            <EditRecipe />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-dinner',
+        element: (
+          <PrivateRoute
+            path="/manage-dinner"
+          >
+            <ManageDinner />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-dinner/create',
+        element: (
+          <PrivateRoute
+            path="/manage-dinner"
+          >
+            <CreateDinner />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-dinner/edit/:id',
+        element: (
+          <PrivateRoute
+            path="/manage-dinner"
+          >
+            <EditDinner />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-tool',
+        element: (
+          <PrivateRoute
+            path="/manage-tool"
+          >
+            <ManageTool />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-tool/create',
+        element: (
+          <PrivateRoute
+            path="/manage-tool"
+          >
+            <CreateTool />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-tool/edit/:id',
+        element: (
+          <PrivateRoute
+            path="/manage-tool"
+          >
+            <EditTool />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-news',
+        element: (
+          <PrivateRoute
+            path="/manage-news"
+          >
+            <ManageNews />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-news/create',
+        element: (
+          <PrivateRoute
+            path="/manage-news"
+          >
+            <CreateNews />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-news/edit/:id',
+        element: (
+          <PrivateRoute
+            path="/manage-news"
+          >
+            <EditNews />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-book',
+        element: (
+          <PrivateRoute
+            path="/manage-book"
+          >
+            <ManageBook />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-book/create',
+        element: (
+          <PrivateRoute
+            path="/manage-book"
+          >
+            <CreateBook />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/manage-book/edit/:id',
+        element: (
+          <PrivateRoute
+            path="/manage-book"
+          >
+            <EditBook />
+          </PrivateRoute>
+        ),
+      },
+    ]
   },
   {
     path: '*',

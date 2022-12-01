@@ -14,6 +14,8 @@ export default class ApiEndpoint {
 
   static getProfilePath = () => PROFILE_PATH;
 
+  static getRefreshTokenPath = () => `/refresh-token`;
+
   /**
    * Make API payload
    * @param url

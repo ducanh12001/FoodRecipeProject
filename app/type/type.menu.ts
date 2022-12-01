@@ -14,3 +14,23 @@ export type MenuInitialState = {
   newById: object,
   toolById: object,
 };
+
+export type MenuSingle = {
+  name: any;
+  icon: React.ReactNode;
+  key: string;
+  path?: string;
+  method?: string;
+  resource: string;
+  defaultPermission: boolean;
+  children?: SubMenu[];
+};
+export type SubMenu = {
+  name: any;
+  icon: React.ReactNode;
+  key: string;
+  path: string;
+  method: string;
+  resource: string;
+  defaultPermission: boolean;
+};

@@ -31,10 +31,6 @@ export default defineMessages({
     id: `${scope}.submit`,
     defaultMessage: 'Submit',
   },
-  companyName: {
-    id: `${scope}.companyName`,
-    defaultMessage: 'Company name',
-  },
   phoneNumber: {
     id: `${scope}.phoneNumber`,
     defaultMessage: 'Phone number',
