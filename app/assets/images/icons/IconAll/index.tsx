@@ -16,10 +16,12 @@ import IconDetail from './Icon-Detail-Market-Product-Management.svg';
 import UserAvatar from './User-Avatar-Market-User.svg';
 import ConfirmDelete from './ConfirmDelete.svg';
 import ArrowUp from './Arrow-Up.svg';
-import ConfirmIcon from './confirm-icon.svg'
-import EvaluateIcon from './evaluate-icon.svg'
+import ConfirmIcon from './confirm-icon.svg';
+import EvaluateIcon from './evaluate-icon.svg';
+import MenuIcon from './Menu-Icon.svg';
 
 const icons = {
+  MenuIcon,
   MenuUserIcon,
   MenuRequestIcon,
   BellIcon,

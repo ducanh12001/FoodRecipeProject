@@ -35,7 +35,6 @@ import { checkIfStrongPassword, checkPasswordLength } from 'common/validator';
 import usePasswordStrengthCheckHook from 'common/hooks/passwordStrengthHook';
 import AlertMessage from 'containers/AlertMessage';
 import FormWrapper from 'components/FormWrapper';
-import PageHeaderWrapper from 'components/PageHeaderWrapper';
 
 const key = 'ChangePassword';
 
@@ -113,7 +112,7 @@ export default function ChangePassword() {
           </Helmet>
         )}
       </FormattedMessage>
-      <div className="ais-table">
+      <div className="manage-table">
         <Title level={2}>{intl.formatMessage(messages.pageHeader)}</Title>
         <Row>
           <Col xl={8} lg={12} md={12} sm={24}>

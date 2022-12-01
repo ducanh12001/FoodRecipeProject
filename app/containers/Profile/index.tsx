@@ -7,7 +7,6 @@
 import React from 'react';
 import { Button, Descriptions, Tabs } from 'antd';
 import commonMessage from 'common/messages';
-import PageHeaderWrapper from 'components/PageHeaderWrapper';
 import { makeLoggedInUserSelector } from 'containers/App/selectors';
 import messages from 'containers/Profile/messages';
 import Helmet from 'react-helmet';

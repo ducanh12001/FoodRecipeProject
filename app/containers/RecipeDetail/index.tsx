@@ -101,21 +101,21 @@ function RecipeDetail() {
                                 <div className="description">This recipe doesn't require much thought early in the morning, and tastes great!</div>
                             </Col>
                             <Col span={24}>
-                                <Image src="" preview={false} />
+                                <Image src={''} preview={false} />
                             </Col>
                             <Col span={24}>
                                 <Row className="recipe-time">
                                     <Col span={8} className="time-col">
                                         <div className="time-title"><FormattedMessage {...messages.yield} /></div>
-                                        <span>4 <FormattedMessage {...messages.serving} /></span>
+                                        <span>{recipeById.time?.yields} <FormattedMessage {...messages.serving} /></span>
                                     </Col>
                                     <Col span={8} className="time-col">
                                         <div className="time-title"><FormattedMessage {...messages.prepTime} /></div>
-                                        <span>5 <FormattedMessage {...messages.minutes} /></span>
+                                        <span>{recipeById.time?.preptime} <FormattedMessage {...messages.minutes} /></span>
                                     </Col>
                                     <Col span={8} className="time-col">
                                         <div className="time-title"><FormattedMessage {...messages.cookTime} /></div>
-                                        <span>5 <FormattedMessage {...messages.minutes} /></span>
+                                        <span>{recipeById.time?.cooktime} <FormattedMessage {...messages.minutes} /></span>
                                     </Col>
                                 </Row>
                             </Col>
@@ -131,7 +131,7 @@ function RecipeDetail() {
                                 <Title level={2}><FormattedMessage {...messages.direction} /></Title>
                                 <ol className="step-list">
                                     {recipeById.steps?.map((d:any, index:number) => (
-                                        <li key={index}></li>
+                                        <li key={index}>{d.content}</li>
                                     ))}
                                 </ol>
                             </Col>

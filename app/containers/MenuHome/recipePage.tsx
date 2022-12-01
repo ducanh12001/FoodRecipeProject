@@ -10,7 +10,7 @@ import { useInjectSaga } from 'utils/injectSaga';
 import { queryRecipesAction } from './actions';
 import { makeRecipesSelector } from './selectors';
 import { Helmet } from 'react-helmet';
-import PageHeaderWrapper from 'components/PageHeaderWrapper';
+import PageCommonWrapper from 'components/PageCommonWrapper';
 import messages from './messages';
 import { Col, Image, Row, Typography } from 'antd';
 
@@ -44,10 +44,10 @@ function RecipePage() {
           </Helmet>
         )}
       </FormattedMessage>
-      <PageHeaderWrapper
-        title={<FormattedMessage {...messages.recipes} />}
+      <PageCommonWrapper
+        title={messages.recipes}
         imageSrc='recipesImage.jpg'
-        description={<FormattedMessage {...messages.recipesDescription} />}
+        description={messages.recipesDescription}
       >
         <div className="content-box">
           <div className="content-title">
@@ -91,7 +91,7 @@ function RecipePage() {
             }
           </div>
         </div>
-      </PageHeaderWrapper>
+      </PageCommonWrapper>
     </>
   )
 }

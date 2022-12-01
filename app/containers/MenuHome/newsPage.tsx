@@ -10,7 +10,7 @@ import { useInjectSaga } from 'utils/injectSaga';
 import { queryNewsAction } from './actions';
 import { makeNewsSelector } from './selectors';
 import { Helmet } from 'react-helmet';
-import PageHeaderWrapper from 'components/PageHeaderWrapper';
+import PageCommonWrapper from 'components/PageCommonWrapper';
 import { Typography } from 'antd';
 
 import messages from './messages';
@@ -45,15 +45,15 @@ function NewsPage() {
           </Helmet>
         )}
       </FormattedMessage>
-      <PageHeaderWrapper
-        title={<FormattedMessage {...messages.foodNews} />}
+      <PageCommonWrapper
+        title={messages.foodNews}
         imageSrc = {null}
-        description = ''
+        description={messages.foodNews}
       >
         <div>
           <Title></Title>
         </div>
-      </PageHeaderWrapper>
+      </PageCommonWrapper>
     </>
   )
 }

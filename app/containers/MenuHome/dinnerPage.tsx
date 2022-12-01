@@ -10,7 +10,7 @@ import { useInjectSaga } from 'utils/injectSaga';
 import { makeDinnersSelector } from './selectors';
 import { queryDinnersAction } from './actions';
 import { Helmet } from 'react-helmet';
-import PageHeaderWrapper from 'components/PageHeaderWrapper';
+import PageCommonWrapper from 'components/PageCommonWrapper';
 import { Col, Image, Row } from 'antd';
 
 import messages from './messages';
@@ -43,10 +43,10 @@ function DinnerPage() {
           </Helmet>
         )}
       </FormattedMessage>
-      <PageHeaderWrapper
-        title= {<FormattedMessage {...messages.weeknightDinners} />}
+      <PageCommonWrapper
+        title= {messages.weeknightDinners}
         imageSrc = 'dinnerImage.jpg'
-        description = {<FormattedMessage {...messages.weeknightDinnersDescription} />}
+        description = {messages.weeknightDinnersDescription}
       >
         <div className="content-box">
           <div className="content-title">
@@ -65,8 +65,8 @@ function DinnerPage() {
                 >
                   <Link to="" className="flex-col">
                     <div className="mb-10">
-                      {d.dinner_list && d.dinner_list[0].picture ?
-                        <Image src={d.dinner_list[0].picture} />
+                      {d.dinner_list && d.dinner_list[0]?.picture ?
+                        <Image src={d.dinner_list[0]?.picture || ''} />
                         :
                         <img src={require('../../assets/images/NoImageAvailable.jpg')} />
                       }
@@ -78,7 +78,7 @@ function DinnerPage() {
             }
           </Row>
         </div>
-      </PageHeaderWrapper>
+      </PageCommonWrapper>
     </>
   )
 }

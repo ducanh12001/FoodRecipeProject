@@ -37,7 +37,7 @@ const stateSelector = createStructuredSelector({
   });
 
 
-function CreateRecipe() {
+function CreateRecipeHome() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -55,14 +55,12 @@ function CreateRecipe() {
         let productMedias = new Array<any>();
         if (imageLinks.length > 0) {
           productMedias = productMedias.concat(
-            imageLinks.map((item, index) => ({
-              name: item.name,
-              path: item.path,
-              position: index,
-              type: 1,
-            })),
+            imageLinks.map((item, index) => {
+                return item.path;
+            }),
           );
         } 
+        
         let formVal = form.getFieldsValue();
         let steps = formVal.steps.map((d:any, index:number) => {
             return {
@@ -79,6 +77,9 @@ function CreateRecipe() {
                     preptime: formVal.preptime, 
                     cooktime: formVal.cooktime,
                     yields: formVal.yields
+                },
+                author_id: {
+                    $oid: localStorage.getItem('USER_ID')
                 }
             })
         )
@@ -379,4 +380,4 @@ function CreateRecipe() {
     )
 }
 
-export default CreateRecipe
+export default CreateRecipeHome

@@ -136,8 +136,8 @@ export default defineMessages({
     id: `${scope}.usernamePlaceHolder`,
     defaultMessage: 'Nhập tên đăng nhập!',
   },
-  companyNamePlaceHolder: {
-    id: `${scope}.companyNamePlaceHolder`,
+  namePlaceHolder: {
+    id: `${scope}.namePlaceHolder`,
     defaultMessage: 'Nhập tên!',
   },
   addressPlaceHolder: {
@@ -187,10 +187,6 @@ export default defineMessages({
   emailPlaceHolder: {
     id: `${scope}.emailPlaceHolder`,
     defaultMessage: 'Nhập email',
-  },
-  companyTypeLabel: {
-    id: `${scope}.companyTypeLabel`,
-    defaultMessage: 'Loại thành viên',
   },
   positionLabel: {
     id: `${scope}.positionLabel`,
@@ -269,8 +265,8 @@ export default defineMessages({
     id: `${scope}.nameRequired`,
     defaultMessage: 'Vui lòng nhập tên!',
   },
-  companyNameRequired: {
-    id: `${scope}.companyNameRequired`,
+  nameRequired: {
+    id: `${scope}.nameRequired`,
     defaultMessage: 'Vui lòng nhập tên!',
   },
   confirmPasswordRequired: {

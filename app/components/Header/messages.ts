@@ -28,10 +28,6 @@ export default defineMessages({
     id: `${scope}.login`,
     defaultMessage: 'Login',
   },
-  textAddToCartSuccess:{
-    id: `${scope}.textAddToCartSuccess`,
-    defaultMessage: 'Sản phẩm đã được thêm vào Giỏ hàng',
-  },
   dinners:{
     id: `${scope}.dinners`,
     defaultMessage: 'DINNERS',
