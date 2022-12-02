@@ -21,6 +21,7 @@ const EmptyFields = {
   confirmPassword: '',
   contactAddress: '',
   accept: false,
+  otp: ''
 };
 
 export const initialState = {

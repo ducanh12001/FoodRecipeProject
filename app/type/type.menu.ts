@@ -13,6 +13,7 @@ export type MenuInitialState = {
   recipeById: RecipeType,
   newById: object,
   toolById: object,
+  dinnerById: object,
 };
 
 export type MenuSingle = {

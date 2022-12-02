@@ -11,10 +11,14 @@ export const ASSIGN_BOOKS = 'containers/MenuHome/ASSIGN_BOOKS';
 export const ASSIGN_TOOLS = 'containers/MenuHome/ASSIGN_TOOLS';
 
 export const SET_ID = 'containers/MenuHome/SET_ID';
-export const GET_RECIPE_BY_ID = 'containers/MenuHome/GET_RECIPE_BY_ID';
 export const ASSIGN_RECIPE_BY_ID = 'containers/MenuHome/ASSIGN_RECIPE_BY_ID';
+export const ASSIGN_NEW_BY_ID = 'containers/MenuHome/ASSIGN_NEW_BY_ID';
+export const ASSIGN_TOOL_BY_ID = 'containers/MenuHome/ASSIGN_TOOL_BY_ID';
+export const ASSIGN_DINNER_BY_ID = 'containers/MenuHome/ASSIGN_DINNER_BY_ID';
+export const GET_RECIPE_BY_ID = 'containers/MenuHome/GET_RECIPE_BY_ID';
 export const GET_NEWS_BY_ID = 'containers/MenuHome/GET_NEWS_BY_ID';
 export const GET_TOOL_BY_ID = 'containers/MenuHome/GET_TOOL_BY_ID';
+export const GET_DINNER_BY_ID = 'containers/MenuHome/GET_DINNER_BY_ID';
 
 export const ASYNC_END = 'containers/MenuHome/ASYNC_END';
 export const ASYNC_START = 'containers/MenuHome/ASYNC_START';

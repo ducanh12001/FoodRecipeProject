@@ -113,6 +113,7 @@ function EditRecipeForm() {
   }, []);
 
   useEffect(() => {
+    form.resetFields();
     setExistingImages(
       recipe?.pictures?.map((item: any) => ({
         name: item.name,

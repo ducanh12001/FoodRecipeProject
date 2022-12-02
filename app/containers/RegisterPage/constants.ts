@@ -13,5 +13,6 @@ export const ASYNC_END = `${DOMAIN}ASYNC_END`;
 export const SET_FORM_VALUES = `${DOMAIN}SET_FORM_VALUES`;
 export const CLEAR_FORM_VALUES = `${DOMAIN}CLEAR_FORM_VALUES`;
 export const SEND_CODE_REGISTER = `${DOMAIN}SEND_CODE_REGISTER`;
+export const OTP_PROCESS = `${DOMAIN}OTP_PROCESS`;
 
 export const CONFIRM_EMAIL_URL = '/api/auth/confirm-email'

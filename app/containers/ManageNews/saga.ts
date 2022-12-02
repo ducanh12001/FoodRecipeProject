@@ -27,6 +27,7 @@ export function* handleSubmitForm() {
   yield put(asyncStartAction());
   const formValues: object = yield select(makeFormValuesSelector());
   const formMethod: string = yield select(makeFormMethodSelector());
+  console.log('12', formMethod)
   const id: string = yield select(makeIdSelector());
   const requestUrl = `${NEW_URL}/${formMethod === PUT ? `${id}` : ''}`;
 

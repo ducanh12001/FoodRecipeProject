@@ -34,6 +34,10 @@ import CreateTool from 'containers/ManageTool/createTool';
 import EditBook from 'containers/ManageBook/editBook';
 import CreateBook from 'containers/ManageBook/createBook';
 import ManageBook from 'containers/ManageBook';
+import OtpPage from 'containers/RegisterPage/otpPage';
+import NewsDetail from 'containers/MenuHome/newsDetail';
+import DinnerDetail from 'containers/MenuHome/dinnerDetail';
+import ToolDetail from 'containers/MenuHome/toolDetail';
 
 const routes = [
   {
@@ -73,6 +77,14 @@ const routes = [
     element: (
       <PublicRoute>
         <VerifyAccount />
+      </PublicRoute>
+    ),
+  },
+  {
+    path: 'verify-email',
+    element: (
+      <PublicRoute>
+        <OtpPage />
       </PublicRoute>
     ),
   },
@@ -193,6 +205,16 @@ const routes = [
         ),
       },
       {
+        path: '/dinner-cooking/:id',
+        element: (
+          <PrivateRoute
+            path="/dinner-cooking"
+          >
+            <DinnerDetail />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: '/recipe-ideas',
         element: (
           <PrivateRoute
@@ -213,12 +235,32 @@ const routes = [
         ),
       },
       {
+        path: '/news-detail/:id',
+        element: (
+          <PrivateRoute
+            path="/news-detail"
+          >
+            <NewsDetail />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: '/kitchen-tools',
         element: (
           <PrivateRoute
             path="/kitchen-tools"
           >
               <ToolPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/kitchen-tools/:id',
+        element: (
+          <PrivateRoute
+            path="/kitchen-tools"
+          >
+            <ToolDetail />
           </PrivateRoute>
         ),
       },

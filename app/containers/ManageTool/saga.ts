@@ -50,7 +50,7 @@ export function* handleSubmitForm() {
         ? commonMessage.updateSuccess
         : commonMessage.addSuccess;
     yield showFormattedAlert('success', message);
-    yield call(forwardTo, '/manage-recipe');
+    yield call(forwardTo, '/manage-tool');
   } catch (error: any) {
     yield put(asyncEndAction());
     yield showAlert('error', error.data.message);

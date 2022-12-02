@@ -14,6 +14,9 @@ import {
   ASSIGN_TOOLS,
   SET_ID,
   ASSIGN_RECIPE_BY_ID,
+  ASSIGN_NEW_BY_ID,
+  ASSIGN_TOOL_BY_ID,
+  ASSIGN_DINNER_BY_ID,
 } from './constants';
 
 export const initialState = {
@@ -36,7 +39,8 @@ export const initialState = {
   id: undefined,
   recipeById: {},
   newById: {},
-  toolById: {}
+  toolById: {},
+  dinnerById: {}
 };
 
 const menuHomeReducer = produce((draft, action) => {
@@ -63,6 +67,18 @@ const menuHomeReducer = produce((draft, action) => {
       break;
     case ASSIGN_RECIPE_BY_ID:
       draft.recipeById = action.recipeById;
+      draft.isLoading = false;
+      break;
+    case ASSIGN_NEW_BY_ID:
+      draft.newById = action.newById;
+      draft.isLoading = false;
+      break;
+    case ASSIGN_TOOL_BY_ID:
+      draft.toolById = action.toolById;
+      draft.isLoading = false;
+      break;
+    case ASSIGN_DINNER_BY_ID:
+      draft.dinnerById = action.dinnerById;
       draft.isLoading = false;
       break;
     case SET_ID:

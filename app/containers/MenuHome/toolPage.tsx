@@ -3,7 +3,7 @@ import saga from 'containers/MenuHome/saga';
 import reducer from 'containers/MenuHome/reducer';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
@@ -14,6 +14,7 @@ import PageCommonWrapper from 'components/PageCommonWrapper';
 
 import messages from './messages';
 import { FormattedMessage } from 'react-intl';
+import { Col, Image, Row } from 'antd';
 
 const key = 'menuHome';
 
@@ -47,8 +48,31 @@ function ToolPage() {
         imageSrc = 'toolImage.jpg'
         description = {messages.tipsDescription}
       >
-        <div>
-          
+        <div className="content-box">
+          <div className="content-title">
+            <h2 className="title">TOP-RATED SMALL APPLIANCES</h2>
+            <span>We partnered with the Good Housekeeping Institute to identify the best kitchen appliances based on rigorous testing and analysis at the ​​Kitchen Appliances & Culinary Innovation Lab.</span>
+          </div>
+          <Row gutter={[24, 32]}>
+            {
+              tools.data.map((d: any) => (
+                <Col key={d._id} className="content-item"
+                  xs={24} 
+                  sm={24}
+                  md={12}
+                  lg={12}
+                  xl={8}
+                >
+                  <Link to={`/kitchen-tools/${d._id}`} className="flex-col">
+                    <div className="mb-10">
+                      <Image width='100%' height={400} preview={false} src={require('../../assets/images/tool.jpg')} />
+                    </div>
+                    <div>{d.title}</div>
+                  </Link>
+                </Col>
+              ))
+            }
+          </Row>
         </div>
       </PageCommonWrapper>
     </>

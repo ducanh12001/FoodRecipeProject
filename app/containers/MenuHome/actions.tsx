@@ -17,6 +17,10 @@ import {
     GET_TOOL_BY_ID,
     SET_ID,
     ASSIGN_RECIPE_BY_ID,
+    ASSIGN_NEW_BY_ID,
+    ASSIGN_TOOL_BY_ID,
+    ASSIGN_DINNER_BY_ID,
+    GET_DINNER_BY_ID,
 } from './constants';
 
 export function asyncStartAction() {
@@ -98,39 +102,64 @@ export function assignBooksAction(books: ResponseDataType) {
 
 export function getRecipeByIdAction(id: string) {
     return {
-      type: GET_RECIPE_BY_ID,
-      id
+        type: GET_RECIPE_BY_ID,
+        id
     };
 }
 
 export function getNewByIdAction(id: string) {
     return {
-      type: GET_NEWS_BY_ID,
-      id
+        type: GET_NEWS_BY_ID,
+        id
     };
 }
 
 export function getToolByIdAction(id: string) {
     return {
-      type: GET_TOOL_BY_ID,
-      id
+        type: GET_TOOL_BY_ID,
+        id
+    };
+}
+
+export function getDinnerByIdAction(id: string) {
+    return {
+        type: GET_DINNER_BY_ID,
+        id
     };
 }
 
 export function assignRecipeByIdAction(recipeById: object) {
     return {
-      type: ASSIGN_RECIPE_BY_ID,
-      recipeById,
+        type: ASSIGN_RECIPE_BY_ID,
+        recipeById,
     };
-  }
-  
+}
 
+export function assignNewsByIdAction(newById: object) {
+    return {
+        type: ASSIGN_NEW_BY_ID,
+        newById,
+    };
+}
+
+export function assignToolByIdAction(toolById: object) {
+    return {
+        type: ASSIGN_TOOL_BY_ID,
+        toolById,
+    };
+}
+
+export function assignDinnerByIdAction(dinnerById: object) {
+    return {
+        type: ASSIGN_DINNER_BY_ID,
+        dinnerById,
+    };
+}
 
 export function setIdAction(id: string) {
     return {
-      type: SET_ID,
-      id,
+        type: SET_ID,
+        id,
     };
-  }
-  
-  
+}
+

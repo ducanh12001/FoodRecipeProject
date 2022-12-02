@@ -3,10 +3,13 @@ import ApiEndpoint from 'utils/api';
 import request from 'utils/request';
 import {
   assignBooksAction,
+  assignDinnerByIdAction,
   assignDinnersAction,
   assignNewsAction,
+  assignNewsByIdAction,
   assignRecipeByIdAction,
   assignRecipesAction,
+  assignToolByIdAction,
   assignToolsAction,
   asyncEndAction,
   asyncStartAction,
@@ -15,7 +18,10 @@ import { GET, POST, PUT } from 'utils/constants';
 import { 
   BOOK_URL,
   DINNER_URL,
+  GET_DINNER_BY_ID,
+  GET_NEWS_BY_ID,
   GET_RECIPE_BY_ID,
+  GET_TOOL_BY_ID,
   NEWS_URL,
   QUERY_BOOKS,
   QUERY_DINNERS,
@@ -105,6 +111,44 @@ export function* handleGetRecipeById(data: any) {
   }
 }
 
+export function* handleGetNewsById(data: any) {
+  yield put(asyncStartAction());
+  const requestUrl = `${NEWS_URL}/${data.id}`;
+  const payload = ApiEndpoint.makeApiPayload(requestUrl, GET, null, false);
+  try {
+    const response: object = yield call(request, payload);
+    yield put(assignNewsByIdAction(response.data));
+    yield put(asyncEndAction());
+  } catch (error) {
+    yield put(asyncEndAction());
+  }
+}
+
+export function* handleGetToolById(data: any) {
+  yield put(asyncStartAction());
+  const requestUrl = `${TOOL_URL}/${data.id}`;
+  const payload = ApiEndpoint.makeApiPayload(requestUrl, GET, null, false);
+  try {
+    const response: object = yield call(request, payload);
+    yield put(assignToolByIdAction(response.data));
+    yield put(asyncEndAction());
+  } catch (error) {
+    yield put(asyncEndAction());
+  }
+}
+
+export function* handleGetDinnerById(data: any) {
+  yield put(asyncStartAction());
+  const requestUrl = `${DINNER_URL}/${data.id}`;
+  const payload = ApiEndpoint.makeApiPayload(requestUrl, GET, null, false);
+  try {
+    const response: object = yield call(request, payload);
+    yield put(assignDinnerByIdAction(response.data));
+    yield put(asyncEndAction());
+  } catch (error) {
+    yield put(asyncEndAction());
+  }
+}
 
 export default function* marketStorePageSaga() {
   yield takeLatest(QUERY_RECIPES, handleQueryRecipesList);
@@ -113,4 +157,7 @@ export default function* marketStorePageSaga() {
   yield takeLatest(QUERY_BOOKS, handleQueryBooksList);
   yield takeLatest(QUERY_TOOLS, handleQueryToolsList);
   yield takeLatest(GET_RECIPE_BY_ID, handleGetRecipeById);
+  yield takeLatest(GET_NEWS_BY_ID, handleGetNewsById);
+  yield takeLatest(GET_TOOL_BY_ID, handleGetToolById);
+  yield takeLatest(GET_DINNER_BY_ID, handleGetDinnerById);
 }

@@ -65,7 +65,7 @@ function NewsPage() {
                   lg={12}
                   xl={8}
                 >
-                  <Link to={``} >
+                  <Link to={`/news-detail/${d._id}`} >
                     <Row gutter={[16, 16]} className="flex-center">
                       <Col
                         span={24}

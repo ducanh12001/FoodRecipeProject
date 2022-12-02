@@ -324,5 +324,17 @@ export default defineMessages({
   minutes: {
     id: `${scope}.minutes`,
     defaultMessage: 'Phút'
-  }
+  },
+  otp: {
+    id: `${scope}.otp`,
+    defaultMessage: 'Mã Otp'
+  },
+  otpPlaceholder: {
+    id: `${scope}.otpPlaceholder`,
+    defaultMessage: 'Nhập mã OTP'
+  },
+  otpRequired: {
+    id: `${scope}.otpRequired`,
+    defaultMessage: 'Vui lòng nhập mã!',
+  },
 });

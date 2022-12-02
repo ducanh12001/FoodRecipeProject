@@ -1,0 +1,90 @@
+.news-detail {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    &-head {
+        text-align: center;
+        h1 {
+            font-weight: 900;
+            font-size: 2.5rem;
+        }
+    }
+    &-main {
+        margin: 0 100px;
+
+        img {
+            object-fit: cover;
+        }
+
+        p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+
+        .dinner-list {
+            .dinner-title {
+                display: flex;
+                align-items: center;
+
+                .dinner-index {
+                    font-size: 30px;
+                    font-weight: bold;
+                    color: #1a5661;
+                }
+
+                h2 {
+                    font-size: 30px;
+                    font-weight: bold;
+                    margin-left: 10px;
+                    color: #1a5661;
+                }
+            }
+
+            .pros-cons {
+                margin: 1.25rem 0;
+                padding: 0;
+                width: 70%;
+
+                .pros, .cons {
+                    border: .0625rem solid #d9dadd;
+                    padding: 1.25rem;
+                    font-size: 1rem;
+                }
+
+                h3 {
+                    font-size: 1.2rem;
+                    line-height: 1.2;
+                    font-weight: 800;
+                }
+
+                .pros h3 {
+                    color: #1a5661;
+                }
+
+                .cons h3 {
+                    color: red;
+                }
+
+                .pros-list, .cons-list {
+                    margin: 1rem 0 0;
+                    list-style-type: none;
+                    padding-left: 0;
+                }
+
+                .pros-item, .cons-item {
+                    font-size: 1.125rem;
+                    line-height: 1.7;
+                }
+
+                .like-icon {
+                    color: #1a5661;
+                    margin-right: 10px;
+                }
+
+                .dislike-icon {
+                    color: red;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}

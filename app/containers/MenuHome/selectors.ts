@@ -53,6 +53,8 @@ const makeNewByIdSelector = () =>
 const makeToolByIdSelector = () =>
   createSelector(selectMenuHome, (substate: MenuInitialState) => substate.toolById);
 
+const makeDinnerByIdSelector = () =>
+  createSelector(selectMenuHome, (substate: MenuInitialState) => substate.dinnerById);
 
 export {
   makeIsLoadingSelector,
@@ -64,5 +66,6 @@ export {
   makeIdSelector,
   makeRecipeByIdSelector,
   makeNewByIdSelector,
-  makeToolByIdSelector
+  makeToolByIdSelector,
+  makeDinnerByIdSelector
 };
