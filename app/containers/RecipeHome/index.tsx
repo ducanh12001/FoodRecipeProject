@@ -54,9 +54,9 @@ function RecipeHome() {
 								md={8}
 								lg={4}
 							>
-								<Link to="" style={{ textDecoration: 'none', color: 'initial' }}>
+								<Link to={`/recipe-detail/${d._id}`} style={{ textDecoration: 'none', color: 'initial' }}>
 									<Row className="item-image">
-										{d.pictures[0] ?
+										{d.pictures && d.pictures[0] ?
 											<img src={d.pictures[0]} />
 											:
 											<img src={require('../../assets/images/NoImageAvailable.jpg')} />

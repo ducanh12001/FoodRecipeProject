@@ -49,6 +49,7 @@ function ManageNews() {
 
   const onCreate = () => {
     onchangeFormMethod(POST);
+    loadInitialProduct();
     navigate('/manage-news/create');
   };
 
@@ -63,7 +64,6 @@ function ManageNews() {
   };
 
   useEffect(() => {
-    resetTableParams();
     dispatch(queryNewsAction());
   }, []);
 

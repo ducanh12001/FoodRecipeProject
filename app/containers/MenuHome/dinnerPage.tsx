@@ -63,15 +63,11 @@ function DinnerPage() {
                   lg={12}
                   xl={8}
                 >
-                  <Link to="" className="flex-col">
+                  <Link to={`/dinner-cooking/${d._id}`} className="flex-col">
                     <div className="mb-10">
-                      {d.dinner_list && d.dinner_list[0]?.picture ?
-                        <Image src={d.dinner_list[0]?.picture || ''} />
-                        :
-                        <img src={require('../../assets/images/NoImageAvailable.jpg')} />
-                      }
+                      <Image width='100%' height={400} preview={false} src={require('../../assets/images/dinner.png')} />
                     </div>
-                    <div className="item-name">{d.title}</div>
+                    <div>{d.title}</div>
                   </Link>
                 </Col>
               ))

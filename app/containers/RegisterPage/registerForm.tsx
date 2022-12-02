@@ -68,11 +68,6 @@ const selectLayout = {
   },
 };
 
-const options = [
-  { label: 'Seller', value: 1 },
-  { label: 'Buyer', value: 2 },
-];
-
 function RegisterForm(props: any) {
   const { intl } = props;
   const dispatch = useDispatch();

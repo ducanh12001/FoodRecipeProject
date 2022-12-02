@@ -26,6 +26,10 @@ export default defineMessages({
     id: `${scope}.helmetRegisterTitle`,
     defaultMessage: 'Registration - Page',
   },
+  verifiPageTitle: {
+    id: `${scope}.verifiPageTitle`,
+    defaultMessage: 'Verify Email - Page'
+  },
   createAccount: {
     id: `${scope}.createAccount`,
     defaultMessage: 'Create an account',
@@ -71,4 +75,8 @@ export default defineMessages({
     id: `${scope}.termsAndConditions`,
     defaultMessage: 'Terms and conditions',
   },
+  verify: {
+    id: `${scope}.verify`,
+    defaultMessage: 'Xác thực'
+  }
 });

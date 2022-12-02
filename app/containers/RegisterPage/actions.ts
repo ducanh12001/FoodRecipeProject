@@ -14,6 +14,7 @@ import {
   SET_FORM_VALUES,
   CLEAR_FORM_VALUES,
   SEND_CODE_REGISTER,
+  OTP_PROCESS,
 } from 'containers/RegisterPage/constants';
 
 export function setFormValuesAction(formValues: object) {
@@ -55,15 +56,20 @@ export function enterRegisterAction() {
   };
 }
 
+export function enterOtpAction() {
+  return {
+    type: OTP_PROCESS,
+  };
+}
+
 export function registerSuccessAction() {
   return {
     type: REGISTER_SUCCESS,
   };
 }
 
-export function sendCodeRegisterAction(code: string) {
+export function sendCodeRegisterAction() {
   return {
     type: SEND_CODE_REGISTER,
-    code
   }
 }

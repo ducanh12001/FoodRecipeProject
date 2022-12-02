@@ -35,7 +35,7 @@ const formItemLayout = {
 const stateSelector = createStructuredSelector({
     loading: makeIsLoadingSelector(),
     errors: makeErrorSelector(),
-  });
+});
 
 
 function ToolForm() {
@@ -52,13 +52,13 @@ function ToolForm() {
         await form.validateFields();
         let productMedias = new Array<any>();
         if (imageLinks.length > 0) {
-          productMedias = productMedias.concat(
-            imageLinks.map((item, index) => {
-                return item.path;
-            }),
-          );
-        } 
-        
+            productMedias = productMedias.concat(
+                imageLinks.map((item, index) => {
+                    return item.path;
+                }),
+            );
+        }
+
         let formVal = form.getFieldsValue();
         dispatch(
             setFormValues({
@@ -80,9 +80,9 @@ function ToolForm() {
 
     useEffect(() => {
         if (errors?.length) {
-          form.setFields(errors);
+            form.setFields(errors);
         }
-      }, [errors]);
+    }, [errors]);
 
     return (
         <>
@@ -95,22 +95,6 @@ function ToolForm() {
             >
                 <Row>
                     <Col span={24}>
-                        <Row>
-                            <Col span={24}>
-                                <div className="product-media-description">
-                                    <Text className="ant-form-item-label">
-                                        <span className="add-form-label" style={{ marginRight: 6 }}><FormattedMessage {...homeMessages.photoLabel} /></span>
-                                        <Tooltip
-                                            placement="bottom"
-                                            title={intl.formatMessage(homeMessages.picture)}
-                                        >
-                                            <InfoCircleOutlined />
-                                        </Tooltip>
-                                    </Text>
-                                </div>
-                                <ImageUpload onSubmit={onImageUploaded} />
-                            </Col>
-                        </Row>
                         <Row>
                             <Col span={24}>
                                 <FormInputWrapper
@@ -131,9 +115,9 @@ function ToolForm() {
                                     ]}
                                 />
                                 <FormInputWrapper
-                                    label={homeMessages.descriptionLabel}
-                                    name="description"
-                                    id="description"
+                                    label={messages.contentCol}
+                                    name="content"
+                                    id="content"
                                     required
                                     textarea
                                     rows={5}

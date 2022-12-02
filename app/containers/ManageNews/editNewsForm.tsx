@@ -52,8 +52,6 @@ function EditNewsForm() {
 
   const [imageLinks, setImageLinks] = useState(new Array<any>());
   const [existingImages, setExistingImages] = useState(new Array<any>());
-  const ingredientInitValues = Array.from({ length: 2 }, () => ({ name: "" }));
-  const dirInitValues = Array.from({ length: 2 }, () => ({ content: "" }));
 
   const onFinish = async () => {
     await form.validateFields();
@@ -102,6 +100,7 @@ function EditNewsForm() {
   }, []);
 
   useEffect(() => {
+    form.resetFields();
     setExistingImages(
       perNews?.pictures?.map((item: any) => ({
         name: item.name,

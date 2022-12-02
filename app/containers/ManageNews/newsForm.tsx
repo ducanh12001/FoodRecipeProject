@@ -7,7 +7,7 @@ import FormInputWrapper from '../../components/FormInputWrapper';
 import FormButtonWrapper from '../../components/FormButtonWrapper';
 import ImageUpload from './imageUpload';
 import { useDispatch } from 'react-redux';
-import { setFormValues, submitFormAction } from './actions';
+import { setFormMethodAction, setFormValues, submitFormAction } from './actions';
 import { makeErrorSelector, makeIsLoadingSelector } from './selectors';
 import { createStructuredSelector } from 'reselect';
 import { useSelector } from 'react-redux';
@@ -16,6 +16,7 @@ import { useIntl } from 'react-intl';
 import messages from './messages';
 import homeMessages from 'containers/RecipeHome/messages';
 import { FormattedMessage } from 'react-intl';
+import { POST } from 'utils/constants';
 
 const { Title, Text } = Typography;
 
@@ -84,6 +85,10 @@ function NewsForm() {
         }
       }, [errors]);
 
+    useEffect(() => {
+        dispatch(setFormMethodAction(POST));
+    }, []);
+    
     return (
         <>
             <FormWrapper

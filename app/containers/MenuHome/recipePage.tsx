@@ -87,12 +87,12 @@ function RecipePage() {
           </Row>
         </div>
         <div className="content-box">
-          <Title><FormattedMessage {...messages.diet} /></Title>
-          <span><FormattedMessage {...messages.dietDescription} /></span>
+          <div className="content-title">
+            <h2 className="title"><FormattedMessage {...messages.diet} /></h2>
+            <span><FormattedMessage {...messages.dietDescription} /></span>
+          </div>
           <div>
-            {
-
-            }
+            
           </div>
         </div>
       </PageCommonWrapper>

@@ -33,7 +33,6 @@ export function* handleSubmitForm() {
   if (formMethod === PUT) {
     formValues.id = id ?? '';
   }
-
   const payload = ApiEndpoint.makeApiPayload(
     requestUrl,
     formMethod,
@@ -50,7 +49,7 @@ export function* handleSubmitForm() {
         ? commonMessage.updateSuccess
         : commonMessage.addSuccess;
     yield showFormattedAlert('success', message);
-    yield call(forwardTo, '/manage-recipe');
+    yield call(forwardTo, '/manage-book');
   } catch (error: any) {
     yield put(asyncEndAction());
     yield showAlert('error', error.data.message);

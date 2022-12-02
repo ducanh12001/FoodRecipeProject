@@ -33,8 +33,8 @@ export function* handleRegister() {
       yield put(enterValidationErrorAction(response.error));
     }
     yield put(asyncEndAction());
-    yield showFormattedAlert('success', messages.registerSuccess);
-    yield put(sendRedirectAction('/login'));
+    //yield showFormattedAlert('success', messages.registerSuccess);
+    yield put(sendRedirectAction('/verify-email'));
   } catch (error: any) {
     yield put(asyncEndAction());
     if (error.data && error.data.statusCode === 422) {
@@ -44,12 +44,15 @@ export function* handleRegister() {
   }
 }
 
-export function* sendCodeRegisterAction(data:any) {
+export function* sendCodeRegisterAction() {
   yield put(asyncStartAction());
+  const formValues: object = yield select(makeFormValuesSelector());
   const requestUrl = CONFIRM_EMAIL_URL;
-  const requestPayload = ApiEndpoint.makeApiPayload(requestUrl, POST, null, null);
+  const requestPayload = ApiEndpoint.makeApiPayload(requestUrl, POST, formValues, null);
   try {
-
+    yield call(request, requestPayload);
+    yield showAlert('error', 'Xác thực thành công!');
+    yield put(sendRedirectAction('/login'));
     yield put(asyncEndAction());
   } catch (error: any) {
     yield put(asyncEndAction());

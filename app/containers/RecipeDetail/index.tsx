@@ -38,7 +38,6 @@ const stateSelector = createStructuredSelector({
     recipeById: makeRecipeByIdSelector()
 });
 
-
 function RecipeDetail() {
     useInjectSaga({ key, saga });
     useInjectReducer({ key, reducer });

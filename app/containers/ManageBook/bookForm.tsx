@@ -50,14 +50,6 @@ function BookForm() {
 
     const onFinish = async () => {
         await form.validateFields();
-        let productMedias = new Array<any>();
-        if (imageLinks.length > 0) {
-          productMedias = productMedias.concat(
-            imageLinks.map((item, index) => {
-                return item.path;
-            }),
-          );
-        } 
         
         let formVal = form.getFieldsValue();
 
@@ -95,22 +87,6 @@ function BookForm() {
             >
                 <Row>
                     <Col span={24}>
-                        <Row>
-                            <Col span={24}>
-                                <div className="product-media-description">
-                                    <Text className="ant-form-item-label">
-                                        <span className="add-form-label" style={{ marginRight: 6 }}><FormattedMessage {...homeMessages.photoLabel} /></span>
-                                        <Tooltip
-                                            placement="bottom"
-                                            title={intl.formatMessage(homeMessages.picture)}
-                                        >
-                                            <InfoCircleOutlined />
-                                        </Tooltip>
-                                    </Text>
-                                </div>
-                                <ImageUpload onSubmit={onImageUploaded} />
-                            </Col>
-                        </Row>
                         <Row>
                             <Col span={24}>
                                 <FormInputWrapper
