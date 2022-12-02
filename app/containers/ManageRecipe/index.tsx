@@ -49,7 +49,6 @@ function ManageRecipe() {
 
   const onCreate = () => {
     onchangeFormMethod(POST);
-    loadInitialProduct();
     navigate('/manage-recipe/create');
   };
 

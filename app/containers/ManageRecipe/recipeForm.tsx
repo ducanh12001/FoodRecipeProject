@@ -15,6 +15,7 @@ import { Helmet } from 'react-helmet';
 import { useIntl } from 'react-intl';
 import messages from 'containers/RecipeHome/messages';
 import { FormattedMessage } from 'react-intl';
+import commonMessages from 'common/messages';
 
 const { Title, Text } = Typography;
 
@@ -52,9 +53,9 @@ function RecipeForm() {
 
     const onFinish = async () => {
         await form.validateFields();
-        let productMedias = new Array<any>();
+        let recipeMedias = new Array<any>();
         if (imageLinks.length > 0) {
-          productMedias = productMedias.concat(
+            recipeMedias = recipeMedias.concat(
             imageLinks.map((item, index) => {
                 return item.path;
             }),
@@ -72,15 +73,13 @@ function RecipeForm() {
             setFormValues({
                 ...formVal,
                 steps,
-                pictures: productMedias,
+                pictures: recipeMedias,
                 time: {
                     preptime: formVal.preptime, 
                     cooktime: formVal.cooktime,
                     yields: formVal.yields
                 },
-                author_id: {
-                    $oid: localStorage.getItem('USER_ID')
-                }
+                author_id: localStorage.getItem('USER_ID'),
             })
         )
         dispatch(submitFormAction());
@@ -308,8 +307,11 @@ function RecipeForm() {
                                     label={messages.prepTimeLabel}
                                     name="preptime"
                                     id="prepTime"
-                                    type="text"
+                                    type="number"
                                     allowClear
+                                    min={1}
+                                    max={1000}
+                                    icon={<FormattedMessage {...commonMessages.minutes} />}
                                     required
                                     rules={[
                                         {
@@ -323,7 +325,10 @@ function RecipeForm() {
                                     label={messages.cookTimeLabel}
                                     name="cooktime"
                                     id="cookTime"
-                                    type="text"
+                                    type="number"
+                                    min={1}
+                                    max={1000}
+                                    icon={<FormattedMessage {...commonMessages.minutes} />}
                                     allowClear
                                     required
                                     rules={[
@@ -333,14 +338,6 @@ function RecipeForm() {
                                             message: intl.formatMessage(messages.require),
                                         },
                                     ]}
-                                />
-                                <FormInputWrapper
-                                    label={messages.noteLabel}
-                                    name="note"
-                                    id="note"
-                                    textarea
-                                    rows={3}
-                                    allowClear
                                 />
                             </Col>
                             <Col span={24}>

@@ -13,7 +13,8 @@ import { createStructuredSelector } from 'reselect';
 import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { useIntl } from 'react-intl';
-import messages from 'containers/RecipeHome/messages';
+import messages from './messages';
+import homeMessages from 'containers/RecipeHome/messages';
 import { FormattedMessage } from 'react-intl';
 
 const { Title, Text } = Typography;
@@ -45,9 +46,6 @@ function NewsForm() {
     const [form] = Form.useForm();
     const { loading, errors, } = useSelector(stateSelector);
 
-    const ingredientInitValues = Array.from({ length: 2 }, () => ({ name: "" }));
-    const dirInitValues = Array.from({ length: 2 }, () => ({ content: "" }));
-
     const [imageLinks, setImageLinks] = useState(new Array<any>());
 
     const onFinish = async () => {
@@ -62,25 +60,11 @@ function NewsForm() {
         } 
         
         let formVal = form.getFieldsValue();
-        let steps = formVal.steps.map((d:any, index:number) => {
-            return {
-                order: index + 1,
-                content: d.content,
-            }
-        })
         dispatch(
             setFormValues({
                 ...formVal,
-                steps,
                 pictures: productMedias,
-                time: {
-                    preptime: formVal.preptime, 
-                    cooktime: formVal.cooktime,
-                    yields: formVal.yields
-                },
-                author_id: {
-                    $oid: localStorage.getItem('USER_ID')
-                }
+                author_id: localStorage.getItem('USER_ID')
             })
         )
         dispatch(submitFormAction());
@@ -93,12 +77,6 @@ function NewsForm() {
     const onImageUploaded = (images: Array<any>) => {
         setImageLinks(images);
     };
-
-
-    useEffect(() => {
-        form.setFields([{ name: "ingredients", value: ingredientInitValues },
-        { name: "steps", value: dirInitValues }]);
-    }, []);
 
     useEffect(() => {
         if (errors?.length) {
@@ -121,10 +99,10 @@ function NewsForm() {
                             <Col span={24}>
                                 <div className="product-media-description">
                                     <Text className="ant-form-item-label">
-                                        <span className="add-form-label" style={{ marginRight: 6 }}><FormattedMessage {...messages.photoLabel} /></span>
+                                        <span className="add-form-label" style={{ marginRight: 6 }}><FormattedMessage {...homeMessages.photoLabel} /></span>
                                         <Tooltip
                                             placement="bottom"
-                                            title={intl.formatMessage(messages.picture)}
+                                            title={intl.formatMessage(homeMessages.picture)}
                                         >
                                             <InfoCircleOutlined />
                                         </Tooltip>
@@ -136,11 +114,10 @@ function NewsForm() {
                         <Row>
                             <Col span={24}>
                                 <FormInputWrapper
-                                    label={messages.recipeTitle}
-                                    name="name"
-                                    id="name"
+                                    label={messages.titleCol}
+                                    name="title"
+                                    id="title"
                                     type="text"
-                                    placeholder={messages.recipeNamePlaceholder}
                                     maxLength={200}
                                     allowClear
                                     required
@@ -148,205 +125,28 @@ function NewsForm() {
                                         {
                                             required: true,
                                             whitespace: true,
-                                            message: intl.formatMessage(messages.require),
+                                            message: intl.formatMessage(homeMessages.require),
                                         },
                                     ]}
                                 />
                                 <FormInputWrapper
-                                    label={messages.descriptionLabel}
-                                    name="description"
-                                    id="description"
+                                    label={messages.contentCol}
+                                    name="content"
+                                    id="content"
                                     required
                                     textarea
-                                    rows={5}
-                                    maxLength={2000}
+                                    rows={7}
+                                    maxLength={5000}
                                     allowClear
+                                    showCount
                                     rules={[
                                         {
                                             required: true,
                                             whitespace: true,
-                                            message: intl.formatMessage(messages.require),
+                                            message: intl.formatMessage(homeMessages.require),
                                         },
                                     ]}
                                 />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col span={24} className="add-form-label"><FormattedMessage {...messages.ingredientLabel} /></Col>
-                        </Row>
-
-                        <Form.List name="ingredients">
-                            {(fields, { add, remove }, { errors }) => (
-                                <>
-                                    {fields.map((field:any, index) => (
-                                        <Form.Item
-                                            label={''}
-                                            required={false}
-                                            key={field.key}
-                                        >
-                                            <Row gutter={8}>
-                                                <Col span={12}>
-                                                    <Form.Item
-                                                        {...field}
-                                                        name={[field.name, "name"]}
-                                                        fieldKey={[field.fieldKey, "name"]}
-                                                        validateTrigger={['onChange', 'onBlur']}
-                                                        rules={[
-                                                            {
-                                                                required: true,
-                                                                whitespace: true,
-                                                                message: intl.formatMessage(messages.inputIngredient),
-                                                            },
-                                                        ]}
-                                                    >
-                                                        <Input placeholder={intl.formatMessage(messages.ingredientPlaceholder)} />
-                                                    </Form.Item>
-                                                </Col>
-                                                <Col span={1}>
-                                                    {fields.length > 1 ? (
-                                                        <DeleteOutlined
-                                                            className="dynamic-delete-button"
-                                                            onClick={() => remove(field.name)}
-                                                        />
-                                                    ) : null}
-                                                </Col>
-                                            </Row>
-                                        </Form.Item>
-                                    ))}
-                                    <Form.Item>
-                                        <Button
-                                            type="link"
-                                            className="add-row-btn"
-                                            icon={<PlusOutlined />}
-                                            onClick={() => add()}
-                                        >
-                                            <FormattedMessage {...messages.addIngredientBtn} />
-                                        </Button>
-                                        <Form.ErrorList errors={errors} />
-                                    </Form.Item>
-                                </>
-                            )}
-                        </Form.List>
-                        <Row>
-                            <Col span={24} className="add-form-label"><FormattedMessage {...messages.directionLabel} /></Col>
-                        </Row>
-                        <Form.List name="steps"
-                        >
-                            {(fields, { add, remove }, { errors }) => (
-                                <>
-                                    {fields.map((field:any, index) => (
-                                        <Form.Item
-                                            label={''}
-                                            required={false}
-                                            key={field.key}
-                                        >
-                                            <Title level={5}>{intl.formatMessage(messages.step) + ` ${index + 1}`}</Title>
-                                            <Row gutter={8}>
-                                                <Col span={12}>
-                                                    <Form.Item
-                                                        {...field}
-                                                        name={[field.name, "content"]}
-                                                        fieldKey={[field.fieldKey, "content"]}
-                                                        validateTrigger={['onChange', 'onBlur']}
-                                                        rules={[
-                                                            {
-                                                                required: true,
-                                                                whitespace: true,
-                                                                message: intl.formatMessage(messages.inputDirection),
-                                                            },
-                                                        ]}
-                                                    >
-                                                        <Input placeholder={intl.formatMessage(messages.directionPlaceholder)} />
-                                                    </Form.Item>
-                                                </Col>
-                                                <Col span={1}>
-                                                    {fields.length > 1 ? (
-                                                        <DeleteOutlined
-                                                            className="dynamic-delete-button"
-                                                            onClick={() => remove(field.name)}
-                                                        />
-                                                    ) : null}
-                                                </Col>
-                                            </Row>
-                                        </Form.Item>
-
-                                    ))}
-                                    <Form.Item>
-                                        <Button
-                                            type="link"
-                                            className="add-row-btn"
-                                            icon={<PlusOutlined />}
-                                            onClick={() => add()}
-                                        >
-                                            Add directions
-                                        </Button>
-                                        <Form.ErrorList errors={errors} />
-                                    </Form.Item>
-                                </>
-                            )}
-                        </Form.List>
-                        <Row>
-                            <Col span={24}>
-                                <FormInputWrapper
-                                    label={messages.yieldLabel}
-                                    name="yields"
-                                    id="servings"
-                                    type="number"
-                                    allowClear
-                                    required
-                                    min={0}
-                                    max={1000}
-                                    rules={[
-                                        {
-                                            required: true,
-                                            whitespace: true,
-                                            message: intl.formatMessage(messages.require),
-                                        },
-                                    ]}
-                                />
-                                <FormInputWrapper
-                                    label={messages.prepTimeLabel}
-                                    name="preptime"
-                                    id="prepTime"
-                                    type="text"
-                                    allowClear
-                                    required
-                                    rules={[
-                                        {
-                                            required: true,
-                                            whitespace: true,
-                                            message: intl.formatMessage(messages.require),
-                                        },
-                                    ]}
-                                />
-                                <FormInputWrapper
-                                    label={messages.cookTimeLabel}
-                                    name="cooktime"
-                                    id="cookTime"
-                                    type="text"
-                                    allowClear
-                                    required
-                                    rules={[
-                                        {
-                                            required: true,
-                                            whitespace: true,
-                                            message: intl.formatMessage(messages.require),
-                                        },
-                                    ]}
-                                />
-                                <FormInputWrapper
-                                    label={messages.noteLabel}
-                                    name="note"
-                                    id="note"
-                                    textarea
-                                    rows={3}
-                                    allowClear
-                                />
-                            </Col>
-                            <Col span={24}>
-                            </Col>
-                            <Col span={24}>
-
                             </Col>
                         </Row>
                         <Row gutter={16} className="mt-10">
@@ -358,14 +158,14 @@ function NewsForm() {
                                     danger
                                     onClick={onCancel}
                                 >
-                                    <FormattedMessage {...messages.cancelBtn} />
+                                    <FormattedMessage {...homeMessages.cancelBtn} />
                                 </Button>
                             </Col>
                             <Col>
                                 <FormButtonWrapper
                                     variant="primary"
                                     form={form}
-                                    label={messages.submitBtn}
+                                    label={homeMessages.submitBtn}
                                 />
                             </Col>
                         </Row>

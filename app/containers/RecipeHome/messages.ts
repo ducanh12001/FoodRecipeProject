@@ -94,5 +94,9 @@ export default defineMessages({
   inputDirection: {
     id: `${scope}.inputIngredient`,
     defaultMessage: 'Please input direction or delete this field.'
+  },
+  recipeImageRequired: { 
+    id: `${scope}.recipeImageRequired`,
+    defaultMessage: 'Please upload image.'
   }
 });

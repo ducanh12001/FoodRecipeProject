@@ -8,7 +8,7 @@ import FormButtonWrapper from '../../components/FormButtonWrapper';
 import ImageUpload from './imageUpload';
 import { useDispatch } from 'react-redux';
 import { getRecipeByIdAction, setFormMethodAction, setFormValues, setIdAction, submitFormAction } from './actions';
-import { makeErrorSelector, makeIsLoadingSelector } from './selectors';
+import { makeErrorSelector, makeInitialValuesSelector, makeIsLoadingSelector } from './selectors';
 import { createStructuredSelector } from 'reselect';
 import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -16,6 +16,7 @@ import { useIntl } from 'react-intl';
 import messages from 'containers/RecipeHome/messages';
 import { FormattedMessage } from 'react-intl';
 import { PUT } from 'utils/constants';
+import commonMessages from 'common/messages';
 
 const formItemLayout = {
   labelCol: {
@@ -35,30 +36,55 @@ const { Title, Text } = Typography;
 const stateSelector = createStructuredSelector({
   loading: makeIsLoadingSelector(),
   errors: makeErrorSelector(),
+  recipe: makeInitialValuesSelector(),
 });
 
 function EditRecipeForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const intl = useIntl();
-  const {id} = useParams();
+  const { id } = useParams();
   const [form] = Form.useForm();
 
   const {
-    errors,
+    errors, recipe,
   } = useSelector(stateSelector);
 
   const [imageLinks, setImageLinks] = useState(new Array<any>());
   const [existingImages, setExistingImages] = useState(new Array<any>());
-  const ingredientInitValues = Array.from({ length: 2 }, () => ({ name: "" }));
-  const dirInitValues = Array.from({ length: 2 }, () => ({ content: "" }));
 
   const onFinish = async () => {
     await form.validateFields();
+    let recipeMedias = new Array<any>();
+    if (imageLinks.length > 0) {
+      recipeMedias = recipeMedias.concat(
+        imageLinks.map((item, index) => {
+          return item.path;
+        }),
+      );
+    } else {
+      message.error(intl.formatMessage(messages.recipeImageRequired));
+      return false;
+    }
 
     let formVal = form.getFieldsValue();
+    let steps = formVal.steps.map((d: any, index: number) => {
+      return {
+        order: index + 1,
+        content: d.content,
+      }
+    })
     dispatch(
       setFormValues({
+        ...formVal,
+        steps,
+        pictures: recipeMedias,
+        time: {
+          preptime: formVal.preptime,
+          cooktime: formVal.cooktime,
+          yields: formVal.yields
+        },
+        author_id: localStorage.getItem('USER_ID'),
       })
     )
     dispatch(submitFormAction());
@@ -71,26 +97,6 @@ function EditRecipeForm() {
   const onImageUploaded = (images: Array<any>) => {
     setImageLinks(images);
   };
-
-  const onNameChanged = () => {
-
-  }
-
-  const onDescriptionChanged = () => {
-
-  }
-
-  const onYieldsChanged = () => {
-
-  }
-
-  const onPrepTimeChanged = () => {
-
-  }
-
-  const onCookTimeChanged = () => {
-
-  }
 
   useEffect(() => {
     if (errors?.length) {
@@ -107,14 +113,33 @@ function EditRecipeForm() {
   }, []);
 
   useEffect(() => {
-    form.setFields([{ name: "ingredients", value: ingredientInitValues },
-    { name: "steps", value: dirInitValues }]);
-  }, []);
+    setExistingImages(
+      recipe?.pictures?.map((item: any) => ({
+        name: item.name,
+        fileName: item.name,
+        path: item,
+        url: item,
+        thumbUrl: item,
+      })) ?? []
+    );
+
+    form.setFields([
+      { name: "ingredients", value: recipe.ingredients },
+      { name: "steps", value: recipe.steps },
+    ]);
+
+    form.setFieldsValue({
+      'yields': recipe.time?.yields,
+      'preptime': String(recipe.time?.preptime),
+      'cooktime': String(recipe.time?.cooktime),
+    })
+  }, [recipe])
 
   return (
     <>
       <FormWrapper
         {...formItemLayout}
+        values={recipe}
         forminstance={form}
         onFinish={onFinish}
         name="recipe-form"
@@ -156,7 +181,6 @@ function EditRecipeForm() {
                       message: intl.formatMessage(messages.require),
                     },
                   ]}
-                  changeHandler={onNameChanged}
                 />
                 <FormInputWrapper
                   label={messages.descriptionLabel}
@@ -174,7 +198,6 @@ function EditRecipeForm() {
                       message: intl.formatMessage(messages.require),
                     },
                   ]}
-                  changeHandler={onDescriptionChanged}
                 />
               </Col>
             </Row>
@@ -301,7 +324,7 @@ function EditRecipeForm() {
                   type="number"
                   allowClear
                   required
-                  min={0}
+                  min={1}
                   max={1000}
                   rules={[
                     {
@@ -310,14 +333,16 @@ function EditRecipeForm() {
                       message: intl.formatMessage(messages.require),
                     },
                   ]}
-                  changeHandler={onYieldsChanged}
                 />
                 <FormInputWrapper
                   label={messages.prepTimeLabel}
                   name="preptime"
                   id="prepTime"
-                  type="text"
+                  type="number"
                   allowClear
+                  min={1}
+                  max={1000}
+                  icon={<FormattedMessage {...commonMessages.minutes} />}
                   required
                   rules={[
                     {
@@ -326,13 +351,15 @@ function EditRecipeForm() {
                       message: intl.formatMessage(messages.require),
                     },
                   ]}
-                  changeHandler={onPrepTimeChanged}
                 />
                 <FormInputWrapper
                   label={messages.cookTimeLabel}
                   name="cooktime"
                   id="cookTime"
-                  type="text"
+                  type="number"
+                  min={1}
+                  max={1000}
+                  icon={<FormattedMessage {...commonMessages.minutes} />}
                   allowClear
                   required
                   rules={[
@@ -342,21 +369,7 @@ function EditRecipeForm() {
                       message: intl.formatMessage(messages.require),
                     },
                   ]}
-                  changeHandler={onCookTimeChanged}
                 />
-                <FormInputWrapper
-                  label={messages.noteLabel}
-                  name="note"
-                  id="note"
-                  textarea
-                  rows={3}
-                  allowClear
-                />
-              </Col>
-              <Col span={24}>
-              </Col>
-              <Col span={24}>
-
               </Col>
             </Row>
             <Row gutter={16} className="mt-10">

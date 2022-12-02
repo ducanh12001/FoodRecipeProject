@@ -1,6 +1,6 @@
 import { Button, Image, Modal, Table } from 'antd';
-import React, { useEffect } from 'react'
-import { useIntl } from 'react-intl';
+import React, { useEffect, useState } from 'react'
+import { FormattedMessage, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import commonMessages from 'common/messages';
@@ -11,6 +11,7 @@ import { ColumnsType } from 'antd/lib/table';
 import PropTypes from 'prop-types';
 import { makeIsLoadingSelector, makeRecipesSelector } from './selectors';
 import { setIdAction } from './actions';
+import { Link } from 'react-router-dom';
 
 const stateSelector = createStructuredSelector({
     recipes: makeRecipesSelector(),
@@ -24,6 +25,8 @@ function RecipeTable(props: any) {
     const { recipes, isLoading } = useSelector(stateSelector);
     const dispatch = useDispatch();
     const intl = useIntl();
+    const [pageNumber, setPageNumber] = useState(1);
+    const [pageSize, setPageSize] = useState(10);
 
     const columns: ColumnsType<any> = [
         {
@@ -31,16 +34,21 @@ function RecipeTable(props: any) {
             dataIndex: '',
             width: '5%',
             align: 'right',
-            render: (value, record, index) => index
+            render: (value, record, index) => (pageNumber - 1) * pageSize + index + 1,
         },
         {
             title: intl.formatMessage(messages.pictureCol),
             dataIndex: 'pictures',
             key: 'pictures',
             align: 'center',
+            width: '20%',
             render: (value, record, index) => {
                 return (<>
-                    {value && value[0] ? <Image src={value[0]} /> : <></>}
+                    {value && value[0] ? 
+                    <Image width='100%' height={100} src={value[0]}
+                        style={{objectFit: 'scale-down'}}
+                    /> 
+                    : <></>}
                 </>)
             }
         },
@@ -48,6 +56,18 @@ function RecipeTable(props: any) {
             title: intl.formatMessage(messages.nameCol),
             dataIndex: 'name',
             key: 'name',
+            sorter: (a: any, b: any) => {
+                let fa = a.name.toLowerCase(),
+                    fb = b.name.toLowerCase();
+                if (fa < fb) {
+                    return -1;
+                }
+                if (fa > fb) {
+                    return 1;
+                }
+                return 0;
+            },
+            render: (value, record, index) => <Link to=''>{value}</Link>
         },
         {
             title: intl.formatMessage(messages.detailLabel),
@@ -74,9 +94,26 @@ function RecipeTable(props: any) {
         },
     ];
 
+    const paginationOptions = {
+        showSizeChanger: true,
+        showQuickJumper: true,
+        onChange: (page: number, pageSize: number) => {
+            setPageNumber(page);
+            setPageSize(pageSize);
+        },
+        pageSizeOptions: [5, 10, 20],
+        total: recipes?.data?.length,
+        showTotal: (total: number, range: Array<number>) => (
+            <FormattedMessage
+                {...commonMessages.pagination}
+                values={{ start: range[0], end: range[1], total }}
+            />
+        ),
+    };
+
     useEffect(() => {
         dispatch(setIdAction(''));
-      }, []);
+    }, []);
 
     return (
         <Table
@@ -84,6 +121,7 @@ function RecipeTable(props: any) {
             rowKey={(record) => record._id}
             loading={isLoading}
             dataSource={recipes?.data ?? []}
+            pagination={paginationOptions}
             scroll={{ x: 500 }}
             locale={{
                 triggerDesc: intl.formatMessage(commonMessages.descendSorting),

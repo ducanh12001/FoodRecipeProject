@@ -41,13 +41,4 @@ export const menuList: MenuSingle[] = [
     resource: 'manageTool',
     defaultPermission: false,
   },
-  {
-    name: <FormattedMessage {...messages.dinners} />,
-    icon: <img className="img-sidebar" src={icons.MenuIcon} />,
-    key: 'manage-dinner',
-    path: '/manage-dinner',
-    method: 'get',
-    resource: 'manageDinner',
-    defaultPermission: false,
-  },
 ];

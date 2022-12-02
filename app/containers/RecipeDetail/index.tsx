@@ -98,11 +98,13 @@ function RecipeDetail() {
                     <Col span={14}>
                         <Row gutter={[16, 32]}>
                             <Col span={24}>
-                                <div className="description">This recipe doesn't require much thought early in the morning, and tastes great!</div>
+                                <div className="description">{recipeById.description}</div>
                             </Col>
-                            <Col span={24}>
-                                <Image src={''} preview={false} />
-                            </Col>
+                            {recipeById.pictures && recipeById.pictures[0] &&
+                                <Col span={24}>
+                                    <Image src={recipeById.pictures[0]} preview={false} />
+                                </Col>
+                            }
                             <Col span={24}>
                                 <Row className="recipe-time">
                                     <Col span={8} className="time-col">
@@ -136,7 +138,7 @@ function RecipeDetail() {
                                 </ol>
                             </Col>
                             <Col span={24} className="review">
-                                <h2><FormattedMessage {...messages.comments} /> (1,466)</h2>
+                                <h2><FormattedMessage {...messages.comments} /> ({comments.length})</h2>
                                 {comments.length > 0 && <CommentList comments={comments} />}
                                 <Comment
                                     avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}

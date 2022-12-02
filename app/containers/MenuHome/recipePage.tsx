@@ -66,10 +66,14 @@ function RecipePage() {
                 >
                   <Link to={`/recipe-detail/${d._id}`} >
                     <Row gutter={[16, 16]} className="flex-center">
-                      <Col span={12}
-                      >
+                      <Col  span={12}>
                       {d.pictures[0] ?
-                        <Image src={d.pictures[0]} />
+                        <Image style={{objectFit: 'cover'}} 
+                          width='100%' 
+                          height={200} 
+                          src={d.pictures[0]} 
+                          preview={false}
+                        />
                         :
                         <img src={require('../../assets/images/NoImageAvailable.jpg')} />
                       }

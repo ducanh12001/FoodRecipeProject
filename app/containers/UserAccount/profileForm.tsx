@@ -40,7 +40,7 @@ import FormSelectWrapper from 'components/FormSelectWrapper';
 import commonMessages from 'common/messages';
 import { RangePickerProps } from 'antd/lib/date-picker';
 
-const dateFormat = 'DD/MM/YYYY'; // YYYY/MM/DD
+const dateFormat = 'DD/MM/YYYY';
 
 const formItemLayout = {
   labelCol: {
@@ -66,18 +66,6 @@ export default function ProfileForm() {
   const intl = useIntl();
   const [form] = Form.useForm();
   const { user, loading, errors } = useSelector(stateSelector);
-  const [birthday, setBirthday] = useState<any>(null);
-
-  function convertDigitIn(str: string,pram1:string,pram2:string) {
-    if(str)
-    {
-      return str.split(pram1).reverse().join(pram2);
-    }
-    else {
-      return undefined
-    }
-
-  }
 
   const onFinish = async () => {
     await form.validateFields();
@@ -87,10 +75,6 @@ export default function ProfileForm() {
       }),
     );
     dispatch(submitFormAction());
-  };
-
-  const onBirthdayChange: DatePickerProps['onChange'] = (date, dateString) => {
-    setBirthday(convertDigitIn(dateString,'/','-'));
   };
 
   const uploadProps = {
@@ -125,28 +109,11 @@ export default function ProfileForm() {
   }, [errors]);
 
   useEffect(() => form.resetFields(), [user]);
-  useEffect(() => {
-    setBirthday(user.birthday);
-  }, [user]);
+
   const genderOptions = [
     { label: `${intl.formatMessage(messages.genderMale)}`, value: 'MALE' },
     { label: `${intl.formatMessage(messages.genderFemale)}`, value: 'FEMALE' },
   ];
-
-  const positionOptions = [
-    { label: `${intl.formatMessage(messages.positionCEO)}`, value: 1 },
-    { label: `${intl.formatMessage(messages.positionManagement)}`, value: 2 },
-    { label: `${intl.formatMessage(messages.positionStaff)}`, value: 3 },
-  ];
-
-  const disabledDate: RangePickerProps['disabledDate'] = (current) => {
-    // Can not select days after today or earlier than 1960-01-01
-    return (
-      current &&
-      (current < moment('1960-01-01').startOf('day') ||
-        current.valueOf() > Date.now())
-    );
-  };
 
   return (
     <>
@@ -222,8 +189,8 @@ export default function ProfileForm() {
           xs={{ order: 1, span: 24 }}
         >
           <div className="user-image">
-            {user.avatar ? (
-              <img src={user.avatar} alt="avatar" />
+            {user.profile_image ? (
+              <img src={user.profile_image} alt="avatar" />
             ) : (
               <UserOutlined style={{ fontSize: 20 }} />
             )}

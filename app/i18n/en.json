@@ -88,7 +88,6 @@
   "common.messages.addressLabel": "Address",
   "common.messages.addressPlaceHolder": "Input your address",
   "common.messages.displayName": "Name",
-  "common.messages.namePlaceHolder": "Input your name",
   "common.messages.positionLabel": "Position",
   "common.messages.positionPlaceHolder": "Input your position",
   "common.messages.genderLabel": "Gender",
@@ -118,7 +117,8 @@
   "common.messages.descendSorting": "Click to sort descending",
   "common.messages.ascendSorting": "Click to sort ascending",
   "common.messages.noSorting": "Click to cancel sorting",
-
+  "common.messages.minutes": "Minutes",
+ 
   "containers.ResetPassword.helmetResetPasswordTitle": "Reset Password Page",
   "containers.ResetPassword.resetPassword": "Reset Password",
   "containers.ResetPassword.resetSuccess": "Password changed successful!",
@@ -336,7 +336,7 @@
   "containers.RecipeHome.directionPlaceholder": "Direction",
   "containers.RecipeHome.step": "Step",
   "containers.RecipeHome.yieldLabel": "Yield",
-  "containers.RecipeHome.prepTimeLabel": "Prep. Time",
+  "containers.RecipeHome.prepTimeLabel": "Prep Time",
   "containers.RecipeHome.cookTimeLabel": "Cook Time",
   "containers.RecipeHome.noteLabel": "Note",
   "containers.RecipeHome.submitBtn": "Submit",
@@ -346,6 +346,8 @@
   "containers.RecipeHome.inputIngredient": "Please input ingredient or delete this field.",
   "containers.RecipeHome.inputDirection": "Please input direction or delete this field.",
   "containers.RecipeHome.moreFrom": "More From",
-  "containers.RecipeHome.mealCooking": "Meals & Cooking"
+  "containers.RecipeHome.mealCooking": "Meals & Cooking",
 
+  "containers.ManageNews.titleCol": "Title",
+  "containers.ManageNews.contentCol": "Content"
 }

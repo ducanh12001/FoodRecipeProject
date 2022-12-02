@@ -22,14 +22,11 @@ import ToolPage from 'containers/MenuHome/toolPage';
 import RecipePage from 'containers/MenuHome/recipePage';
 import ManageLayoutPage from 'components/ManageLayout';
 import ManageRecipe from 'containers/ManageRecipe';
-import ManageDinner from 'containers/ManageDinner';
 import ManageTool from 'containers/ManageTool';
 import ManageNews from 'containers/ManageNews';
 import CreateRecipeHome from 'containers/RecipeHome/createRecipe';
 import CreateRecipe from 'containers/ManageRecipe/createRecipe';
 import EditRecipe from 'containers/ManageRecipe/editRecipe';
-import CreateDinner from 'containers/ManageDinner/createDinner';
-import EditDinner from 'containers/ManageDinner/editDinner';
 import EditNews from 'containers/ManageNews/editNews';
 import CreateNews from 'containers/ManageNews/createNews';
 import EditTool from 'containers/ManageTool/editTool';
@@ -262,36 +259,6 @@ const routes = [
             path="/manage-recipe"
           >
             <EditRecipe />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: '/manage-dinner',
-        element: (
-          <PrivateRoute
-            path="/manage-dinner"
-          >
-            <ManageDinner />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: '/manage-dinner/create',
-        element: (
-          <PrivateRoute
-            path="/manage-dinner"
-          >
-            <CreateDinner />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: '/manage-dinner/edit/:id',
-        element: (
-          <PrivateRoute
-            path="/manage-dinner"
-          >
-            <EditDinner />
           </PrivateRoute>
         ),
       },

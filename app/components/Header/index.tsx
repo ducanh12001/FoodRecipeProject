@@ -4,6 +4,8 @@ import {
   HeartOutlined,
   KeyOutlined,
   LogoutOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
   PlusCircleOutlined,
   UserOutlined,
 } from '@ant-design/icons';
@@ -50,9 +52,10 @@ function HeaderComponent(props: any) {
   const { user, isLogged, device, collapsed, } =
     useSelector(stateSelector);
 
+  const isMobile = device === 'MOBILE';
   const toggle = () => dispatch(toggleCollapseAction(!collapsed));
 
-  const handleProfileMenuClick = ({ item, key, keyPath, selectedKeys, domEvent }:any) => {
+  const handleProfileMenuClick = ({ item, key, keyPath, selectedKeys, domEvent }: any) => {
     if (key === '1') {
       navigate('/profile')
     } else if (key === '2') {
@@ -67,7 +70,7 @@ function HeaderComponent(props: any) {
   }
 
   const menu = (
-    <Menu 
+    <Menu
       items={[
         {
           label: <FormattedMessage {...messages.profile} />,
@@ -76,7 +79,7 @@ function HeaderComponent(props: any) {
         },
         {
           label: <FormattedMessage {...messages.addRecipes} />,
-          icon :<PlusCircleOutlined />,
+          icon: <PlusCircleOutlined />,
           key: '2'
         },
         {
@@ -99,7 +102,7 @@ function HeaderComponent(props: any) {
     />
   )
 
-  const handleHomeMenuClick = ({ item, key, keyPath, selectedKeys, domEvent }:any) => {
+  const handleHomeMenuClick = ({ item, key, keyPath, selectedKeys, domEvent }: any) => {
     if (key === '1') {
       navigate('/dinners')
     } else if (key === '2') {
@@ -124,52 +127,73 @@ function HeaderComponent(props: any) {
   return (
     <Affix offsetTop={0}>
       <Header className="layout-page-header">
-        {device !== 'MOBILE' && (
+        {!isMobile ? (
           <div
             className="logo"
             style={{ width: 200, cursor: 'pointer' }}
             onClick={toHomepage}
           >
-              Food Recipe
+            <div>Food Recipe</div>
           </div>
-        )}
-        <Menu
-            style={{ flex: 2 }}
-            mode="horizontal"
-            items={[
-              {
-                label: <FormattedMessage {...messages.dinners} />,
-                key: "1"
-              },
-              {
-                label: <FormattedMessage {...messages.recipes} />,
-                key: "2"
-              },
-              {
-                label: <FormattedMessage {...messages.foodNews} />,
-                key: "3"
-              },
-              {
-                label: <FormattedMessage {...messages.tips} />,
-                key: "4"
-              },
-            ]}
-            onClick={handleHomeMenuClick}
-          />
+        ) :
+          (
+            <div
+              className="logo"
+              style={{ width: 60, cursor: 'pointer' }}
+              onClick={toHomepage}
+            >
+              <div>FR</div>
+            </div>
+          )
+        }
+        {!isMobile ?
+          <div className="head-menu">
+            <Menu
+              mode="horizontal"
+              items={[
+                {
+                  label: <FormattedMessage {...messages.dinners} />,
+                  key: "1"
+                },
+                {
+                  label: <FormattedMessage {...messages.recipes} />,
+                  key: "2"
+                },
+                {
+                  label: <FormattedMessage {...messages.foodNews} />,
+                  key: "3"
+                },
+                {
+                  label: <FormattedMessage {...messages.tips} />,
+                  key: "4"
+                },
+              ]}
+              onClick={handleHomeMenuClick}
+            />
+          </div> : <></>
+        }
         <div className="layout-page-header-main">
-        
+          <div tabIndex={0} aria-hidden="true" onClick={toggle} role="button">
+            <span id="sidebar-trigger">
+              {isLogged ?
+                collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />
+                : <></>
+              }
+            </span>
+          </div>
+
           <div className="actions">
             <LocaleToggle />
             {isLogged ? (
               <Dropdown overlay={menu} trigger={['click']}>
                 <span className="user-action">
-                  {user.avatar ? (
-                    <Avatar src={user.avatar} />
+                  {user.profile_image ? (
+                    <Avatar src={user.profile_image} />
                   ) : (
                     <Avatar
                       style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
                     >
-                      {user?.fullName ||
+                      {user?.name ||
                         ''
                           .split(' ')
                           .map((name) => name[0])

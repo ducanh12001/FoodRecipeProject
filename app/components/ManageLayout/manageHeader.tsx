@@ -138,8 +138,8 @@ function ManageHeader(props: any) {
             {isLogged ? (
               <Dropdown overlay={menu} trigger={['click']}>
                 <span className="user-action">
-                  {user.avatar ? (
-                    <Avatar src={user.avatar} />
+                  {user.profile_image ? (
+                    <Avatar src={user.profile_image} />
                   ) : (
                     <Avatar
                       style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}

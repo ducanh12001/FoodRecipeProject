@@ -15,6 +15,7 @@ import { Helmet } from 'react-helmet';
 import { useIntl } from 'react-intl';
 import messages from './messages';
 import { FormattedMessage } from 'react-intl';
+import commonMessages from 'common/messages'
 
 const { Title, Text } = Typography;
 
@@ -78,9 +79,7 @@ function CreateRecipeHome() {
                     cooktime: formVal.cooktime,
                     yields: formVal.yields
                 },
-                author_id: {
-                    $oid: localStorage.getItem('USER_ID')
-                }
+                author_id: localStorage.getItem('USER_ID')
             })
         )
         dispatch(submitFormAction());
@@ -298,7 +297,7 @@ function CreateRecipeHome() {
                                     type="number"
                                     allowClear
                                     required
-                                    min={0}
+                                    min={1}
                                     max={1000}
                                     rules={[
                                         {
@@ -312,8 +311,11 @@ function CreateRecipeHome() {
                                     label={messages.prepTimeLabel}
                                     name="preptime"
                                     id="prepTime"
-                                    type="text"
+                                    type="number"
                                     allowClear
+                                    min={1}
+                                    max={1000}
+                                    icon={<FormattedMessage {...commonMessages.minutes} />}
                                     required
                                     rules={[
                                         {
@@ -327,7 +329,10 @@ function CreateRecipeHome() {
                                     label={messages.cookTimeLabel}
                                     name="cooktime"
                                     id="cookTime"
-                                    type="text"
+                                    type="number"
+                                    min={1}
+                                    max={1000}
+                                    icon={<FormattedMessage {...commonMessages.minutes} />}
                                     allowClear
                                     required
                                     rules={[
@@ -337,14 +342,6 @@ function CreateRecipeHome() {
                                             message: intl.formatMessage(messages.require),
                                         },
                                     ]}
-                                />
-                                <FormInputWrapper
-                                    label={messages.noteLabel}
-                                    name="note"
-                                    id="note"
-                                    textarea
-                                    rows={3}
-                                    allowClear
                                 />
                             </Col>
                             <Col span={24}>
