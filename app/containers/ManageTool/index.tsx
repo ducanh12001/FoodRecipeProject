@@ -49,7 +49,6 @@ function ManageTool() {
 
   const onCreate = () => {
     onchangeFormMethod(POST);
-    loadInitialProduct();
     navigate('/manage-tool/create');
   };
 

@@ -19,7 +19,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 30px;
+      font-size: 28px;
       font-weight: bold;
       color: #237280;
       font-style: italic;
@@ -175,9 +175,7 @@
   padding: 0 30px;
   &-inner {
     width: 100%;
-  }
-  &-item {
-    
+    display: none;
   }
   .item-image {
     margin-bottom: 10px;
@@ -194,6 +192,7 @@
     line-height: .85;
     color: #278090;
     border-right: .1875rem solid #000;
+    height: 30px;
   }
 
   .item-name {
@@ -267,5 +266,21 @@
         color: #278090;
       }
     }
+  }
+}
+
+.head-menu {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .head-menu {
+    display: block !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .top-pathing-inner {
+    display: flex !important;
   }
 }

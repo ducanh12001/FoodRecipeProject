@@ -117,6 +117,7 @@
   "common.messages.descendSorting": "Ấn để sắp xếp giảm dần",
   "common.messages.ascendSorting": "Ấn để sắp xếp tăng dần",
   "common.messages.noSorting": "Ấn để hủy bỏ sự sắp xếp",
+  "common.messages.minutes": "Phút",
 
   "containers.ResetPassword.helmetResetPasswordTitle": "Đặt lại mật khẩu",
   "containers.ResetPassword.resetPassword": "Đặt lại mật khẩu",
@@ -346,5 +347,8 @@
   "containers.RecipeHome.inputIngredient": "Nhập nguyên liệu hoặc xóa trường này.",
   "containers.RecipeHome.inputDirection": "Nhập bước chế biến hoặc xóa trường này.",
   "containers.RecipeHome.moreFrom": "Và nhiều nữa từ",
-  "containers.RecipeHome.mealCooking": "Món ăn & Cách chế biến"
+  "containers.RecipeHome.mealCooking": "Món ăn & Cách chế biến",
+
+  "containers.ManageNews.titleCol": "Tiêu đề",
+  "containers.ManageNews.contentCol": "Nội dung"
 }

@@ -30,7 +30,7 @@ function ImageUpload({ onSubmit, existingFiles }: any) {
           path: file.response?.data?.file_path,
         };
       });
-
+    
     if (newFilesInfo.length > 0) {
       setFileListInfo(_.uniqBy(_.union(fileListInfo, newFilesInfo), function (e) {
         return e.path;

@@ -136,10 +136,6 @@ export default defineMessages({
     id: `${scope}.usernamePlaceHolder`,
     defaultMessage: 'Nhập tên đăng nhập!',
   },
-  namePlaceHolder: {
-    id: `${scope}.namePlaceHolder`,
-    defaultMessage: 'Nhập tên!',
-  },
   addressPlaceHolder: {
     id: `${scope}.addressPlaceHolder`,
     defaultMessage: 'Nhập địa chỉ!',
@@ -265,10 +261,6 @@ export default defineMessages({
     id: `${scope}.nameRequired`,
     defaultMessage: 'Vui lòng nhập tên!',
   },
-  nameRequired: {
-    id: `${scope}.nameRequired`,
-    defaultMessage: 'Vui lòng nhập tên!',
-  },
   confirmPasswordRequired: {
     id: `${scope}.confirmPasswordRequired`,
     defaultMessage: 'Vui lòng nhập mật khẩu xác nhận!',
@@ -328,5 +320,9 @@ export default defineMessages({
   noSorting:{
     id: `${scope}.noSorting`,
     defaultMessage: ''
+  },
+  minutes: {
+    id: `${scope}.minutes`,
+    defaultMessage: 'Phút'
   }
 });

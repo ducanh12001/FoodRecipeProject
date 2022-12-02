@@ -45,10 +45,15 @@ function RecipeHome() {
 	return (
 		<div>
 			<div className="top-pathing">
-				<Row gutter={16} className="top-pathing-inner">
+				<Row gutter={[16, 32]} className="top-pathing-inner">
 					{recipes.data?.map((d: any, index: number) =>
 						index < 6 && (
-							<Col span={4} className="top-pathing-item" key={index}>
+							<Col className="top-pathing-item" key={index}
+								xs={8}
+								sm={8}
+								md={8}
+								lg={4}
+							>
 								<Link to="" style={{ textDecoration: 'none', color: 'initial' }}>
 									<Row className="item-image">
 										{d.pictures[0] ?

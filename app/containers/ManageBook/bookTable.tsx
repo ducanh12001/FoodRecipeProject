@@ -1,6 +1,6 @@
 import { Button, Image, Modal, Table } from 'antd';
-import React, { useEffect } from 'react'
-import { useIntl } from 'react-intl';
+import React, { useEffect, useState } from 'react'
+import { FormattedMessage, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import commonMessages from 'common/messages';
@@ -24,6 +24,8 @@ function BookTable(props: any) {
     const { books, isLoading } = useSelector(stateSelector);
     const dispatch = useDispatch();
     const intl = useIntl();
+    const [pageNumber, setPageNumber] = useState(1);
+    const [pageSize, setPageSize] = useState(10);
 
     const columns: ColumnsType<any> = [
         {
@@ -31,12 +33,23 @@ function BookTable(props: any) {
             dataIndex: '',
             width: '5%',
             align: 'right',
-            render: (value, record, index) => index
+            render: (value, record, index) => (pageNumber - 1) * pageSize + index + 1,
         },
         {
             title: intl.formatMessage(messages.titleCol),
             dataIndex: 'title',
             key: 'title',
+            sorter: (a: any, b: any) => {
+                let fa = a.title.toLowerCase(),
+                    fb = b.title.toLowerCase();
+                if (fa < fb) {
+                    return -1;
+                }
+                if (fa > fb) {
+                    return 1;
+                }
+                return 0;
+            },
         },
         {
             title: intl.formatMessage(messages.detailLabel),
@@ -63,6 +76,23 @@ function BookTable(props: any) {
         },
     ];
 
+    const paginationOptions = {
+        showSizeChanger: true,
+        showQuickJumper: true,
+        onChange: (page: number, pageSize: number) => {
+            setPageNumber(page);
+            setPageSize(pageSize);
+        },
+        pageSizeOptions: [5, 10, 20],
+        total: books?.data?.length,
+        showTotal: (total: number, range: Array<number>) => (
+            <FormattedMessage
+                {...commonMessages.pagination}
+                values={{ start: range[0], end: range[1], total }}
+            />
+        ),
+    };
+
     useEffect(() => {
         dispatch(setIdAction(''));
       }, []);
@@ -73,6 +103,7 @@ function BookTable(props: any) {
             rowKey={(record) => record._id}
             loading={isLoading}
             dataSource={books?.data ?? []}
+            pagination={paginationOptions}
             scroll={{ x: 500 }}
             locale={{
                 triggerDesc: intl.formatMessage(commonMessages.descendSorting),

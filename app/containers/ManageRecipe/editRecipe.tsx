@@ -28,7 +28,8 @@ export default function EditRecipe() {
         ghost={false}
         children={[]}
         extra={undefined}
-        avatar={undefined} hasBack={true}      />
+        avatar={undefined} hasBack={true}      
+      />
       <div className="manage-table">
         <EditRecipeForm />
       </div>
