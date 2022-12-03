@@ -49,7 +49,6 @@ function ManageNews() {
 
   const onCreate = () => {
     onchangeFormMethod(POST);
-    loadInitialProduct();
     navigate('/manage-news/create');
   };
 
