@@ -257,3 +257,18 @@
         }
     }
 }
+
+.love-recipe {
+    padding: 10px 50px;
+    .ant-card-meta-detail {
+        width: 100%;
+    }
+    .ant-card-meta-title {
+        font-size: 20px !important;
+    }
+
+    .heart-icon {
+        width: 30px;
+        height: 30px;
+    }
+}

@@ -14,7 +14,7 @@ import ProfileForm from 'containers/UserAccount/profileForm';
 import messages from 'containers/UserAccount/messages';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Helmet } from 'react-helmet';
-import PageCommonWrapper from 'components/PageCommonWrapper';
+import PageHeaderWrapper from 'components/PageHeaderWrapper';
 
 const { TabPane } = Tabs;
 const key = 'userAccount';
@@ -33,8 +33,14 @@ export default function UserAccount() {
           </Helmet>
         )}
       </FormattedMessage>
-      <PageCommonWrapper
-          title={messages.pageHeader}/>
+      <PageHeaderWrapper
+          title={messages.pageHeader}
+          backUrl={'/profile'}
+          ghost={false}
+          children={[]}
+          extra={undefined}
+          avatar={undefined} hasBack
+      />
       <div className="manage-table profile-details-card">
         <ProfileForm />
       </div>
