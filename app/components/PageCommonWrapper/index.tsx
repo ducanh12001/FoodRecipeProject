@@ -7,7 +7,7 @@ interface PageHeaderWrapperProps {
   title: MessageDescriptor;
   children: React.ReactNode;
   imageSrc: string | null;
-  description: MessageDescriptor;
+  description?: MessageDescriptor;
 }
 
 const PageCommonWrapper = (props: PageHeaderWrapperProps) => {

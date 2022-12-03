@@ -44,7 +44,7 @@ interface initState {
 
 export const initialState: initState = {
   device,
-  collapsed,
+  collapsed: false,
   hideHeader: false,
   isLoading: false,
   isLogged: null,

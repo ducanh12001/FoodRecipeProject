@@ -67,8 +67,7 @@ const ManageLayoutPage = () => {
     <Layout className="manage-layout-page">
       <ManageHeader collapsed={collapsed} toggle={toggle} />
       <Layout>
-        {isLogged ? 
-        !isMobile ? (
+        {!isMobile ? (
           <Sider
             className="manage-layout-page-sider"
             trigger={null}
@@ -91,9 +90,7 @@ const ManageLayoutPage = () => {
             <MenuComponent />
           </Drawer>
         )
-        :
-        <></>
-      }
+        }
         <Content className="manage-layout-page-content">
           <AlertMessage />
           <Suspense fallback={<LoadingIndicator />}>

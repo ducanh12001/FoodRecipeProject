@@ -19,8 +19,12 @@ import ArrowUp from './Arrow-Up.svg';
 import ConfirmIcon from './confirm-icon.svg';
 import EvaluateIcon from './evaluate-icon.svg';
 import MenuIcon from './Menu-Icon.svg';
+import HeartFull from './heart-full.svg';
+import Heart from './heart.svg';
 
 const icons = {
+  HeartFull,
+  Heart,
   MenuIcon,
   MenuUserIcon,
   MenuRequestIcon,
