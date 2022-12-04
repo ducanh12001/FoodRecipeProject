@@ -125,6 +125,8 @@
   "common.messages.photoExtensionError": "Only .jpg, .jpeg, .png extensions are accepted",
   "common.messages.photoSizeError": "Only photo below 2MB are accepted",
   "common.messages.photoNumberError": "Only 1 photo can be uploaded",
+  "common.messages.detailLabel": "Detail",
+  "common.messages.titleCol": "Title",
  
   "containers.ResetPassword.helmetResetPasswordTitle": "Reset Password Page",
   "containers.ResetPassword.resetPassword": "Reset Password",
@@ -374,5 +376,14 @@
   "containers.LoveMessage.loveMessageTitle": "Loved Recipes",
 
   "containers.ManageNews.titleCol": "Title",
-  "containers.ManageNews.contentCol": "Content"
+  "containers.ManageNews.contentCol": "Content",
+  "containers.ManageNews.helmetTitle": "News Management",
+
+  "containers.ManageBook.helmetTitle": "Book Management",
+
+  "containers.ManageRecipe.helmetTitle": "Recipe Management",
+  "containers.ManageRecipe.nameCol": "Name",
+  "containers.ManageRecipe.pictureCol": "Image",
+
+  "containers.ManageTool.helmetTitle": "Tool Management"
 }

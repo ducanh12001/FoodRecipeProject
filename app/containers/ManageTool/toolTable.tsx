@@ -38,7 +38,7 @@ function ToolTable(props: any) {
             render: (value, record, index) => (pageNumber - 1) * pageSize + index + 1,
         },
         {
-            title: intl.formatMessage(messages.titleCol),
+            title: intl.formatMessage(commonMessages.titleCol),
             dataIndex: 'title',
             key: 'title',
             sorter: (a: any, b: any) => {
@@ -54,7 +54,7 @@ function ToolTable(props: any) {
             },
         },
         {
-            title: intl.formatMessage(messages.detailLabel),
+            title: intl.formatMessage(commonMessages.detailLabel),
             dataIndex: 'id',
             key: 'action',
             align: 'center',
