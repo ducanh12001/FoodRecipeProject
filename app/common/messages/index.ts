@@ -353,4 +353,12 @@ export default defineMessages({
     id: `${scope}.photoNumberError`,
     defaultMessage: 'Chỉ có thể tải lên tối đa 1 ảnh',
   },
+  detailLabel: {
+    id: `${scope}.detailLabel`,
+    defaultMessage: 'Chi tiết',
+  },
+  titleCol: {
+    id: `${scope}.titleCol`,
+    defaultMessage: 'Tiêu đề'
+  }
 });

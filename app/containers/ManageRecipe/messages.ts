@@ -1,10 +1,10 @@
 /*
- * Manage Products Messages
+ * Manage Recipes Messages
  *
  */
 import { defineMessages } from 'react-intl';
 
-export const scope = 'containers.ManageProduct';
+export const scope = 'containers.ManageRecipe';
 
 export default defineMessages({
   helmetTitle: {
@@ -17,7 +17,7 @@ export default defineMessages({
   },
   nameCol: {
     id: `${scope}.nameCol`,
-    defaultMessage: 'Tên'
+    defaultMessage: 'Tên món'
   },
   detailLabel: {
     id: `${scope}.detailLabel`,

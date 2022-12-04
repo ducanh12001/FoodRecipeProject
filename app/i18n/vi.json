@@ -125,6 +125,8 @@
   "common.messages.photoExtensionError": "Chỉ hỗ trợ định dạng .jpg, .jpeg, .png",
   "common.messages.photoSizeError": "Chọn ảnh có kích thước không vượt quá 2MB",
   "common.messages.photoNumberError": "Chỉ có thể tải lên tối đa 1 ảnh",
+  "common.messages.detailLabel": "Chi tiết",
+  "common.messages.titleCol": "Tiêu đề",
 
   "containers.ResetPassword.helmetResetPasswordTitle": "Đặt lại mật khẩu",
   "containers.ResetPassword.resetPassword": "Đặt lại mật khẩu",
@@ -375,5 +377,14 @@
   "containers.LoveMessage.loveMessageTitle": "Công thức Yêu thích",
 
   "containers.ManageNews.titleCol": "Tiêu đề",
-  "containers.ManageNews.contentCol": "Nội dung"
+  "containers.ManageNews.contentCol": "Nội dung",
+  "containers.ManageNews.helmetTitle": "Quản lý Tin tức",
+
+  "containers.ManageBook.helmetTitle": "Quản lý Sách",
+
+  "containers.ManageRecipe.helmetTitle": "Quản lý Công thức",
+  "containers.ManageRecipe.nameCol": "Tên món",
+  "containers.ManageRecipe.pictureCol": "Ảnh",
+
+  "containers.ManageTool.helmetTitle": "Quản lý Mẹo và công cụ"
 }

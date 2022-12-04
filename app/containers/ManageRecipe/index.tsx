@@ -23,7 +23,6 @@ import { Button, Input, Tabs } from 'antd';
 import messages from './messages';
 import PageHeaderWrapper from 'components/PageHeaderWrapper';
 import { useNavigate } from 'react-router-dom';
-import Common from 'utils/common';
 import RecipeTable from './recipeTable';
 
 const key = 'manageRecipe';

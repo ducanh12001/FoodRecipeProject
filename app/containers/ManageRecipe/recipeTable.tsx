@@ -70,7 +70,7 @@ function RecipeTable(props: any) {
             render: (value, record, index) => <Link to=''>{value}</Link>
         },
         {
-            title: intl.formatMessage(messages.detailLabel),
+            title: intl.formatMessage(commonMessages.detailLabel),
             dataIndex: 'id',
             key: 'action',
             align: 'center',
