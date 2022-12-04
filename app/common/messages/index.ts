@@ -337,4 +337,20 @@ export default defineMessages({
     id: `${scope}.otpRequired`,
     defaultMessage: 'Vui lòng nhập mã!',
   },
+  otpSent: {
+    id: `${scope}.otpSent`,
+    defaultMessage: 'Mã OTP đã được gửi tới email của bạn. Hãy kiểm tra và nhập vào dưới đây.',
+  },
+  photoExtensionError: {
+    id: `${scope}.photoExtensionError`,
+    defaultMessage: 'Chỉ hỗ trợ định dạng .jpg, .jpeg, .png',
+  },
+  photoSizeError: {
+    id: `${scope}.photoSizeError`,
+    defaultMessage: 'Chọn ảnh có kích thước không vượt quá 2MB',
+  },
+  photoNumberError: {
+    id: `${scope}.photoNumberError`,
+    defaultMessage: 'Chỉ có thể tải lên tối đa 1 ảnh',
+  },
 });

@@ -71,7 +71,7 @@ function ManageHeader(props: any) {
           key: '2',
         },
         {
-          label: 'Home',
+          label: <FormattedMessage {...messages.home} />,
           icon: <HomeOutlined />,
           key: '3',
         },

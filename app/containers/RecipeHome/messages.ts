@@ -43,6 +43,10 @@ export default defineMessages({
     id: `${scope}.directionPlaceholder`,
     defaultMessage: 'Direction'
   },
+  addDirectionBtn: {
+    id: `${scope}.addDirectionBtn`,
+    defaultMessage: 'Add Direction'
+  },
   yieldLabel: {
     id: `${scope}.yieldLabel`,
     defaultMessage: 'Yields'

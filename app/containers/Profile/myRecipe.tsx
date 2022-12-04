@@ -8,6 +8,9 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 
+import messages from 'containers/Profile/messages';
+import { FormattedMessage } from 'react-intl';
+
 const { Title } = Typography;
 const stateSelector = createStructuredSelector({
 	recipes: makeRecipesSelector()
@@ -20,11 +23,15 @@ function MyRecipe() {
 
   return (
     <>
-      <Helmet>
-        <title>My Recipes</title>
-      </Helmet>
+      <FormattedMessage {...messages.myRecipe}>
+        {(title) => (
+          <Helmet>
+            <title>{title}</title>
+          </Helmet>
+        )}
+      </FormattedMessage>
       <div className="love-recipe">
-        <Title>My Recipes</Title>
+        <Title><FormattedMessage {...messages.myRecipe} /></Title>
         <div >
           <Row gutter={[32, 32]}>
             {recipes.data?.filter((r:any) => r.author_id === localStorage.getItem('USER_ID'))

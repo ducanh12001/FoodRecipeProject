@@ -118,6 +118,13 @@
   "common.messages.ascendSorting": "Ấn để sắp xếp tăng dần",
   "common.messages.noSorting": "Ấn để hủy bỏ sự sắp xếp",
   "common.messages.minutes": "Phút",
+  "common.messages.otp": "Mã OTP",
+  "common.messages.otpPlaceholder": "Nhập mã OTP",
+  "common.messages.otpRequired": "Vui lòng nhập mã!",
+  "common.messages.otpSent": "Mã OTP đã được gửi tới email của bạn. Hãy kiểm tra và nhập vào dưới đây.",
+  "common.messages.photoExtensionError": "Chỉ hỗ trợ định dạng .jpg, .jpeg, .png",
+  "common.messages.photoSizeError": "Chọn ảnh có kích thước không vượt quá 2MB",
+  "common.messages.photoNumberError": "Chỉ có thể tải lên tối đa 1 ảnh",
 
   "containers.ResetPassword.helmetResetPasswordTitle": "Đặt lại mật khẩu",
   "containers.ResetPassword.resetPassword": "Đặt lại mật khẩu",
@@ -169,6 +176,8 @@
   "components.Header.tips": "MẸO NHỎ",
   "components.Header.addRecipes": "Thêm Công thức",
   "components.Header.favoriteRecipes": "Công thức Yêu thích",
+  "components.Header.manage": "Quản lý",
+  "components.Header.home": "Trang chủ",
 
   "components.Footer.appName": "Food Recipe",
   "components.Footer.license.message": "Dự án được đăng kí dưới giấy phép MIT.",
@@ -217,7 +226,12 @@
   "routes.messages.userPage": "Quản lý người dùng",
   "routes.messages.emailTemplatePage": "Mẫu email",
   "routes.messages.settings": "Thiết lập",
+  "routes.messages.recipe": "Công thức của Tôi",
   "routes.messages.recipes": "Công thức",
+  "routes.messages.dinners": "Bữa tối",
+  "routes.messages.news": "Tin tức",
+  "routes.messages.tools": "Mẹo nhỏ",
+  "routes.messages.books": "Sách",
 
   "containers.EmailTemplate.helmetTitle": "Email Templates",
   "containers.EmailTemplate.editTitle": "Edit Email Template",
@@ -246,6 +260,7 @@
   "containers.Profile.genderMale": "Nam",
   "containers.Profile.genderFemale": "Nữ",
   "containers.Profile.personalInfo": "Thông tin Cá nhân",
+  "containers.Profile.myRecipeHelmet": "Công thức của Tôi",
   "containers.Profile.myRecipe": "Công thức của Tôi",
   "containers.Profile.changePassword": "Thay đổi Mật khẩu",
   
@@ -256,6 +271,8 @@
   "containers.MenuHome.dinnerContentDescription": "Khiến cả nhà phải khen lấy khen để.",
   "containers.MenuHome.newsHelmetTitle": "Tin tức",
   "containers.MenuHome.foodNews": "Tin tức",
+  "containers.MenuHome.latestNews": "Tin mới nhất",
+  "containers.MenuHome.latestNewsDescription": "Những món ăn mới khiến bạn gây nghiện",
   "containers.MenuHome.recipeHelmetTitle": "Công thức",
   "containers.MenuHome.recipes": "Công thức",
   "containers.MenuHome.recipesDescription": "Tìm kiếm những ý tưởng về đồ ăn hoặc thức uống phù hợp với mọi hoàn cảnh, từ một bữa tối hàng ngày cho đến những bữa tiệc xa hoa.",
@@ -266,6 +283,10 @@
   "containers.MenuHome.toolHelmetTitle": "Mẹo nhỏ",
   "containers.MenuHome.tips": "Mẹo và Công cụ Hữu ích",
   "containers.MenuHome.tipsDescription": "Những lời khuyên và đánh giá chất lượng cho những món đồ gia dụng, từ những thiết bị tiên tiến tới những sản phẩm tiện nghi.",
+  "containers.MenuHome.tools": "Đồ gia dụng nhỏ được đánh giá cao",
+  "containers.MenuHome.toolsDescription": "Chúng tôi đã hợp tác với Viện Gia Chánh để xác định những thiết bị gia dụng hoàn hảo dựa trên những thử nghiệm và phân tích kỹ lưỡng tại Phòng Nghiên Cứu Phát Triển Đồ Gia Dụng & Ẩm Thực.",
+  "containers.MenuHome.pros": "Ưu điểm",
+  "containers.MenuHome.cons": "Nhược điểm",
 
   "containers.UserAccount.helmetTitle": "Chỉnh sửa thông tin tài khoản",
   "containers.UserAccount.pageHeader": "Chỉnh sửa thông tin tài khoản",
@@ -334,6 +355,7 @@
   "containers.RecipeHome.ingredientPlaceholder": "VD: 1 củ cà rốt",
   "containers.RecipeHome.addIngredientBtn": "Thêm Nguyên liệu",
   "containers.RecipeHome.directionLabel": "Hướng dẫn",
+  "containers.RecipeHome.addDirectionBtn": "Thêm Bước",
   "containers.RecipeHome.step": "Bước",
   "containers.RecipeHome.directionPlaceholder": "Hướng dẫn",
   "containers.RecipeHome.yieldLabel": "Số phần ăn",
@@ -348,6 +370,9 @@
   "containers.RecipeHome.inputDirection": "Nhập bước chế biến hoặc xóa trường này.",
   "containers.RecipeHome.moreFrom": "Và nhiều nữa từ",
   "containers.RecipeHome.mealCooking": "Món ăn & Cách chế biến",
+  
+  "containers.LoveMessage.loveMessageHelmet": "Công thức Yêu thích",
+  "containers.LoveMessage.loveMessageTitle": "Công thức Yêu thích",
 
   "containers.ManageNews.titleCol": "Tiêu đề",
   "containers.ManageNews.contentCol": "Nội dung"

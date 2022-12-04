@@ -16,6 +16,7 @@ import { useIntl } from 'react-intl';
 import { makeIsLoggedSelector } from 'containers/App/selectors';
 import { queryRecipesAction } from './actions';
 import { makeRecipesSelector } from './selectors';
+import _ from 'lodash';
 
 import messages from 'containers/RecipeHome/messages';
 import { FormattedMessage } from 'react-intl';
@@ -76,12 +77,12 @@ function RecipeHome() {
 				<div className="transporter-header">
 					<div className="transporter-header-inner">
 						<span><FormattedMessage {...messages.moreFrom} /></span>
-						<Link to=""><FormattedMessage {...messages.mealCooking} /></Link>
+						<Link to="/recipe-ideas"><FormattedMessage {...messages.mealCooking} /></Link>
 					</div>
 				</div>
 				<div className="transporter-list">
 					<Row gutter={[32, 32]}>
-						{recipes.data?.map((d: any, index: number) => (
+						{_.sampleSize(recipes.data, 9)?.map((d: any, index: number) =>  (
 							<Col key={index} span={8} onClick={() => navigate(`/recipe-detail/${d._id}`)}>
 								<Card
 									hoverable

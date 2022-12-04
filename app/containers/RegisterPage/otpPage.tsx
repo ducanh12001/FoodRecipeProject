@@ -77,7 +77,7 @@ function OtpPage() {
                         name="register-form"
                     >
                         <AlertMessage />
-                        <Title style={{ color: '#237280' }} level={4}>Mã OTP đã được gửi tới email của bạn. Hãy kiểm tra và nhập vào dưới đây.</Title>
+                        <Title style={{ color: '#237280' }} level={4}><FormattedMessage {...commonMessage.otpSent} /></Title>
                         <FormInputWrapper
                             label={commonMessage.otp}
                             name="otp"

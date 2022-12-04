@@ -56,14 +56,14 @@ function ToolDetail() {
                             <div className="pros-cons">
                                 <Row>
                                     <Col span={12} className="pros">
-                                        <h3>Pros</h3>
+                                        <h3><FormattedMessage {...messages.pros} /></h3>
                                         <ul className="pros-list">
                                             <li className="pros-item"><LikeOutlined className="like-icon" />Easy to use</li>
                                             <li className="pros-item"><LikeOutlined className="like-icon"/>Multiple brew options</li>
                                         </ul>
                                     </Col>
                                     <Col span={12} className="cons">
-                                        <h3>Cons</h3>
+                                        <h3><FormattedMessage {...messages.cons} /></h3>
                                         <ul className="cons-list">
                                             <li className="cons-item"><DislikeOutlined className="dislike-icon"/>Expensive</li>
                                         </ul>

@@ -52,8 +52,8 @@ function NewsPage() {
       >
         <div className="content-box">
           <div className="content-title">
-            <h2 className="title">LATEST FOOD NEWS</h2>
-            <span>The newest items to chew on.</span>
+            <h2 className="title"><FormattedMessage {...messages.latestNews} /></h2>
+            <span><FormattedMessage {...messages.latestNewsDescription} /></span>
           </div>
           <Row gutter={[24, 16]}>
             {
