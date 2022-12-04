@@ -1,0 +1,1 @@
+import { MarketStoreType, MarketAreaType, MarketCategoriesType } from 'type/type.MarketStore';
