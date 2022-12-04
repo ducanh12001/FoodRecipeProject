@@ -39,6 +39,14 @@ export default defineMessages({
     id: `${scope}.foodNews`,
     defaultMessage: 'Food News',
   },
+  latestNews: {
+    id: `${scope}.latestNews`,
+    defaultMessage: 'Latest Food News',
+  },
+  latestNewsDescription: {
+    id: `${scope}.latestNewsDescription`,
+    defaultMessage: 'The newest items to chew on.',
+  },
   recipes: {
     id: `${scope}.recipes`,
     defaultMessage: 'Recipes',
@@ -70,5 +78,21 @@ export default defineMessages({
   tipsDescription: {
     id: `${scope}.tipsDescription`,
     defaultMessage: 'Get expert advice and top-rated reviews on everything from major kitchen appliances to cool new cookware and and the latest and fun food products.',
+  },
+  tools: {
+    id: `${scope}.tools`,
+    defaultMessage: 'Top-rated Small Appliances',
+  },
+  toolsDescription: {
+    id: `${scope}.toolsDescription`,
+    defaultMessage: 'We partnered with the Good Housekeeping Institute to identify the best kitchen appliances based on rigorous testing and analysis at the ​​Kitchen Appliances & Culinary Innovation Lab.',
+  },
+  pros: {
+    id: `${scope}.pros`,
+    defaultMessage: 'Pros',
+  },
+  cons: {
+    id: `${scope}.cons`,
+    defaultMessage: 'Cons',
   },
 });

@@ -8,6 +8,9 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 
+import { FormattedMessage } from 'react-intl';
+import messages from './messages';
+
 const { Title } = Typography;
 const stateSelector = createStructuredSelector({
 	recipes: makeRecipesSelector()
@@ -19,11 +22,15 @@ function LoveRecipe() {
 
   return (
     <>
-      <Helmet>
-        <title>Love Recipes</title>
-      </Helmet>
+      <FormattedMessage {...messages.loveMessageHelmet}>
+        {(title) => (
+          <Helmet>
+            <title>{title}</title>
+          </Helmet>
+        )}
+      </FormattedMessage>
       <div className="love-recipe">
-        <Title>Love Recipes</Title>
+        <Title><FormattedMessage {...messages.loveMessageTitle} /></Title>
         <div >
           <Row gutter={[32, 32]}>
             {recipes.data?.map((d: any, index: number) => (

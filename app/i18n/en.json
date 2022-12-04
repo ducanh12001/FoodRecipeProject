@@ -118,6 +118,13 @@
   "common.messages.ascendSorting": "Click to sort ascending",
   "common.messages.noSorting": "Click to cancel sorting",
   "common.messages.minutes": "Minutes",
+  "common.messages.otp": "OTP",
+  "common.messages.otpPlaceholder": "Enter OTP code",
+  "common.messages.otpRequired": "Please enter the code",
+  "common.messages.otpSent": "An OTP code has been sent to your email. Please enter the code below",
+  "common.messages.photoExtensionError": "Only .jpg, .jpeg, .png extensions are accepted",
+  "common.messages.photoSizeError": "Only photo below 2MB are accepted",
+  "common.messages.photoNumberError": "Only 1 photo can be uploaded",
  
   "containers.ResetPassword.helmetResetPasswordTitle": "Reset Password Page",
   "containers.ResetPassword.resetPassword": "Reset Password",
@@ -169,6 +176,8 @@
   "components.Header.tips": "TIPS & TOOLS",
   "components.Header.addRecipes": "Add Recipe",
   "components.Header.favoriteRecipes": "Favorite Recipes",
+  "components.Header.manage": "Manage",
+  "components.Header.home": "Home",
 
   "components.Footer.appName": "Food Recipe",
   "components.Footer.license.message": "This project is licensed under the MIT license.",
@@ -216,7 +225,12 @@
   "routes.messages.userPage": "User Management",
   "routes.messages.emailTemplatePage": "Email Template",
   "routes.messages.settings": "Settings",
+  "routes.messages.recipe": "My Recipes",
   "routes.messages.recipes": "Recipes",
+  "routes.messages.dinners": "Dinners",
+  "routes.messages.news": "News",
+  "routes.messages.tools": "Tools",
+  "routes.messages.books": "Books",
 
   "containers.EmailTemplate.helmetTitle": "Email Templates",
   "containers.EmailTemplate.editTitle": "Edit Email Template",
@@ -245,6 +259,7 @@
   "containers.Profile.genderMale": "Male",
   "containers.Profile.genderFemale": "Female",
   "containers.Profile.personalInfo": "Personal Info",
+  "containers.Profile.myRecipeHelmet": "My Recipe",
   "containers.Profile.myRecipe": "My Recipe",
   "containers.Profile.changePassword": "Change Password",
   
@@ -255,6 +270,8 @@
   "containers.MenuHome.dinnerContentDescription": "The whole family will give these a stamp of approval.",
   "containers.MenuHome.newsHelmetTitle": "News",
   "containers.MenuHome.foodNews": "Food News",
+  "containers.MenuHome.latestNews": "Latest Food News",
+  "containers.MenuHome.latestNewsDescription": "The newest items to chew on.",
   "containers.MenuHome.recipeHelmetTitle": "Recipes",
   "containers.MenuHome.recipes": "Recipes",
   "containers.MenuHome.recipesDescription": "Find the perfect food and drink ideas for every occasion, from weeknight dinners to holiday feasts.",
@@ -265,6 +282,10 @@
   "containers.MenuHome.toolHelmetTitle": "Tips & Tools",
   "containers.MenuHome.tips": "Tips and Tools",
   "containers.MenuHome.tipsDescription": "Get expert advice and top-rated reviews on everything from major kitchen appliances to cool new cookware and and the latest and fun food products.",
+  "containers.MenuHome.tools": "Top-rated Small Appliances",
+  "containers.MenuHome.toolsDescription": "We partnered with the Good Housekeeping Institute to identify the best kitchen appliances based on rigorous testing and analysis at the ​​Kitchen Appliances & Culinary Innovation Lab.",
+  "containers.MenuHome.pros": "Pros",
+  "containers.MenuHome.cons": "Cons",
 
   "containers.UserAccount.helmetTitle": "Edit Profile",
   "containers.UserAccount.pageHeader": "Edit Profile",
@@ -334,6 +355,7 @@
   "containers.RecipeHome.addIngredientBtn": "Add Ingredient",
   "containers.RecipeHome.DirectionLabel": "Direction",
   "containers.RecipeHome.directionPlaceholder": "Direction",
+  "containers.RecipeHome.addDirectionBtn": "Add Direction",
   "containers.RecipeHome.step": "Step",
   "containers.RecipeHome.yieldLabel": "Yield",
   "containers.RecipeHome.prepTimeLabel": "Prep Time",
@@ -347,6 +369,9 @@
   "containers.RecipeHome.inputDirection": "Please input direction or delete this field.",
   "containers.RecipeHome.moreFrom": "More From",
   "containers.RecipeHome.mealCooking": "Meals & Cooking",
+  
+  "containers.LoveMessage.loveMessageHelmet": "Loved Recipes",
+  "containers.LoveMessage.loveMessageTitle": "Loved Recipes",
 
   "containers.ManageNews.titleCol": "Title",
   "containers.ManageNews.contentCol": "Content"

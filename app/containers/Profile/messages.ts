@@ -41,6 +41,10 @@ export default defineMessages({
     id: `${scope}.myRecipe`,
     defaultMessage: 'My Recipe',
   },
+  myRecipeHelmet:{
+    id: `${scope}.myRecipeHelmet`,
+    defaultMessage: 'My Recipe',
+  },
   changePassword:{
     id: `${scope}.changePassword`,
     defaultMessage: 'Change Password',

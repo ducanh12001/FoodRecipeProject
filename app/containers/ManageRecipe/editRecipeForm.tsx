@@ -309,7 +309,7 @@ function EditRecipeForm() {
                       icon={<PlusOutlined />}
                       onClick={() => add()}
                     >
-                      Add directions
+                      <FormattedMessage {...messages.addDirectionBtn} />
                     </Button>
                     <Form.ErrorList errors={errors} />
                   </Form.Item>

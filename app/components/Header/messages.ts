@@ -52,4 +52,12 @@ export default defineMessages({
     id: `${scope}.favoriteRecipes`,
     defaultMessage: 'Favorite Recipes',
   },
+  manage:{
+    id: `${scope}.manage`,
+    defaultMessage: 'Manage',
+  },
+  home:{
+    id: `${scope}.home`,
+    defaultMessage: 'Home',
+  },
 });

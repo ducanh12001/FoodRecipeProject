@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import _ from 'lodash';
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 
+import commonMessage from 'common/messages';
+
 const { Text } = Typography;
 
 function ImageUpload({ onSubmit, existingFiles }: any) {
@@ -84,10 +86,10 @@ function ImageUpload({ onSubmit, existingFiles }: any) {
         setMaxImage(false)
       }
       if (!checkExtension) {
-        message.error('Chỉ hỗ trợ định dạng .jpg, .jpeg, .png');
+        message.error(commonMessage.photoExtensionError);
       }
       if (checkExtension && !validSize) {
-        message.error('Chọn ảnh có kích thước không vượt quá 2MB');
+        message.error(commonMessage.photoSizeError);
       }
       return lengthNotExceeded && checkExtension && validSize
         ? true
@@ -110,7 +112,7 @@ function ImageUpload({ onSubmit, existingFiles }: any) {
 
   useEffect(() => {
     if (maxImage === true) {
-      message.error('Chỉ có thể tải lên tối đa 1 ảnh');
+      message.error(commonMessage.photoNumberError);
     }
   }, [maxImage]);
 

@@ -88,7 +88,7 @@ function HeaderComponent(props: any) {
           key: '3'
         },
         {
-          label: 'Manage',
+          label: <FormattedMessage {...messages.manage} />,
           icon: <FormOutlined />,
           key: '5'
         },

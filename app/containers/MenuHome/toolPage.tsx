@@ -50,8 +50,8 @@ function ToolPage() {
       >
         <div className="content-box">
           <div className="content-title">
-            <h2 className="title">TOP-RATED SMALL APPLIANCES</h2>
-            <span>We partnered with the Good Housekeeping Institute to identify the best kitchen appliances based on rigorous testing and analysis at the ​​Kitchen Appliances & Culinary Innovation Lab.</span>
+            <h2 className="title"><FormattedMessage {...messages.tools} /></h2>
+            <span><FormattedMessage {...messages.toolsDescription} /></span>
           </div>
           <Row gutter={[24, 32]}>
             {
