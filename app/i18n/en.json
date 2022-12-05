@@ -34,7 +34,7 @@
   "containers.RegisterPage.agreeTo": "I agree to the",
   "containers.RegisterPage.agreeLinkText": "terms and conditions",
   "containers.RegisterPage.signBtn": "Sign up",
-  "containers.RegisterPage.registerSuccess": "Successfully registered, please wait for approval of administrator in order to login!",
+  "containers.RegisterPage.registerSuccess": "Successfully registered, please check your email to get OTP code!",
   "containers.RegisterPage.acceptTerm": "Should accept terms and condition!",
   "containers.RegisterPage.readTerm": "I have read the {TermsAndConditionsLink}",
   "containers.RegisterPage.termsAndConditions": "terms and conditions",

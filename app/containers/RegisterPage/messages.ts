@@ -57,7 +57,7 @@ export default defineMessages({
   registerSuccess: {
     id: `${scope}.registerSuccess`,
     defaultMessage:
-      'Successfully registered, please check your email to activate your account!',
+      'Successfully registered, please check your email to get OTP code!',
   },
   signBtn: {
     id: `${scope}.signBtn`,

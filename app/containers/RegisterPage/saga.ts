@@ -33,7 +33,7 @@ export function* handleRegister() {
       yield put(enterValidationErrorAction(response.error));
     }
     yield put(asyncEndAction());
-    //yield showFormattedAlert('success', messages.registerSuccess);
+    yield showFormattedAlert('success', messages.registerSuccess);
     yield put(sendRedirectAction('/verify-email'));
   } catch (error: any) {
     yield put(asyncEndAction());
