@@ -34,7 +34,7 @@
   "containers.RegisterPage.agreeTo": "Tôi đồng ý với",
   "containers.RegisterPage.agreeLinkText": "các điều khoản và điều kiện",
   "containers.RegisterPage.signBtn": "Đăng ký",
-  "containers.RegisterPage.registerSuccess": "Đăng ký thành công, vui lòng chờ quản trị phê duyệt để có thể đăng nhập tài khoản!",
+  "containers.RegisterPage.registerSuccess": "Đăng ký thành công, vui lòng kiểm tra email để lấy mã OTP!",
   "containers.RegisterPage.acceptTerm": "Bạn cần phải đồng ý với điều khoản và điều kiện!",
   "containers.RegisterPage.readTerm": "Tôi đã đọc {TermsAndConditionsLink}",
   "containers.RegisterPage.termsAndConditions": "các điều khoản và điều kiện",
