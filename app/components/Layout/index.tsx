@@ -70,37 +70,7 @@ const LayoutPage = () => {
   return (
     <Layout className="layout-page">
       <HeaderComponent />
-      <Drawer
-        width="200"
-        placement="left"
-        bodyStyle={{ padding: 0, height: '100%' }}
-        closable={false}
-        onClose={toggle}
-        visible={!collapsed}
-      >
-        <Menu
-          mode="inline"
-          items={[
-            {
-              label: <FormattedMessage {...messages.dinners} />,
-              key: "1"
-            },
-            {
-              label: <FormattedMessage {...messages.recipes} />,
-              key: "2"
-            },
-            {
-              label: <FormattedMessage {...messages.foodNews} />,
-              key: "3"
-            },
-            {
-              label: <FormattedMessage {...messages.tips} />,
-              key: "4"
-            },
-          ]}
-          onClick={handleHomeMenuClick}
-        />
-      </Drawer>
+
       <Layout>
         <Content className="layout-page-content">
           <AlertMessage />
