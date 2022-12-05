@@ -116,6 +116,31 @@ function HeaderComponent(props: any) {
     }
   }
 
+  const menu1 = (
+    <Menu
+              mode="horizontal"
+              items={[
+                {
+                  label: <FormattedMessage {...messages.dinners} />,
+                  key: "1"
+                },
+                {
+                  label: <FormattedMessage {...messages.recipes} />,
+                  key: "2"
+                },
+                {
+                  label: <FormattedMessage {...messages.foodNews} />,
+                  key: "3"
+                },
+                {
+                  label: <FormattedMessage {...messages.tips} />,
+                  key: "4"
+                },
+              ]}
+              onClick={handleHomeMenuClick}
+            />
+  )
+
   const toLogin = () => {
     navigate('/login');
   };
@@ -174,12 +199,15 @@ function HeaderComponent(props: any) {
         }
         <div className="layout-page-header-main">
           <div tabIndex={0} aria-hidden="true" onClick={toggle} role="button">
+            
+            <Dropdown overlay={menu1} trigger={['click']}>
             <span id="sidebar-trigger">
               {isLogged ?
                 collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />
                 : <></>
               }
             </span>
+            </Dropdown>
           </div>
 
           <div className="actions">

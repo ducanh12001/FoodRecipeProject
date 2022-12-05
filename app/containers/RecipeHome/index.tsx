@@ -3,6 +3,7 @@ import {
 	Card,
 	Col,
 	Row,
+	Tooltip,
 	Typography,
 } from 'antd';
 import saga from 'containers/RecipeHome/saga';
@@ -65,7 +66,9 @@ function RecipeHome() {
 									</Row>
 									<Row>
 										<Col span={4} className="item-index">{index + 1}</Col>
-										<Col span={20} className="item-name">{d.name}</Col>
+										<Col span={20} className="item-name">
+											<Tooltip title={d.description}>{d.name}</Tooltip>
+										</Col>
 									</Row>
 								</Link>
 							</Col>
@@ -92,7 +95,7 @@ function RecipeHome() {
 										<img style={{ height: 150, objectFit: 'cover' }} src={require('../../assets/images/NoImageAvailable.jpg')} />
 									}
 								>
-									<Card.Meta title={d.name} />
+									<Card.Meta title={<Tooltip title={d.description}>{d.name}</Tooltip>} />
 								</Card>
 							</Col>
 						))}
